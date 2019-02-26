@@ -1,1510 +1,1270 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "description": "",
-    "version": "1.0.0",
-    "title": "Hub Group API",
-    "contact": {
-      "email": "b2bsupport@hubgroup.com"
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "",
+    "version" : "1.0.0",
+    "title" : "Hub Group API",
+    "contact" : {
+      "email" : "b2bsupport@hubgroup.com"
     }
   },
-  "schemes": [
-    "https",
-    "http"
-  ],
-  "paths": {
-    "/Customer/Shipment": {
-      "post": {
-        "tags": [
-          "Hub API Access"
-        ],
-        "summary": "Create a shipment",
-        "description": "<h4><b>Required Fields</h4></b><ul><li><b>  HubOrder: </b></li><ul><li><b>  OrderInformation: </b></li><ul><li> EventName </li><li> OrderID </li><li> PartnerID </li><li> OrderType </li><li> CarrierSCAC </li><li> TransportationMethod </li><li> ShipmentMethodofPayment </li></ul></ul><ul><li><b>  PickupWindow: </b></li><ul><li> Date </li><li>StartTime </li><li> EndTime </li></ul></ul><ul><li><b>  DestinationWindow: </b></li><ul><li> Date </li><li> StartTime </li><li> EndTime</li></ul><li><b>  Address:</b></li><ul><li> Type </li><li> Name </li><li> LocationID </li><li> AddressLine1 </li><li> AddressLine2 </li><li> City </li><li> State </li><li> PostalCode </li><li> CountryCode </li></ul><li><b>  Contact:</b></li><ul><li> Name </li><li> PhoneNumber</li><li> Email </li><li> FaxNumber </li></ul></ul><li><b>  Origin:</b></li><ul><li><b>  Address:</b></li><ul><li> Type </li><li> Name </li><li> LocationID </li><li> AddressLine1 </li><li> AddressLine2 </li><li> City </li><li> State </li><li> PostalCode </li><li> CountryCode </li></ul><li><b>  Contact:</b></li><ul><li> Name </li><li> PhoneNumber</li><li> Email </li><li> FaxNumber </li></ul><li><b>  Packagelineitems:</b></li><ul><li> PackageType </li><li> TotalPackages </li><li> PieceCount </li><li> PieceUOM </li><li>  <b>  Measurements:</b></li><ul><li> Length </li><li> Width </li><li> Height </li></ul><li>FreightClass </li><li>HazMat </li><li><b>  HazmatDetail: </b> (if line item contains hazardous materials)</li><ul><li> IdentificationNumber </li><li> ProperShippingName </li><li> HazardClass </li><li> PackingGroup</li></ul></ul></ul><li><b>  Destination:</b></li><ul><li><b>  address: </b></li><ul><li> Type </li><li> Name </li><li> LocationID </li><li> AddressLine1 </li><li> AddressLine2 </li><li> City </li><li> State </li><li> PostalCode </li><li> CountryCode </li></ul><li><b>  Contact:</b></li><ul><li> Name </li><li> PhoneNumber</li><li> Email </li><li> FaxNumber </li></ul><li><b>  Packagelineitems:</b></li><ul><li> PackageType </li><li> TotalPackages </li><li> PieceCount </li><li> PieceUOM </li><li>  <b>  Measurements:</b></li><ul><li> Length </li><li> Width </li><li> Height </li></ul><li>FreightClass </li><li>HazMat </li><li><b>  HazmatDetail: </b> (if line item contains hazardous materials)</li><ul><li> IdentificationNumber </li><li>ProperShippingName </li><li> HazardClass </li><li> PackingGroup</li></ul></ul></ul></ul>",
-        "operationId": "PickupRequest",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Create customer Pickup Request",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/PickupRequest"
-            }
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/thammilova/OrderTender/1.0.0",
+  "schemes" : [ "https", "http" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/Customer/Shipment" : {
+      "post" : {
+        "tags" : [ "Hub API Access" ],
+        "summary" : "Create a shipment",
+        "description" : "<h4><b>Required Fields</h4></b><ul><li><b>  HubOrder: </b></li><ul><li><b>  OrderInformation: </b></li><ul><li> EventName </li><li> OrderID </li><li> PartnerID </li><li> OrderType </li><li> CarrierSCAC </li><li> TransportationMethod </li><li> ShipmentMethodofPayment </li></ul></ul><ul><li><b>  PickupWindow: </b></li><ul><li> Date </li><li>StartTime </li><li> EndTime </li></ul></ul><ul><li><b>  DestinationWindow: </b></li><ul><li> Date </li><li> StartTime </li><li> EndTime</li></ul><li><b>  Address:</b></li><ul><li> Type </li><li> Name </li><li> LocationID </li><li> AddressLine1 </li><li> AddressLine2 </li><li> City </li><li> State </li><li> PostalCode </li><li> CountryCode </li></ul><li><b>  Contact:</b></li><ul><li> Name </li><li> PhoneNumber</li><li> Email </li><li> FaxNumber </li></ul></ul><li><b>  Origin:</b></li><ul><li><b>  Address:</b></li><ul><li> Type </li><li> Name </li><li> LocationID </li><li> AddressLine1 </li><li> AddressLine2 </li><li> City </li><li> State </li><li> PostalCode </li><li> CountryCode </li></ul><li><b>  Contact:</b></li><ul><li> Name </li><li> PhoneNumber</li><li> Email </li><li> FaxNumber </li></ul><li><b>  Packagelineitems:</b></li><ul><li> PackageType </li><li> TotalPackages </li><li> PieceCount </li><li> PieceUOM </li><li>  <b>  Measurements:</b></li><ul><li> Length </li><li> Width </li><li> Height </li></ul><li>FreightClass </li><li>HazMat </li><li><b>  HazmatDetail: </b> (if line item contains hazardous materials)</li><ul><li> IdentificationNumber </li><li> ProperShippingName </li><li> HazardClass </li><li> PackingGroup</li></ul></ul></ul><li><b>  Destination:</b></li><ul><li><b>  address: </b></li><ul><li> Type </li><li> Name </li><li> LocationID </li><li> AddressLine1 </li><li> AddressLine2 </li><li> City </li><li> State </li><li> PostalCode </li><li> CountryCode </li></ul><li><b>  Contact:</b></li><ul><li> Name </li><li> PhoneNumber</li><li> Email </li><li> FaxNumber </li></ul><li><b>  Packagelineitems:</b></li><ul><li> PackageType </li><li> TotalPackages </li><li> PieceCount </li><li> PieceUOM </li><li>  <b>  Measurements:</b></li><ul><li> Length </li><li> Width </li><li> Height </li></ul><li>FreightClass </li><li>HazMat </li><li><b>  HazmatDetail: </b> (if line item contains hazardous materials)</li><ul><li> IdentificationNumber </li><li>ProperShippingName </li><li> HazardClass </li><li> PackingGroup</li></ul></ul></ul></ul>",
+        "operationId" : "PickupRequest",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Create customer Pickup Request",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PickupRequest"
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/PickupApiResponse"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/PickupApiResponse"
             }
           },
-          "400": {
-            "description": "BadRequest"
+          "400" : {
+            "description" : "BadRequest"
           },
-          "401": {
-            "description": "Unauthorized"
+          "401" : {
+            "description" : "Unauthorized"
           },
-          "403": {
-            "description": "Forbidden"
+          "403" : {
+            "description" : "Forbidden"
           },
-          "404": {
-            "description": "NotFound"
+          "404" : {
+            "description" : "NotFound"
           },
-          "429": {
-            "description": "TooManyRequests"
+          "429" : {
+            "description" : "TooManyRequests"
           },
-          "500": {
-            "description": "InternalServerError"
+          "500" : {
+            "description" : "InternalServerError"
           },
-          "504": {
-            "description": "504GatewayTimeout"
+          "504" : {
+            "description" : "504GatewayTimeout"
           }
         }
       }
     },
-    "/Customer/ShipmentResponse": {
-      "get": {
-        "tags": [
-          "Hub API Access"
-        ],
-        "summary": "Shipment Response",
-        "description": "<h4><b>Response Fields</h4></b><ul><li><b>  OrderResponse: </b></li><ul><li> Status </li><li> StatusUpdateTime </li><li> ShipmentIdentificationNumber </li><li> CarrierSCAC </li><li>  ReferenceNumbers:  (References, Remarks and Mutually agreed Values will be provided)</li><ul><li> RefrenceName </li><li>RefrenceValue </li>",
-        "operationId": "PickupRequest Response",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Order Response",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ShipmentResponse"
-            }
+    "/Customer/ShipmentResponse" : {
+      "get" : {
+        "tags" : [ "Hub API Access" ],
+        "summary" : "Shipment Response",
+        "description" : "<h4><b>Response Fields</h4></b><ul><li><b>  OrderResponse: </b></li><ul><li> Status </li><li> StatusUpdateTime </li><li> ShipmentIdentificationNumber </li><li> CarrierSCAC </li><li>  ReferenceNumbers:  (References, Remarks and Mutually agreed Values will be provided)</li><ul><li> RefrenceName </li><li>RefrenceValue </li>",
+        "operationId" : "PickupRequest Response",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Order Response",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ShipmentResponse"
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/ShipmentResponsefromCustomer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/APIResponse"
             }
           },
-          "400": {
-            "description": "BadRequest"
+          "400" : {
+            "description" : "BadRequest"
           },
-          "401": {
-            "description": "Unauthorized"
+          "401" : {
+            "description" : "Unauthorized"
           },
-          "403": {
-            "description": "Forbidden"
+          "403" : {
+            "description" : "Forbidden"
           },
-          "404": {
-            "description": "NotFound"
+          "404" : {
+            "description" : "NotFound"
           },
-          "429": {
-            "description": "TooManyRequests"
+          "429" : {
+            "description" : "TooManyRequests"
           },
-          "500": {
-            "description": "InternalServerError"
+          "500" : {
+            "description" : "InternalServerError"
           },
-          "504": {
-            "description": "504GatewayTimeout"
+          "504" : {
+            "description" : "504GatewayTimeout"
           }
         }
       }
     },
-    "/Customer/ShipmentStatus": {
-      "get": {
-        "tags": [
-          "Hub API Access"
-        ],
-        "summary": "Shipment Status",
-        "description": "<h4><b>Shipment Status Fields</h4></b><ul><li> ShipmentIdentificationNumber </li><li> TrackingNumber </li><li>  ShipmentStatusDetails: </li><ul><li> Status </li><li> StatusReason </li><li> AppointmentStatus </li><li> AppointmentStatusReason </li><li> StatusUpdateTime </li><li> TimeZone </li><li>City </li><li> State </li><li> Country </li><li> PostalCode </li><li> Latitude </li><li> Longitude </li></ul> <li><b>  Origin: </b></li><ul><li><b>  PickupLocation:</b></li><ul><li> PickupOrderID </li><li> ShipperName </li><li> LocationID </li><li> AddressLine </li><li> City </li><li> State </li><li> PostalCode </li><li> CountryCode </li><li> Latitude </li><li> Longitude </li></ul></ul><li><b>  Destination:</b></li><ul><li><b>  DestinationLocation: </b></li><ul><li> DestinationId </li><li> ConsigneeName </li><li> LocationID </li><li> AddressLine </li><li> City </li><li> State </li><li> PostalCode </li><li> CountryCode </li><li> Latitude </li><li> Longitude </li>",
-        "operationId": "Shipment Status",
-        "produces": [
-          "application/json",
-          "application/xml"
-        ],
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Shipment Status",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ShipmentStatus"
-            }
+    "/Customer/ShipmentStatus" : {
+      "get" : {
+        "tags" : [ "Hub API Access" ],
+        "summary" : "Shipment Status",
+        "description" : "<h4><b>Shipment Status Fields</h4></b><ul><li> ShipmentIdentificationNumber </li><li> TrackingNumber </li><li>  ShipmentStatusDetails: </li><ul><li> Status </li><li> StatusReason </li><li> AppointmentStatus </li><li> AppointmentStatusReason </li><li> StatusUpdateTime </li><li> TimeZone </li><li>City </li><li> State </li><li> Country </li><li> PostalCode </li><li> Latitude </li><li> Longitude </li></ul> <li><b>  Origin: </b></li><ul><li><b>  PickupLocation:</b></li><ul><li> PickupOrderID </li><li> ShipperName </li><li> LocationID </li><li> AddressLine </li><li> City </li><li> State </li><li> PostalCode </li><li> CountryCode </li><li> Latitude </li><li> Longitude </li></ul></ul><li><b>  Destination:</b></li><ul><li><b>  DestinationLocation: </b></li><ul><li> DestinationId </li><li> ConsigneeName </li><li> LocationID </li><li> AddressLine </li><li> City </li><li> State </li><li> PostalCode </li><li> CountryCode </li><li> Latitude </li><li> Longitude </li>",
+        "operationId" : "Shipment Status",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Shipment Status",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ShipmentStatus"
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/ShipmentStatusResponsefromCustomer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/APIResponse"
             }
           },
-          "400": {
-            "description": "BadRequest"
+          "400" : {
+            "description" : "BadRequest"
           },
-          "401": {
-            "description": "Unauthorized"
+          "401" : {
+            "description" : "Unauthorized"
           },
-          "403": {
-            "description": "Forbidden"
+          "403" : {
+            "description" : "Forbidden"
           },
-          "404": {
-            "description": "NotFound"
+          "404" : {
+            "description" : "NotFound"
           },
-          "429": {
-            "description": "TooManyRequests"
+          "429" : {
+            "description" : "TooManyRequests"
           },
-          "500": {
-            "description": "InternalServerError"
+          "500" : {
+            "description" : "InternalServerError"
           },
-          "504": {
-            "description": "504GatewayTimeout"
-          }
-        }
-      }
-    }
-  },
-  "securityDefinitions": {
-    "basicAuth": {
-      "type": "basic"
-    }
-  },
-  "security": [
-    {
-      "basicAuth": []
-    }
-  ],
-  "definitions": {
-    "PickupRequest": {
-      "type": "object",
-      "title": "Customer Pickup Request Definition",
-      "required": [
-        "HubOrder"
-      ],
-      "properties": {
-        "HubOrder": {
-          "type": "object",
-          "title": "The HubOrder Schema",
-          "required": [
-            "OrderInformation",
-            "AddressInformation",
-            "Comments",
-            "Origin",
-            "Destination"
-          ],
-          "properties": {
-            "OrderInformation": {
-              "type": "object",
-              "title": "The Orderinformation Schema",
-              "required": [
-                "EventName",
-                "OrderID",
-                "PartnerID",
-                "OrderType",
-                "CarrierSCAC",
-                "TransportationMethod",
-                "TransMode",
-                "ShipmentMethodofPayment",
-                "EquipmentInitial",
-                "EquipmentNumber",
-                "EquipmentLength",
-                "Weight",
-                "Volume",
-                "ShipUnits",
-                "PickupWindow",
-                "DeliveryWindow",
-                "ReferenceNumbers"
-              ],
-              "properties": {
-                "EventName": {
-                  "type": "string",
-                  "enum": [
-                    "ORDER_UPDATE",
-                    "ORDER_CREATE",
-                    "ORDER_CANCEL"
-                  ]
-                },
-                "OrderID": {
-                  "description": "Unique ID used to track the Shipment",
-                  "type": "string",
-                  "default": ""
-                },
-                "PartnerID": {
-                  "description": "Unique Partner Idenfication Number",
-                  "type": "string",
-                  "default": ""
-                },
-                "OrderType": {
-                  "type": "string",
-                  "enum": [
-                    "Shipment"
-                  ]
-                },
-                "CarrierSCAC": {
-                  "type": "string"
-                },
-                "TransportationMethod": {
-                  "type": "string",
-                  "default": "Ground",
-                  "enum": [
-                    "Ground",
-                    "Air",
-                    "Ocean"
-                  ]
-                },
-                "TransMode": {
-                  "type": "string",
-                  "default": ""
-                },
-                "MethodofPayment": {
-                  "type": "string",
-                  "description": "The payment terms of the customer's account with the capacity provider -- the party responsible for payment.",
-                  "enum": [
-                    "PREPAID",
-                    "COLLECT",
-                    "THIRD_PARTY"
-                  ]
-                },
-                "EquipmentInitial": {
-                  "type": "string"
-                },
-                "EquipmentNumber": {
-                  "type": "string"
-                },
-                "EquipmentLength": {
-                  "type": "string"
-                },
-                "Weight": {
-                  "type": "object",
-                  "description": "Total weight of all packages composing this line item. number of pieces and a different weight.",
-                  "required": [
-                    "Value",
-                    "UnitOfMeasure"
-                  ],
-                  "properties": {
-                    "Value": {
-                      "type": "integer",
-                      "format": "int32"
-                    },
-                    "UnitOfMeasure": {
-                      "type": "string",
-                      "default": "LB",
-                      "enum": [
-                        "LB",
-                        "KG"
-                      ]
-                    }
-                  }
-                },
-                "Volume": {
-                  "type": "object",
-                  "required": [
-                    "Value",
-                    "UnitOfMeasure"
-                  ],
-                  "properties": {
-                    "Value": {
-                      "type": "integer",
-                      "format": "int32"
-                    },
-                    "UnitOfMeasure": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                },
-                "ShipUnits": {
-                  "type": "object",
-                  "required": [
-                    "Value",
-                    "UnitOfMeasure"
-                  ],
-                  "properties": {
-                    "Value": {
-                      "type": "number",
-                      "default": ""
-                    },
-                    "UnitOfMeasure": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                },
-                "PickupWindow": {
-                  "type": "object",
-                  "required": [
-                    "Date",
-                    "StartTime",
-                    "EndTime"
-                  ],
-                  "properties": {
-                    "Date": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "StartTime": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "EndTime": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                },
-                "DeliveryWindow": {
-                  "type": "object",
-                  "required": [
-                    "Date",
-                    "StartTime",
-                    "EndTime"
-                  ],
-                  "properties": {
-                    "Date": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "StartTime": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "EndTime": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                },
-                "ReferenceNumbers": {
-                  "type": "object",
-                  "required": [
-                    "ReferenceName",
-                    "ReferenceValue"
-                  ],
-                  "properties": {
-                    "RefrenceName": {
-                      "type": "string",
-                      "description": "Type of Reference Number",
-                      "enum": [
-                        "BILL_OF_LADING",
-                        "PURCHASE_ORDER",
-                        "CUSTOMER_REFERENCE"
-                      ]
-                    },
-                    "RefrenceValue": {
-                      "type": "string",
-                      "description": "Value of this Reference Type"
-                    }
-                  }
-                }
-              }
-            },
-            "Address": {
-              "type": "object",
-              "required": [
-                "Type",
-                "Name",
-                "LocationID",
-                "AddressLine1",
-                "AddressLine2",
-                "City",
-                "State",
-                "PostalCode",
-                "CountryCode"
-              ],
-              "properties": {
-                "Type": {
-                  "type": "string",
-                  "default": "",
-                  "enum": [
-                    "BillTo"
-                  ]
-                },
-                "Name": {
-                  "type": "string",
-                  "default": ""
-                },
-                "LocationID": {
-                  "type": "string",
-                  "default": ""
-                },
-                "AddressLine1": {
-                  "type": "string",
-                  "default": ""
-                },
-                "AddressLine2": {
-                  "type": "string",
-                  "default": ""
-                },
-                "City": {
-                  "type": "string",
-                  "default": ""
-                },
-                "State": {
-                  "type": "string",
-                  "default": ""
-                },
-                "PostalCode": {
-                  "type": "string",
-                  "default": ""
-                },
-                "CountryCode": {
-                  "type": "string",
-                  "default": ""
-                }
-              }
-            },
-            "Comments": {
-              "type": "object",
-              "required": [
-                "Comment"
-              ],
-              "properties": {
-                "Comment": {
-                  "type": "string",
-                  "default": ""
-                }
-              }
-            },
-            "Origin": {
-              "type": "object",
-              "title": "The Origin Schema",
-              "required": [
-                "PickupOrder",
-                "Address",
-                "Contact",
-                "PickupDateTime",
-                "OrderDetails",
-                "Comments"
-              ],
-              "properties": {
-                "PickupOrder": {
-                  "type": "number",
-                  "minimum": 1
-                },
-                "Address": {
-                  "type": "object",
-                  "required": [
-                    "Type",
-                    "Name",
-                    "LocationID",
-                    "AddressLine1",
-                    "AddressLine2",
-                    "City",
-                    "State",
-                    "PostalCode",
-                    "CountryCode"
-                  ],
-                  "properties": {
-                    "Type": {
-                      "type": "string",
-                      "enum": [
-                        "ShipFrom"
-                      ]
-                    },
-                    "Name": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "LocationID": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "AddressLine1": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "AddressLine2": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "City": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "State": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "PostalCode": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "CountryCode": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                },
-                "Contact": {
-                  "type": "object",
-                  "required": [
-                    "Name",
-                    "PhoneNumber",
-                    "Email",
-                    "Fax"
-                  ],
-                  "properties": {
-                    "Name": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "PhoneNumber": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "Email": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "Fax": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                },
-                "PickupDateTime": {
-                  "type": "object",
-                  "required": [
-                    "StartDateTime",
-                    "EndDateTime",
-                    "TimeZone"
-                  ],
-                  "properties": {
-                    "StartDateTime": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "EndDateTime": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "TimeZone": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                },
-                "OrderDetails": {
-                  "type": "object",
-                  "required": [
-                    "Packagelineitems",
-                    "OrderDescription",
-                    "ReferenceNumbers"
-                  ],
-                  "properties": {
-                    "Packagelineitems": {
-                      "type": "object",
-                      "required": [
-                        "PackageType",
-                        "TotalPackages",
-                        "PieceCount",
-                        "PieceUOM",
-                        "NmfcItemCode",
-                        "NmfcSubCode",
-                        "FreightClass",
-                        "Weight",
-                        "WeightUOM",
-                        "Volume",
-                        "VolumeUOM",
-                        "Measurements",
-                        "HazMat",
-                        "OrderDescription",
-                        "HazmatDetail"
-                      ],
-                      "properties": {
-                        "PackageType": {
-                          "type": "string"
-                        },
-                        "TotalPackages": {
-                          "type": "number"
-                        },
-                        "PieceCount": {
-                          "type": "number"
-                        },
-                        "PieceUOM": {
-                          "type": "string"
-                        },
-                        "NmfcItemCode": {
-                          "type": "string"
-                        },
-                        "NmfcSubCode": {
-                          "type": "string"
-                        },
-                        "FreightClass": {
-                          "type": "string",
-                          "default": ""
-                        },
-                        "Volume": {
-                          "type": "number"
-                        },
-                        "VolumeUOM": {
-                          "type": "string"
-                        },
-                        "Weight": {
-                          "type": "number"
-                        },
-                        "WeightUOM": {
-                          "type": "string"
-                        },
-                        "HazMat": {
-                          "type": "boolean"
-                        },
-                        "Measurements": {
-                          "type": "object",
-                          "required": [
-                            "Width",
-                            "WidthUOM",
-                            "Length",
-                            "LengthUOM",
-                            "Height",
-                            "HeightUOM",
-                            "FloorLength",
-                            "FloorLengthUOM"
-                          ],
-                          "properties": {
-                            "Width": {
-                              "type": "number"
-                            },
-                            "WidthUOM": {
-                              "type": "string"
-                            },
-                            "Length": {
-                              "type": "number"
-                            },
-                            "Height": {
-                              "type": "string"
-                            },
-                            "HeightUOM": {
-                              "type": "string",
-                              "default": "IN",
-                              "enum": [
-                                "IN",
-                                "CM",
-                                "FT",
-                                "M"
-                              ]
-                            },
-                            "FloorLength": {
-                              "type": "number"
-                            },
-                            "FloorLengthUOM": {
-                              "type": "string",
-                              "default": "IN",
-                              "enum": [
-                                "IN",
-                                "CM",
-                                "FT",
-                                "M"
-                              ]
-                            }
-                          }
-                        },
-                        "OrderDescription": {
-                          "type": "object",
-                          "required": [
-                            "CommodityCode",
-                            "CommodityDescription",
-                            "TempControl"
-                          ],
-                          "properties": {
-                            "CommodityCode": {
-                              "type": "string"
-                            },
-                            "CommodityDescription": {
-                              "type": "string"
-                            },
-                            "TempControl": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "HazmatDetail": {
-                          "type": "object",
-                          "required": [
-                            "IdentificationNumber",
-                            "ProperShippingName",
-                            "HazardClass",
-                            "PackingGroup"
-                          ],
-                          "properties": {
-                            "IdentificationNumber": {
-                              "type": "string"
-                            },
-                            "ProperShippingName": {
-                              "type": "string"
-                            },
-                            "HazardClass": {
-                              "type": "string"
-                            },
-                            "PackingGroup": {
-                              "type": "string"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "ReferenceNumbers": {
-                      "type": "object",
-                      "required": [
-                        "RefrenceName",
-                        "RefrenceValue"
-                      ],
-                      "properties": {
-                        "RefrenceName": {
-                          "type": "string"
-                        },
-                        "RefrenceValue": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                },
-                "Comments": {
-                  "type": "object",
-                  "required": [
-                    "Comment"
-                  ],
-                  "properties": {
-                    "Comment": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                }
-              }
-            },
-            "Destination": {
-              "type": "object",
-              "title": "The Destination Schema",
-              "required": [
-                "DestinationOrder",
-                "AddressInformation",
-                "Contact",
-                "RequiredDateTime",
-                "OrderDetails",
-                "Comments"
-              ],
-              "properties": {
-                "DestinationOrder": {
-                  "type": "integer",
-                  "minimum": 1
-                },
-                "Address": {
-                  "type": "object",
-                  "required": [
-                    "Type",
-                    "Name",
-                    "LocationID",
-                    "AddressLine1",
-                    "AddressLine2",
-                    "City",
-                    "State",
-                    "PostalCode",
-                    "CountryCode"
-                  ],
-                  "properties": {
-                    "Type": {
-                      "type": "string",
-                      "enum": [
-                        "ShipTo"
-                      ]
-                    },
-                    "Name": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "LocationID": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "AddressLine1": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "AddressLine2": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "City": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "State": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "PostalCode": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "CountryCode": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                },
-                "Contact": {
-                  "type": "object",
-                  "required": [
-                    "Name",
-                    "PhoneNumber",
-                    "Email",
-                    "Fax"
-                  ],
-                  "properties": {
-                    "Name": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "PhoneNumber": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "Email": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "Fax": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                },
-                "PickupDateTime": {
-                  "type": "object",
-                  "required": [
-                    "StartDateTime",
-                    "EndDateTime",
-                    "TimeZone"
-                  ],
-                  "properties": {
-                    "StartDateTime": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "EndDateTime": {
-                      "type": "string",
-                      "default": ""
-                    },
-                    "TimeZone": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                },
-                "OrderDetails": {
-                  "type": "object",
-                  "required": [
-                    "Packagelineitems",
-                    "OrderDescription",
-                    "ReferenceNumbers"
-                  ],
-                  "properties": {
-                    "Packagelineitems": {
-                      "type": "object",
-                      "required": [
-                        "PackageType",
-                        "TotalPackages",
-                        "PieceCount",
-                        "PieceUOM",
-                        "NmfcItemCode",
-                        "NmfcSubCode",
-                        "FreightClass",
-                        "Weight",
-                        "WeightUOM",
-                        "Volume",
-                        "VolumeUOM",
-                        "Measurements",
-                        "HazMat",
-                        "OrderDescription",
-                        "HazmatDetail"
-                      ],
-                      "properties": {
-                        "PackageType": {
-                          "type": "string"
-                        },
-                        "TotalPackages": {
-                          "type": "number"
-                        },
-                        "PieceCount": {
-                          "type": "number"
-                        },
-                        "PieceUOM": {
-                          "type": "string"
-                        },
-                        "NmfcItemCode": {
-                          "type": "string"
-                        },
-                        "NmfcSubCode": {
-                          "type": "string"
-                        },
-                        "FreightClass": {
-                          "type": "string",
-                          "default": ""
-                        },
-                        "Weight": {
-                          "type": "number"
-                        },
-                        "WeightUOM": {
-                          "type": "string",
-                          "default": "LB",
-                          "enum": [
-                            "LB",
-                            "KG"
-                          ]
-                        },
-                        "Volume": {
-                          "type": "number"
-                        },
-                        "VolumeUOM": {
-                          "type": "string"
-                        },
-                        "HazMat": {
-                          "type": "boolean"
-                        },
-                        "Measurements": {
-                          "type": "object",
-                          "required": [
-                            "Width",
-                            "WidthUOM",
-                            "Length",
-                            "LengthUOM",
-                            "Height",
-                            "HeightUOM",
-                            "FloorLength",
-                            "FloorLengthUOM"
-                          ],
-                          "properties": {
-                            "Width": {
-                              "type": "number"
-                            },
-                            "WidthUOM": {
-                              "type": "string"
-                            },
-                            "Length": {
-                              "type": "number"
-                            },
-                            "Height": {
-                              "type": "string"
-                            },
-                            "HeightUOM": {
-                              "type": "string"
-                            },
-                            "FloorLength": {
-                              "type": "number"
-                            },
-                            "FloorLengthUOM": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "OrderDescription": {
-                          "type": "object",
-                          "required": [
-                            "CommodityCode",
-                            "CommodityDescription",
-                            "TempControl"
-                          ],
-                          "properties": {
-                            "CommodityCode": {
-                              "type": "string"
-                            },
-                            "CommodityDescription": {
-                              "type": "string"
-                            },
-                            "TempControl": {
-                              "type": "string"
-                            }
-                          }
-                        },
-                        "HazmatDetail": {
-                          "type": "object",
-                          "required": [
-                            "IdentificationNumber",
-                            "ProperShippingName",
-                            "HazardClass",
-                            "PackingGroup"
-                          ],
-                          "properties": {
-                            "IdentificationNumber": {
-                              "type": "string"
-                            },
-                            "ProperShippingName": {
-                              "type": "string"
-                            },
-                            "HazardClass": {
-                              "type": "string"
-                            },
-                            "PackingGroup": {
-                              "type": "string"
-                            }
-                          }
-                        }
-                      }
-                    },
-                    "ReferenceNumbers": {
-                      "type": "object",
-                      "required": [
-                        "RefrenceName",
-                        "RefrenceValue"
-                      ],
-                      "properties": {
-                        "RefrenceName": {
-                          "type": "string"
-                        },
-                        "RefrenceValue": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                },
-                "Comments": {
-                  "type": "object",
-                  "required": [
-                    "Comment"
-                  ],
-                  "properties": {
-                    "Comment": {
-                      "type": "string",
-                      "default": ""
-                    }
-                  }
-                }
-              }
-            }
+          "504" : {
+            "description" : "504GatewayTimeout"
           }
         }
       }
     },
-    "ShipmentResponse": {
-      "type": "object",
-      "title": "Order Response",
-      "required": [
-        "OrderResponse"
-      ],
-      "properties": {
-        "OrderResponse": {
-          "type": "object",
-          "required": [
-            "OrderResponse",
-            "Status",
-            "StatusUpdateTime",
-            "ShipmentIdentificationNumber",
-            "CarrierSCAC",
-            "ReferenceNumbers"
-          ],
-          "properties": {
-            "Status": {
-              "type": "string",
-              "enum": [
-                "ACCEPTED",
-                "DECLINED"
-              ]
-            },
-            "StatusUpdateTime": {
-              "type": "string"
-            },
-            "ShipmentIdentificationNumber": {
-              "type": "string"
-            },
-            "CarrierSCAC": {
-              "type": "string"
-            },
-            "ReferenceNumbers": {
-              "type": "object",
-              "required": [
-                "ReferenceName",
-                "ReferenceValue"
-              ],
-              "properties": {
-                "RefrenceName": {
-                  "type": "string",
-                  "enum": [
-                    "REMARKS",
-                    "ORDERNUMBER"
-                  ]
-                },
-                "RefrenceValue": {
-                  "type": "string"
-                }
-              }
-            }
+    "/Customer/ShipementInvoice" : {
+      "get" : {
+        "tags" : [ "Hub API Access" ],
+        "summary" : "Invoice",
+        "description" : "<h4><b>Invoice Fields</h4></b>",
+        "operationId" : "Invoice",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Shipment Invoice",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/ShipmentInvoice"
           }
-        }
-      }
-    },
-    "ShipmentStatus": {
-      "type": "object",
-      "required": [
-        "ShipmentIdentificationNumber",
-        "TrackingNumber",
-        "ShipmentStatusDetails",
-        "Origin",
-        "Destination",
-        "ShipmentDetails",
-        "ShipmentData",
-        "ReferenceNumbers"
-      ],
-      "properties": {
-        "ShipmentIdentificationNumber": {
-          "type": "string"
-        },
-        "TrackingNumber": {
-          "type": "string",
-          "title": "The Trackingnumber Schema"
-        },
-        "ShipmentStatusDetails": {
-          "type": "object",
-          "required": [
-            "Status",
-            "StatusReason",
-            "AppointmentStatus",
-            "AppointmentStatusReason",
-            "StatusUpdateTime",
-            "TimeZone",
-            "City",
-            "State",
-            "Country",
-            "PostalCode",
-            "Latitude",
-            "Longitude"
-          ],
-          "properties": {
-            "Status": {
-              "type": "string"
-            },
-            "StatusReason": {
-              "type": "string"
-            },
-            "AppointmentStatus": {
-              "type": "string"
-            },
-            "AppointmentStatusReason": {
-              "type": "string"
-            },
-            "StatusUpdateTime": {
-              "type": "string"
-            },
-            "TimeZone": {
-              "type": "string"
-            },
-            "City": {
-              "type": "string"
-            },
-            "State": {
-              "type": "string"
-            },
-            "Country": {
-              "type": "string"
-            },
-            "PostalCode": {
-              "type": "string"
-            },
-            "Latitude": {
-              "type": "string"
-            },
-            "Longitude": {
-              "type": "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/APIResponse"
             }
-          }
-        },
-        "Origin": {
-          "type": "object",
-          "required": [
-            "PickupLocation"
-          ],
-          "properties": {
-            "PickupLocation": {
-              "type": "object",
-              "required": [
-                "PickupOrderID",
-                "ShipperName",
-                "Address",
-                "City",
-                "State",
-                "PostalCode",
-                "Country",
-                "EstimatedShipDate",
-                "ActualShipDate",
-                "TimeZone"
-              ],
-              "properties": {
-                "PickupOrderID": {
-                  "type": "string"
-                },
-                "ShipperName": {
-                  "type": "string"
-                },
-                "Address": {
-                  "type": "string"
-                },
-                "City": {
-                  "type": "string"
-                },
-                "State": {
-                  "type": "string"
-                },
-                "PostalCode": {
-                  "type": "string"
-                },
-                "Country": {
-                  "type": "string"
-                },
-                "EstimatedShipDate": {
-                  "type": "string"
-                },
-                "ActualShipDate": {
-                  "type": "string"
-                },
-                "TimeZone": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "Destination": {
-          "type": "object",
-          "required": [
-            "DestinationLocation"
-          ],
-          "properties": {
-            "DestinationLocation": {
-              "type": "object",
-              "required": [
-                "DestinationId",
-                "ConsigneeName",
-                "Address",
-                "City",
-                "State",
-                "ConsigneePostalCode",
-                "Country",
-                "EstimatedDeliveryDate",
-                "ActualDeliveryDate",
-                "TimeZone"
-              ],
-              "properties": {
-                "DestinationId": {
-                  "type": "string"
-                },
-                "ConsigneeName": {
-                  "type": "string"
-                },
-                "Address": {
-                  "type": "string"
-                },
-                "City": {
-                  "type": "string"
-                },
-                "State": {
-                  "type": "string"
-                },
-                "ConsigneePostalCode": {
-                  "type": "string"
-                },
-                "Country": {
-                  "type": "string"
-                },
-                "EstimatedDeliveryDate": {
-                  "type": "string"
-                },
-                "ActualDeliveryDate": {
-                  "type": "string"
-                },
-                "TimeZone": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        },
-        "ShipmentDetails": {
-          "type": "object",
-          "title": "The Shipmentdetails Schema",
-          "required": [
-            "TransportationMode",
-            "CarrierName",
-            "CarrierSCAC",
-            "TrailerNumber"
-          ],
-          "properties": {
-            "TransportationMode": {
-              "type": "string"
-            },
-            "CarrierName": {
-              "type": "string"
-            },
-            "CarrierSCAC": {
-              "type": "string"
-            },
-            "TrailerNumber": {
-              "type": "string"
-            }
-          }
-        },
-        "ShipmentData": {
-          "type": "object",
-          "required": [
-            "PieceCount",
-            "Weight",
-            "WeightCode",
-            "Volume",
-            "VolumeCode"
-          ],
-          "properties": {
-            "PieceCount": {
-              "type": "string"
-            },
-            "Weight": {
-              "type": "string"
-            },
-            "WeightCode": {
-              "type": "string"
-            },
-            "Volume": {
-              "type": "string"
-            },
-            "VolumeCode": {
-              "type": "string"
-            }
-          }
-        },
-        "ReferenceNumbers": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "ReferenceName",
-              "ReferenceValue"
-            ],
-            "properties": {
-              "ReferenceName": {
-                "type": "string"
-              },
-              "ReferenceValue": {
-                "type": "string"
-              }
-            }
-          }
-        }
-      }
-    },
-    "PickupApiResponse": {
-      "type": "object",
-      "required": [
-        "Result",
-        "OrderStatus",
-        "ResultsMessage"
-      ],
-      "properties": {
-        "Result": {
-          "type": "string",
-          "default": ""
-        },
-        "OrderStatus": {
-          "type": "string",
-          "default": ""
-        },
-        "ResultsMessage": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "MessageDescription"
-            ],
-            "properties": {
-              "MessageDescription": {
-                "type": "string",
-                "default": ""
-              }
-            }
-          }
-        }
-      }
-    },
-    "ShipmentResponsefromCustomer": {
-      "type": "object",
-      "required": [
-        "Result",
-        "OrderStatus",
-        "ResultsMessage"
-      ],
-      "properties": {
-        "Result": {
-          "type": "string",
-          "default": ""
-        },
-        "ResultsMessage": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "MessageDescription"
-            ],
-            "properties": {
-              "MessageDescription": {
-                "type": "string",
-                "default": ""
-              }
-            }
-          }
-        }
-      }
-    },
-    "ShipmentStatusResponsefromCustomer": {
-      "type": "object",
-      "required": [
-        "Result",
-        "OrderStatus",
-        "ResultsMessage"
-      ],
-      "properties": {
-        "Result": {
-          "type": "string",
-          "default": ""
-        },
-        "ResultsMessage": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "MessageDescription"
-            ],
-            "properties": {
-              "MessageDescription": {
-                "type": "string",
-                "default": ""
-              }
-            }
+          },
+          "400" : {
+            "description" : "BadRequest"
+          },
+          "401" : {
+            "description" : "Unauthorized"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          },
+          "404" : {
+            "description" : "NotFound"
+          },
+          "429" : {
+            "description" : "TooManyRequests"
+          },
+          "500" : {
+            "description" : "InternalServerError"
+          },
+          "504" : {
+            "description" : "504GatewayTimeout"
           }
         }
       }
     }
   },
-  "host": "virtserver.swaggerhub.com",
-  "basePath": "/thammilova/OrderTender/1.0.0"
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
+    }
+  },
+  "definitions" : {
+    "PickupRequest" : {
+      "type" : "object",
+      "required" : [ "HubOrder" ],
+      "properties" : {
+        "HubOrder" : {
+          "$ref" : "#/definitions/The HubOrder Schema"
+        }
+      },
+      "title" : "Customer Pickup Request Definition"
+    },
+    "ShipmentResponse" : {
+      "type" : "object",
+      "required" : [ "OrderResponse" ],
+      "properties" : {
+        "OrderResponse" : {
+          "$ref" : "#/definitions/ShipmentResponse_OrderResponse"
+        }
+      },
+      "title" : "Order Response"
+    },
+    "ShipmentStatus" : {
+      "type" : "object",
+      "required" : [ "Destination", "Origin", "ReferenceNumbers", "ShipmentData", "ShipmentDetails", "ShipmentIdentificationNumber", "ShipmentStatusDetails", "TrackingNumber" ],
+      "properties" : {
+        "ShipmentIdentificationNumber" : {
+          "type" : "string"
+        },
+        "TrackingNumber" : {
+          "type" : "string",
+          "title" : "The Trackingnumber Schema"
+        },
+        "ShipmentStatusDetails" : {
+          "$ref" : "#/definitions/ShipmentStatus_ShipmentStatusDetails"
+        },
+        "Origin" : {
+          "$ref" : "#/definitions/ShipmentStatus_Origin"
+        },
+        "Destination" : {
+          "$ref" : "#/definitions/ShipmentStatus_Destination"
+        },
+        "ShipmentDetails" : {
+          "$ref" : "#/definitions/The Shipmentdetails Schema"
+        },
+        "ShipmentData" : {
+          "$ref" : "#/definitions/ShipmentStatus_ShipmentData"
+        },
+        "ReferenceNumbers" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ShipmentStatus_ReferenceNumbers"
+          }
+        }
+      }
+    },
+    "ShipmentInvoice" : {
+      "type" : "object",
+      "required" : [ "AddressInformation", "CarrierSCAC", "DeliveryDate", "EquipmentInitial", "EquipmentNumber", "InvoiceNumber", "Items", "PieceUnit", "ShipDate", "ShipmentIdentificationNumber", "ShipmentMethodofPayment", "TotalShipCount", "TotalVolume", "TotalWeight", "TransMode", "TransportationMethod", "VolumeUnit", "WeightUnit" ],
+      "properties" : {
+        "InvoiceNumber" : {
+          "type" : "string"
+        },
+        "ShipmentIdentificationNumber" : {
+          "type" : "string"
+        },
+        "ShipDate" : {
+          "type" : "string"
+        },
+        "DeliveryDate" : {
+          "type" : "string"
+        },
+        "ShipmentMethodofPayment" : {
+          "type" : "string"
+        },
+        "EquipmentInitial" : {
+          "type" : "string"
+        },
+        "EquipmentNumber" : {
+          "type" : "string"
+        },
+        "CarrierSCAC" : {
+          "type" : "string"
+        },
+        "TransportationMethod" : {
+          "type" : "string"
+        },
+        "TransMode" : {
+          "type" : "string"
+        },
+        "TotalWeight" : {
+          "type" : "number"
+        },
+        "TotalVolume" : {
+          "type" : "number"
+        },
+        "TotalShipCount" : {
+          "type" : "integer"
+        },
+        "PieceUnit" : {
+          "type" : "string"
+        },
+        "VolumeUnit" : {
+          "type" : "string"
+        },
+        "WeightUnit" : {
+          "type" : "string"
+        },
+        "AddressInformation" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ShipmentInvoice_AddressInformation"
+          }
+        },
+        "Items" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ShipmentInvoice_Items"
+          }
+        }
+      }
+    },
+    "PickupApiResponse" : {
+      "type" : "object",
+      "required" : [ "OrderStatus", "Result", "ResultsMessage" ],
+      "properties" : {
+        "Result" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "OrderStatus" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "ResultsMessage" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PickupApiResponse_ResultsMessage"
+          }
+        }
+      }
+    },
+    "APIResponse" : {
+      "type" : "object",
+      "required" : [ "OrderStatus", "Result", "ResultsMessage" ],
+      "properties" : {
+        "OrderStatus" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "Result" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "ResultsMessage" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PickupApiResponse_ResultsMessage"
+          }
+        }
+      }
+    },
+    "The Orderinformation Schema_Weight" : {
+      "required" : [ "UnitOfMeasure", "Value" ],
+      "properties" : {
+        "Value" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "UnitOfMeasure" : {
+          "type" : "string",
+          "default" : "LB",
+          "enum" : [ "LB", "KG" ]
+        }
+      },
+      "description" : "Total weight of all packages composing this line item. number of pieces and a different weight."
+    },
+    "The Orderinformation Schema_Volume" : {
+      "required" : [ "UnitOfMeasure", "Value" ],
+      "properties" : {
+        "Value" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "UnitOfMeasure" : {
+          "type" : "string",
+          "default" : ""
+        }
+      }
+    },
+    "The Orderinformation Schema_ShipUnits" : {
+      "required" : [ "UnitOfMeasure", "Value" ],
+      "properties" : {
+        "Value" : {
+          "type" : "number"
+        },
+        "UnitOfMeasure" : {
+          "type" : "string",
+          "default" : ""
+        }
+      }
+    },
+    "The Orderinformation Schema_PickupWindow" : {
+      "required" : [ "Date", "EndTime", "StartTime" ],
+      "properties" : {
+        "Date" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "StartTime" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "EndTime" : {
+          "type" : "string",
+          "default" : ""
+        }
+      }
+    },
+    "The Orderinformation Schema_ReferenceNumbers" : {
+      "properties" : {
+        "RefrenceName" : {
+          "type" : "string",
+          "description" : "Type of Reference Number",
+          "enum" : [ "BILL_OF_LADING", "PURCHASE_ORDER", "CUSTOMER_REFERENCE" ]
+        },
+        "RefrenceValue" : {
+          "type" : "string",
+          "description" : "Value of this Reference Type"
+        }
+      }
+    },
+    "The Orderinformation Schema" : {
+      "required" : [ "CarrierSCAC", "DeliveryWindow", "EquipmentInitial", "EquipmentLength", "EquipmentNumber", "EventName", "OrderID", "OrderType", "PartnerID", "PickupWindow", "ReferenceNumbers", "ShipUnits", "TransMode", "TransportationMethod", "Volume", "Weight" ],
+      "properties" : {
+        "EventName" : {
+          "type" : "string",
+          "enum" : [ "ORDER_UPDATE", "ORDER_CREATE", "ORDER_CANCEL" ]
+        },
+        "OrderID" : {
+          "type" : "string",
+          "description" : "Unique ID used to track the Shipment",
+          "default" : ""
+        },
+        "PartnerID" : {
+          "type" : "string",
+          "description" : "Unique Partner Idenfication Number",
+          "default" : ""
+        },
+        "OrderType" : {
+          "type" : "string",
+          "enum" : [ "Shipment" ]
+        },
+        "CarrierSCAC" : {
+          "type" : "string"
+        },
+        "TransportationMethod" : {
+          "type" : "string",
+          "default" : "Ground",
+          "enum" : [ "Ground", "Air", "Ocean" ]
+        },
+        "TransMode" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "MethodofPayment" : {
+          "type" : "string",
+          "description" : "The payment terms of the customer's account with the capacity provider -- the party responsible for payment.",
+          "enum" : [ "PREPAID", "COLLECT", "THIRD_PARTY" ]
+        },
+        "EquipmentInitial" : {
+          "type" : "string"
+        },
+        "EquipmentNumber" : {
+          "type" : "string"
+        },
+        "EquipmentLength" : {
+          "type" : "string"
+        },
+        "Weight" : {
+          "$ref" : "#/definitions/The Orderinformation Schema_Weight"
+        },
+        "Volume" : {
+          "$ref" : "#/definitions/The Orderinformation Schema_Volume"
+        },
+        "ShipUnits" : {
+          "$ref" : "#/definitions/The Orderinformation Schema_ShipUnits"
+        },
+        "PickupWindow" : {
+          "$ref" : "#/definitions/The Orderinformation Schema_PickupWindow"
+        },
+        "DeliveryWindow" : {
+          "$ref" : "#/definitions/The Orderinformation Schema_PickupWindow"
+        },
+        "ReferenceNumbers" : {
+          "$ref" : "#/definitions/The Orderinformation Schema_ReferenceNumbers"
+        }
+      }
+    },
+    "The HubOrder Schema_Address" : {
+      "required" : [ "AddressLine1", "AddressLine2", "City", "CountryCode", "LocationID", "Name", "PostalCode", "State", "Type" ],
+      "properties" : {
+        "Type" : {
+          "type" : "string",
+          "default" : "",
+          "enum" : [ "BillTo" ]
+        },
+        "Name" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "LocationID" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "AddressLine1" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "AddressLine2" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "City" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "State" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "PostalCode" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "CountryCode" : {
+          "type" : "string",
+          "default" : ""
+        }
+      }
+    },
+    "The HubOrder Schema_Comments" : {
+      "required" : [ "Comment" ],
+      "properties" : {
+        "Comment" : {
+          "type" : "string",
+          "default" : ""
+        }
+      }
+    },
+    "The Origin Schema_Address" : {
+      "required" : [ "AddressLine1", "AddressLine2", "City", "CountryCode", "LocationID", "Name", "PostalCode", "State", "Type" ],
+      "properties" : {
+        "Type" : {
+          "type" : "string",
+          "enum" : [ "ShipFrom" ]
+        },
+        "Name" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "LocationID" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "AddressLine1" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "AddressLine2" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "City" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "State" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "PostalCode" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "CountryCode" : {
+          "type" : "string",
+          "default" : ""
+        }
+      }
+    },
+    "The Origin Schema_Contact" : {
+      "required" : [ "Email", "Fax", "Name", "PhoneNumber" ],
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "PhoneNumber" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "Email" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "Fax" : {
+          "type" : "string",
+          "default" : ""
+        }
+      }
+    },
+    "The Origin Schema_PickupDateTime" : {
+      "required" : [ "EndDateTime", "StartDateTime", "TimeZone" ],
+      "properties" : {
+        "StartDateTime" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "EndDateTime" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "TimeZone" : {
+          "type" : "string",
+          "default" : ""
+        }
+      }
+    },
+    "The Origin Schema_OrderDetails_Packagelineitems_Measurements" : {
+      "required" : [ "FloorLength", "FloorLengthUOM", "Height", "HeightUOM", "Length", "Width", "WidthUOM" ],
+      "properties" : {
+        "Width" : {
+          "type" : "number"
+        },
+        "WidthUOM" : {
+          "type" : "string"
+        },
+        "Length" : {
+          "type" : "number"
+        },
+        "Height" : {
+          "type" : "string"
+        },
+        "HeightUOM" : {
+          "type" : "string",
+          "default" : "IN",
+          "enum" : [ "IN", "CM", "FT", "M" ]
+        },
+        "FloorLength" : {
+          "type" : "number"
+        },
+        "FloorLengthUOM" : {
+          "type" : "string",
+          "default" : "IN",
+          "enum" : [ "IN", "CM", "FT", "M" ]
+        }
+      }
+    },
+    "The Origin Schema_OrderDetails_Packagelineitems_OrderDescription" : {
+      "required" : [ "CommodityCode", "CommodityDescription", "TempControl" ],
+      "properties" : {
+        "CommodityCode" : {
+          "type" : "string"
+        },
+        "CommodityDescription" : {
+          "type" : "string"
+        },
+        "TempControl" : {
+          "type" : "string"
+        }
+      }
+    },
+    "The Origin Schema_OrderDetails_Packagelineitems_HazmatDetail" : {
+      "required" : [ "HazardClass", "IdentificationNumber", "PackingGroup", "ProperShippingName" ],
+      "properties" : {
+        "IdentificationNumber" : {
+          "type" : "string"
+        },
+        "ProperShippingName" : {
+          "type" : "string"
+        },
+        "HazardClass" : {
+          "type" : "string"
+        },
+        "PackingGroup" : {
+          "type" : "string"
+        }
+      }
+    },
+    "The Origin Schema_OrderDetails_Packagelineitems" : {
+      "required" : [ "FreightClass", "HazMat", "HazmatDetail", "Measurements", "NmfcItemCode", "NmfcSubCode", "OrderDescription", "PackageType", "PieceCount", "PieceUOM", "TotalPackages", "Volume", "VolumeUOM", "Weight", "WeightUOM" ],
+      "properties" : {
+        "PackageType" : {
+          "type" : "string"
+        },
+        "TotalPackages" : {
+          "type" : "number"
+        },
+        "PieceCount" : {
+          "type" : "number"
+        },
+        "PieceUOM" : {
+          "type" : "string"
+        },
+        "NmfcItemCode" : {
+          "type" : "string"
+        },
+        "NmfcSubCode" : {
+          "type" : "string"
+        },
+        "FreightClass" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "Volume" : {
+          "type" : "number"
+        },
+        "VolumeUOM" : {
+          "type" : "string"
+        },
+        "Weight" : {
+          "type" : "number"
+        },
+        "WeightUOM" : {
+          "type" : "string"
+        },
+        "HazMat" : {
+          "type" : "boolean"
+        },
+        "Measurements" : {
+          "$ref" : "#/definitions/The Origin Schema_OrderDetails_Packagelineitems_Measurements"
+        },
+        "OrderDescription" : {
+          "$ref" : "#/definitions/The Origin Schema_OrderDetails_Packagelineitems_OrderDescription"
+        },
+        "HazmatDetail" : {
+          "$ref" : "#/definitions/The Origin Schema_OrderDetails_Packagelineitems_HazmatDetail"
+        }
+      }
+    },
+    "The Origin Schema_OrderDetails_ReferenceNumbers" : {
+      "required" : [ "RefrenceName", "RefrenceValue" ],
+      "properties" : {
+        "RefrenceName" : {
+          "type" : "string"
+        },
+        "RefrenceValue" : {
+          "type" : "string"
+        }
+      }
+    },
+    "The Origin Schema_OrderDetails" : {
+      "required" : [ "Packagelineitems", "ReferenceNumbers" ],
+      "properties" : {
+        "Packagelineitems" : {
+          "$ref" : "#/definitions/The Origin Schema_OrderDetails_Packagelineitems"
+        },
+        "ReferenceNumbers" : {
+          "$ref" : "#/definitions/The Origin Schema_OrderDetails_ReferenceNumbers"
+        }
+      }
+    },
+    "The Origin Schema" : {
+      "required" : [ "Address", "Comments", "Contact", "OrderDetails", "PickupDateTime", "PickupOrder" ],
+      "properties" : {
+        "PickupOrder" : {
+          "type" : "number",
+          "minimum" : 1
+        },
+        "Address" : {
+          "$ref" : "#/definitions/The Origin Schema_Address"
+        },
+        "Contact" : {
+          "$ref" : "#/definitions/The Origin Schema_Contact"
+        },
+        "PickupDateTime" : {
+          "$ref" : "#/definitions/The Origin Schema_PickupDateTime"
+        },
+        "OrderDetails" : {
+          "$ref" : "#/definitions/The Origin Schema_OrderDetails"
+        },
+        "Comments" : {
+          "$ref" : "#/definitions/The HubOrder Schema_Comments"
+        }
+      }
+    },
+    "The Destination Schema_Address" : {
+      "required" : [ "AddressLine1", "AddressLine2", "City", "CountryCode", "LocationID", "Name", "PostalCode", "State", "Type" ],
+      "properties" : {
+        "Type" : {
+          "type" : "string",
+          "enum" : [ "ShipTo" ]
+        },
+        "Name" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "LocationID" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "AddressLine1" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "AddressLine2" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "City" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "State" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "PostalCode" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "CountryCode" : {
+          "type" : "string",
+          "default" : ""
+        }
+      }
+    },
+    "The Destination Schema_OrderDetails_Packagelineitems_Measurements" : {
+      "required" : [ "FloorLength", "FloorLengthUOM", "Height", "HeightUOM", "Length", "Width", "WidthUOM" ],
+      "properties" : {
+        "Width" : {
+          "type" : "number"
+        },
+        "WidthUOM" : {
+          "type" : "string"
+        },
+        "Length" : {
+          "type" : "number"
+        },
+        "Height" : {
+          "type" : "string"
+        },
+        "HeightUOM" : {
+          "type" : "string"
+        },
+        "FloorLength" : {
+          "type" : "number"
+        },
+        "FloorLengthUOM" : {
+          "type" : "string"
+        }
+      }
+    },
+    "The Destination Schema_OrderDetails_Packagelineitems" : {
+      "required" : [ "FreightClass", "HazMat", "HazmatDetail", "Measurements", "NmfcItemCode", "NmfcSubCode", "OrderDescription", "PackageType", "PieceCount", "PieceUOM", "TotalPackages", "Volume", "VolumeUOM", "Weight", "WeightUOM" ],
+      "properties" : {
+        "PackageType" : {
+          "type" : "string"
+        },
+        "TotalPackages" : {
+          "type" : "number"
+        },
+        "PieceCount" : {
+          "type" : "number"
+        },
+        "PieceUOM" : {
+          "type" : "string"
+        },
+        "NmfcItemCode" : {
+          "type" : "string"
+        },
+        "NmfcSubCode" : {
+          "type" : "string"
+        },
+        "FreightClass" : {
+          "type" : "string",
+          "default" : ""
+        },
+        "Weight" : {
+          "type" : "number"
+        },
+        "WeightUOM" : {
+          "type" : "string",
+          "default" : "LB",
+          "enum" : [ "LB", "KG" ]
+        },
+        "Volume" : {
+          "type" : "number"
+        },
+        "VolumeUOM" : {
+          "type" : "string"
+        },
+        "HazMat" : {
+          "type" : "boolean"
+        },
+        "Measurements" : {
+          "$ref" : "#/definitions/The Destination Schema_OrderDetails_Packagelineitems_Measurements"
+        },
+        "OrderDescription" : {
+          "$ref" : "#/definitions/The Origin Schema_OrderDetails_Packagelineitems_OrderDescription"
+        },
+        "HazmatDetail" : {
+          "$ref" : "#/definitions/The Origin Schema_OrderDetails_Packagelineitems_HazmatDetail"
+        }
+      }
+    },
+    "The Destination Schema_OrderDetails" : {
+      "required" : [ "Packagelineitems", "ReferenceNumbers" ],
+      "properties" : {
+        "Packagelineitems" : {
+          "$ref" : "#/definitions/The Destination Schema_OrderDetails_Packagelineitems"
+        },
+        "ReferenceNumbers" : {
+          "$ref" : "#/definitions/The Origin Schema_OrderDetails_ReferenceNumbers"
+        }
+      }
+    },
+    "The Destination Schema" : {
+      "required" : [ "Comments", "Contact", "DestinationOrder", "OrderDetails" ],
+      "properties" : {
+        "DestinationOrder" : {
+          "type" : "integer",
+          "minimum" : 1
+        },
+        "Address" : {
+          "$ref" : "#/definitions/The Destination Schema_Address"
+        },
+        "Contact" : {
+          "$ref" : "#/definitions/The Origin Schema_Contact"
+        },
+        "PickupDateTime" : {
+          "$ref" : "#/definitions/The Origin Schema_PickupDateTime"
+        },
+        "OrderDetails" : {
+          "$ref" : "#/definitions/The Destination Schema_OrderDetails"
+        },
+        "Comments" : {
+          "$ref" : "#/definitions/The HubOrder Schema_Comments"
+        }
+      }
+    },
+    "The HubOrder Schema" : {
+      "required" : [ "Comments", "Destination", "OrderInformation", "Origin" ],
+      "properties" : {
+        "OrderInformation" : {
+          "$ref" : "#/definitions/The Orderinformation Schema"
+        },
+        "Address" : {
+          "$ref" : "#/definitions/The HubOrder Schema_Address"
+        },
+        "Comments" : {
+          "$ref" : "#/definitions/The HubOrder Schema_Comments"
+        },
+        "Origin" : {
+          "$ref" : "#/definitions/The Origin Schema"
+        },
+        "Destination" : {
+          "$ref" : "#/definitions/The Destination Schema"
+        }
+      }
+    },
+    "ShipmentResponse_OrderResponse_ReferenceNumbers" : {
+      "properties" : {
+        "RefrenceName" : {
+          "type" : "string",
+          "enum" : [ "REMARKS", "ORDERNUMBER" ]
+        },
+        "RefrenceValue" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ShipmentResponse_OrderResponse" : {
+      "required" : [ "CarrierSCAC", "ReferenceNumbers", "ShipmentIdentificationNumber", "Status", "StatusUpdateTime" ],
+      "properties" : {
+        "Status" : {
+          "type" : "string",
+          "enum" : [ "ACCEPTED", "DECLINED" ]
+        },
+        "StatusUpdateTime" : {
+          "type" : "string"
+        },
+        "ShipmentIdentificationNumber" : {
+          "type" : "string"
+        },
+        "CarrierSCAC" : {
+          "type" : "string"
+        },
+        "ReferenceNumbers" : {
+          "$ref" : "#/definitions/ShipmentResponse_OrderResponse_ReferenceNumbers"
+        }
+      }
+    },
+    "ShipmentStatus_ShipmentStatusDetails" : {
+      "required" : [ "AppointmentStatus", "AppointmentStatusReason", "City", "Country", "Latitude", "Longitude", "PostalCode", "State", "Status", "StatusReason", "StatusUpdateTime", "TimeZone" ],
+      "properties" : {
+        "Status" : {
+          "type" : "string"
+        },
+        "StatusReason" : {
+          "type" : "string"
+        },
+        "AppointmentStatus" : {
+          "type" : "string"
+        },
+        "AppointmentStatusReason" : {
+          "type" : "string"
+        },
+        "StatusUpdateTime" : {
+          "type" : "string"
+        },
+        "TimeZone" : {
+          "type" : "string"
+        },
+        "City" : {
+          "type" : "string"
+        },
+        "State" : {
+          "type" : "string"
+        },
+        "Country" : {
+          "type" : "string"
+        },
+        "PostalCode" : {
+          "type" : "string"
+        },
+        "Latitude" : {
+          "type" : "string"
+        },
+        "Longitude" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ShipmentStatus_Origin_PickupLocation" : {
+      "required" : [ "ActualShipDate", "Address", "City", "Country", "EstimatedShipDate", "PickupOrderID", "PostalCode", "ShipperName", "State", "TimeZone" ],
+      "properties" : {
+        "PickupOrderID" : {
+          "type" : "string"
+        },
+        "ShipperName" : {
+          "type" : "string"
+        },
+        "Address" : {
+          "type" : "string"
+        },
+        "City" : {
+          "type" : "string"
+        },
+        "State" : {
+          "type" : "string"
+        },
+        "PostalCode" : {
+          "type" : "string"
+        },
+        "Country" : {
+          "type" : "string"
+        },
+        "EstimatedShipDate" : {
+          "type" : "string"
+        },
+        "ActualShipDate" : {
+          "type" : "string"
+        },
+        "TimeZone" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ShipmentStatus_Origin" : {
+      "required" : [ "PickupLocation" ],
+      "properties" : {
+        "PickupLocation" : {
+          "$ref" : "#/definitions/ShipmentStatus_Origin_PickupLocation"
+        }
+      }
+    },
+    "ShipmentStatus_Destination_DestinationLocation" : {
+      "required" : [ "ActualDeliveryDate", "Address", "City", "ConsigneeName", "ConsigneePostalCode", "Country", "DestinationId", "EstimatedDeliveryDate", "State", "TimeZone" ],
+      "properties" : {
+        "DestinationId" : {
+          "type" : "string"
+        },
+        "ConsigneeName" : {
+          "type" : "string"
+        },
+        "Address" : {
+          "type" : "string"
+        },
+        "City" : {
+          "type" : "string"
+        },
+        "State" : {
+          "type" : "string"
+        },
+        "ConsigneePostalCode" : {
+          "type" : "string"
+        },
+        "Country" : {
+          "type" : "string"
+        },
+        "EstimatedDeliveryDate" : {
+          "type" : "string"
+        },
+        "ActualDeliveryDate" : {
+          "type" : "string"
+        },
+        "TimeZone" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ShipmentStatus_Destination" : {
+      "required" : [ "DestinationLocation" ],
+      "properties" : {
+        "DestinationLocation" : {
+          "$ref" : "#/definitions/ShipmentStatus_Destination_DestinationLocation"
+        }
+      }
+    },
+    "The Shipmentdetails Schema" : {
+      "required" : [ "CarrierName", "CarrierSCAC", "TrailerNumber", "TransportationMode" ],
+      "properties" : {
+        "TransportationMode" : {
+          "type" : "string"
+        },
+        "CarrierName" : {
+          "type" : "string"
+        },
+        "CarrierSCAC" : {
+          "type" : "string"
+        },
+        "TrailerNumber" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ShipmentStatus_ShipmentData" : {
+      "required" : [ "PieceCount", "Volume", "VolumeCode", "Weight", "WeightCode" ],
+      "properties" : {
+        "PieceCount" : {
+          "type" : "string"
+        },
+        "Weight" : {
+          "type" : "string"
+        },
+        "WeightCode" : {
+          "type" : "string"
+        },
+        "Volume" : {
+          "type" : "string"
+        },
+        "VolumeCode" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ShipmentStatus_ReferenceNumbers" : {
+      "required" : [ "ReferenceName", "ReferenceValue" ],
+      "properties" : {
+        "ReferenceName" : {
+          "type" : "string"
+        },
+        "ReferenceValue" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ShipmentInvoice_AddressInformation" : {
+      "required" : [ "AddressLine1", "AddressLine2", "AddressType", "City", "CountryCode", "Email", "LocationType", "Name", "PhoneNumber", "PostalCode", "State", "locationId" ],
+      "properties" : {
+        "AddressType" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "locationId" : {
+          "type" : "string"
+        },
+        "LocationType" : {
+          "type" : "string"
+        },
+        "AddressLine1" : {
+          "type" : "string"
+        },
+        "AddressLine2" : {
+          "type" : "string"
+        },
+        "City" : {
+          "type" : "string"
+        },
+        "State" : {
+          "type" : "string"
+        },
+        "PostalCode" : {
+          "type" : "number"
+        },
+        "CountryCode" : {
+          "type" : "string"
+        },
+        "PhoneNumber" : {
+          "type" : "string"
+        },
+        "Email" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ShipmentInvoice_Items" : {
+      "required" : [ "Allownaces", "AllownacesDecription", "BilledQuantity", "BilledQuantityUOM", "FreightRate", "ItemNumber", "RateQualifer", "SpecialCharges", "SpecialChargesDecription" ],
+      "properties" : {
+        "ItemNumber" : {
+          "type" : "integer"
+        },
+        "BilledQuantity" : {
+          "type" : "integer"
+        },
+        "BilledQuantityUOM" : {
+          "type" : "string"
+        },
+        "FreightRate" : {
+          "type" : "number"
+        },
+        "RateQualifer" : {
+          "type" : "string"
+        },
+        "SpecialCharges" : {
+          "type" : "number"
+        },
+        "SpecialChargesDecription" : {
+          "type" : "string"
+        },
+        "Allownaces" : {
+          "type" : "number"
+        },
+        "AllownacesDecription" : {
+          "type" : "string"
+        }
+      }
+    },
+    "PickupApiResponse_ResultsMessage" : {
+      "required" : [ "MessageDescription" ],
+      "properties" : {
+        "MessageDescription" : {
+          "type" : "string",
+          "default" : ""
+        }
+      }
+    }
+  }
 }
