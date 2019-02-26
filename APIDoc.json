@@ -8,7 +8,7 @@
       "email" : "b2bsupport@hubgroup.com"
     }
   },
-  "host" : "virtserver.swaggerhub.com",
+  "host" : "ecs10.hubgroup.com:8005",
   "basePath" : "/thammilova/OrderTender/1.0.0",
   "schemes" : [ "https", "http" ],
   "security" : [ {
