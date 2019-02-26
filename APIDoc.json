@@ -9,7 +9,7 @@
     }
   },
   "host" : "ecs10.hubgroup.com:8005",
-  "basePath" : "/thammilova/OrderTender/1.0.0",
+  "basePath" : "/v1",
   "schemes" : [ "https", "http" ],
   "security" : [ {
     "basicAuth" : [ ]
