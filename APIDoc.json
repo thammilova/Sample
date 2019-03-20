@@ -287,12 +287,22 @@
         }
       }
     },
-    "Orderapiresponse" : {
+    "Orderapiresponse1" : {
       "type" : "object",
       "required" : [ "Transmission" ],
       "properties" : {
         "Transmission" : {
-          "$ref" : "#/definitions/Orderapiresponse_Transmission"
+          "$ref" : "#/definitions/Orderapiresponse1_Transmission"
+        }
+      },
+      "title" : "Transmission response1"
+    },
+    "Orderapiresponse" : {
+      "type" : "object",
+      "required" : [ "TransmissionAck" ],
+      "properties" : {
+        "TransmissionAck" : {
+          "$ref" : "#/definitions/Orderapiresponse_TransmissionAck"
         }
       },
       "title" : "Transmission response"
@@ -338,7 +348,7 @@
           "type" : "string"
         },
         "CountryCode" : {
-          "type" : "string"
+          "type" : "number"
         },
         "Latitude" : {
           "type" : "number",
@@ -349,7 +359,8 @@
           "type" : "string"
         },
         "LocationType" : {
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "BILL_TO" ]
         },
         "LocationName" : {
           "type" : "string"
@@ -363,7 +374,7 @@
           "description" : "The approximate geographic Longitude of a location, using the WGS84 coordinate system."
         },
         "PostalCode" : {
-          "type" : "string"
+          "type" : "number"
         },
         "State" : {
           "type" : "string"
@@ -385,7 +396,7 @@
           "type" : "string"
         },
         "Value" : {
-          "type" : "string"
+          "type" : "number"
         }
       }
     },
@@ -464,14 +475,25 @@
         }
       }
     },
+    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume_Volume" : {
+      "required" : [ "UOM", "Value" ],
+      "properties" : {
+        "UOM" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      }
+    },
     "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume" : {
       "required" : [ "Volume", "Weight" ],
       "properties" : {
         "Volume" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume_Volume"
         },
         "Weight" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume_Volume"
         }
       }
     },
@@ -573,7 +595,8 @@
       "required" : [ "DateTime", "TimeZone" ],
       "properties" : {
         "DateTime" : {
-          "type" : "string"
+          "type" : "string",
+          "format" : "date-time"
         },
         "TimeZone" : {
           "type" : "string"
@@ -605,18 +628,6 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_PickupAppointmentDateTime" : {
-      "required" : [ "DateTime", "TimeZone" ],
-      "properties" : {
-        "DateTime" : {
-          "type" : "string",
-          "format" : "date-time"
-        },
-        "TimeZone" : {
-          "type" : "string"
-        }
-      }
-    },
     "Orders_Transmission_OrderDetail_Stops_Location" : {
       "required" : [ "Address1", "Address2", "City", "CountryCode", "LocationID", "LocationName", "LocationName2", "LocationType", "PostalCode", "State" ],
       "properties" : {
@@ -645,7 +656,7 @@
           "type" : "string"
         },
         "PostalCode" : {
-          "type" : "string"
+          "type" : "number"
         },
         "State" : {
           "type" : "string"
@@ -691,6 +702,59 @@
         }
       }
     },
+    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_ItemCount" : {
+      "required" : [ "Type", "UOM", "Value" ],
+      "properties" : {
+        "Type" : {
+          "type" : "string"
+        },
+        "UOM" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "number"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume" : {
+      "required" : [ "Volume", "Weight" ],
+      "properties" : {
+        "Volume" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+        },
+        "Weight" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes" : {
+      "required" : [ "WeightVolume" ],
+      "properties" : {
+        "WeightVolume" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent" : {
+      "required" : [ "Attributes", "FreightClass", "ItemCount", "OrderID", "WeightVolumes" ],
+      "properties" : {
+        "Attributes" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes"
+        },
+        "FreightClass" : {
+          "type" : "string"
+        },
+        "ItemCount" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_ItemCount"
+        },
+        "OrderID" : {
+          "type" : "string"
+        },
+        "WeightVolumes" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes"
+        }
+      }
+    },
     "Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnit" : {
       "required" : [ "ItemDescription", "ReferenceNumbers", "ShipUnitContent", "ShipmentUnitID", "SpecialHandlingList", "TempControl" ],
       "properties" : {
@@ -701,7 +765,7 @@
           "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ReferenceNumbers"
         },
         "ShipUnitContent" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent"
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent"
         },
         "ShipmentUnitID" : {
           "type" : "string"
@@ -746,10 +810,10 @@
           "type" : "string"
         },
         "PickupAppointmentDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_PickupAppointmentDateTime"
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
         },
         "DeliveryAppointmentDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_PickupAppointmentDateTime"
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
         },
         "Location" : {
           "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Location"
@@ -955,7 +1019,8 @@
           "type" : "string"
         },
         "EventName" : {
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "ORDER_STATUS" ]
         },
         "PrimarySourceSystem" : {
           "type" : "string"
@@ -1027,10 +1092,22 @@
           "$ref" : "#/definitions/orderresponse_OrderDetail_OrderReferenceNumbers"
         },
         "OrderStatus" : {
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "ACCEPTED", "REJECTED" ]
         },
         "Remarks" : {
           "$ref" : "#/definitions/orderresponse_OrderDetail_Remarks"
+        }
+      }
+    },
+    "events_Transmission_TransmissionHeader_TransmissionCreateDateTime" : {
+      "required" : [ "DateTime", "TimeZone" ],
+      "properties" : {
+        "DateTime" : {
+          "type" : "string"
+        },
+        "TimeZone" : {
+          "type" : "string"
         }
       }
     },
@@ -1062,7 +1139,7 @@
           "type" : "string"
         },
         "TransmissionCreateDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+          "$ref" : "#/definitions/events_Transmission_TransmissionHeader_TransmissionCreateDateTime"
         }
       }
     },
@@ -1288,7 +1365,7 @@
           "$ref" : "#/definitions/events_Transmission_Shipments_TrackingEvents_ETAs_Attributes"
         },
         "ETADateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+          "$ref" : "#/definitions/events_Transmission_TransmissionHeader_TransmissionCreateDateTime"
         },
         "Type" : {
           "type" : "string"
@@ -1316,7 +1393,7 @@
           "type" : "string"
         },
         "EventDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+          "$ref" : "#/definitions/events_Transmission_TransmissionHeader_TransmissionCreateDateTime"
         },
         "EventReason" : {
           "type" : "string"
@@ -1397,11 +1474,25 @@
         }
       }
     },
-    "Orderapiresponse_Transmission_TransmissionResponses_TransmissionResponse" : {
+    "Orderapiresponse1_Transmission_TransmissionResponses_AckDateTime" : {
+      "required" : [ "DateTime", "TimeZone" ],
+      "properties" : {
+        "DateTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "(default: current date, format: yyyy-MM-dd'T'HH:mm:ss)"
+        },
+        "TimeZone" : {
+          "type" : "string",
+          "example" : "CST"
+        }
+      }
+    },
+    "Orderapiresponse1_Transmission_TransmissionResponses_TransmissionResponse" : {
       "required" : [ "AckDateTime", "Message", "MessageCode", "Sequence", "Status" ],
       "properties" : {
         "AckDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+          "$ref" : "#/definitions/Orderapiresponse1_Transmission_TransmissionResponses_AckDateTime"
         },
         "Message" : {
           "type" : "string"
@@ -1417,22 +1508,53 @@
         }
       }
     },
-    "Orderapiresponse_Transmission_TransmissionResponses" : {
+    "Orderapiresponse1_Transmission_TransmissionResponses" : {
       "required" : [ "TransmissionResponse" ],
       "properties" : {
         "TransmissionResponse" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Orderapiresponse_Transmission_TransmissionResponses_TransmissionResponse"
+            "$ref" : "#/definitions/Orderapiresponse1_Transmission_TransmissionResponses_TransmissionResponse"
           }
         }
       }
     },
-    "Orderapiresponse_Transmission" : {
+    "Orderapiresponse1_Transmission" : {
       "required" : [ "TransmissionResponses" ],
       "properties" : {
         "TransmissionResponses" : {
-          "$ref" : "#/definitions/Orderapiresponse_Transmission_TransmissionResponses"
+          "$ref" : "#/definitions/Orderapiresponse1_Transmission_TransmissionResponses"
+        }
+      }
+    },
+    "Orderapiresponse_TransmissionAck_EchoedTransmissionHeader_TransmissionHeader" : {
+      "required" : [ "SenderTransmissionNo" ],
+      "properties" : {
+        "SenderTransmissionNo" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orderapiresponse_TransmissionAck_EchoedTransmissionHeader" : {
+      "required" : [ "TransmissionHeader" ],
+      "properties" : {
+        "TransmissionHeader" : {
+          "$ref" : "#/definitions/Orderapiresponse_TransmissionAck_EchoedTransmissionHeader_TransmissionHeader"
+        }
+      }
+    },
+    "Orderapiresponse_TransmissionAck" : {
+      "required" : [ "EchoedTransmissionHeader", "TransmissionAckReason", "TransmissionAckStatus" ],
+      "properties" : {
+        "EchoedTransmissionHeader" : {
+          "$ref" : "#/definitions/Orderapiresponse_TransmissionAck_EchoedTransmissionHeader"
+        },
+        "TransmissionAckStatus" : {
+          "type" : "string",
+          "enum" : [ "SUCCESS", "FAILED" ]
+        },
+        "TransmissionAckReason" : {
+          "type" : "string"
         }
       }
     }
