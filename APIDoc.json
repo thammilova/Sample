@@ -647,7 +647,8 @@
           "type" : "string"
         },
         "LocationType" : {
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "SHIP_TO", "SHIP_FROM" ]
         },
         "LocationName" : {
           "type" : "string"
