@@ -1,2339 +1,1440 @@
 {
-  "swagger": "2.0",
-  "info": {
-    "description": "",
-    "version": "1.0.0",
-    "title": "Hub Group API",
-    "x-logo": {
-      "url": "https://www.hubgroup.com/wp-content/themes/hubgroup/img/logo.png",
-      "backgroundColor": "#FFFFFF",
-      "altText": "Petstore logo"
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "",
+    "version" : "1.0.0",
+    "title" : "Hub Group API",
+    "contact" : {
+      "email" : "b2bsupport@hubgroup.com"
     },
-    "contact": {
-      "email": "b2bsupport@hubgroup.com"
+    "x-logo" : {
+      "url" : "https://raw.githubusercontent.com/thammilova/Sample/master/Hub-Group-Logo.jpg",
+      "backgroundColor" : "#FFFFFF",
+      "altText" : "Hub Group API"
     }
   },
-  "schemes": [
-    "https"
-  ],
-  "paths": {
-    "/Customer/orders": {
-      "post": {
-        "tags": [
-          "Hubgroup standard customer order API"
-        ],
-        "summary": "Create an Order",
-        "description": "<h4><b>Required Fields</h4>",
-        "operationId": "Orders",
-        "produces": [
-          "application/json",
-          "application/xml"
-        ],
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Create an Order",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Orders"
-            }
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/thammilova/OrderTender/1.0.0",
+  "schemes" : [ "https" ],
+  "security" : [ {
+    "basicAuth" : [ ]
+  } ],
+  "paths" : {
+    "/Customer/orders" : {
+      "post" : {
+        "tags" : [ "Hubgroup standard customer order API" ],
+        "summary" : "Create an Order",
+        "description" : "<h4><b>Required Fields</h4>",
+        "operationId" : "Orders",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Create an Order",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/Orders"
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/Orderapiresponse"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/Orderapiresponse"
             }
           },
-          "400": {
-            "description": "BadRequest"
+          "400" : {
+            "description" : "BadRequest"
           },
-          "401": {
-            "description": "Unauthorized"
+          "401" : {
+            "description" : "Unauthorized"
           },
-          "404": {
-            "description": "NotFound"
-          },
-          "500": {
-            "description": "InternalServerError"
+          "404" : {
+            "description" : "InternalServerError"
           }
         }
       }
     },
-    "/Customer/orderResponse": {
-      "post": {
-        "tags": [
-          "Hubgroup standard customer order response API"
-        ],
-        "summary": "Order Response",
-        "description": "<h4><b>Response Fields</h4>",
-        "operationId": "Order Response",
-        "produces": [
-          "application/json"
-        ],
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Order Response",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/orderresponse"
-            }
+    "/Customer/orderResponse" : {
+      "post" : {
+        "tags" : [ "Hubgroup standard customer order response API" ],
+        "summary" : "Order Response",
+        "description" : "<h4><b>Response Fields</h4>",
+        "operationId" : "Order Response",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Order Response",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/orderresponse"
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/APIResponse"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/APIResponse"
             }
           },
-          "400": {
-            "description": "BadRequest"
+          "400" : {
+            "description" : "BadRequest"
           },
-          "401": {
-            "description": "Unauthorized"
+          "401" : {
+            "description" : "Unauthorized"
           },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "NotFound"
-          },
-          "429": {
-            "description": "TooManyRequests"
-          },
-          "500": {
-            "description": "InternalServerError"
-          },
-          "504": {
-            "description": "504GatewayTimeout"
+          "500" : {
+            "description" : "InternalServerError"
           }
         }
       }
     },
-    "/Customer/events": {
-      "post": {
-        "tags": [
-          "Hubgroup standard customer order events API"
-        ],
-        "summary": "Order events",
-        "description": "<h4><b>Shipment Status Fields</h4>",
-        "operationId": "Shipment Status",
-        "produces": [
-          "application/json",
-          "application/xml"
-        ],
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Shipment Status",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/events"
-            }
+    "/Customer/events" : {
+      "post" : {
+        "tags" : [ "Hubgroup standard customer order events API" ],
+        "summary" : "Order events",
+        "description" : "<h4><b>Shipment Status Fields</h4>",
+        "operationId" : "Shipment Status",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Shipment Status",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/events"
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/APIResponse"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/APIResponse"
             }
           },
-          "400": {
-            "description": "BadRequest"
+          "400" : {
+            "description" : "BadRequest"
           },
-          "401": {
-            "description": "Unauthorized"
+          "401" : {
+            "description" : "Unauthorized"
           },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "NotFound"
-          },
-          "429": {
-            "description": "TooManyRequests"
-          },
-          "500": {
-            "description": "InternalServerError"
-          },
-          "504": {
-            "description": "504GatewayTimeout"
+          "500" : {
+            "description" : "InternalServerError"
           }
         }
       }
     },
-    "/Customer/invoice": {
-      "post": {
-        "tags": [
-          "Hubgroup standard customer invoice API"
-        ],
-        "summary": "Invoice",
-        "description": "<h4><b>Invoice Fields</h4></b>",
-        "operationId": "Invoice",
-        "produces": [
-          "application/json",
-          "application/xml"
-        ],
-        "consumes": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Shipment Invoice",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/invoice"
-            }
+    "/Customer/invoice" : {
+      "post" : {
+        "tags" : [ "Hubgroup standard customer invoice API" ],
+        "summary" : "Invoice",
+        "description" : "<h4><b>Invoice Fields</h4></b>",
+        "operationId" : "Invoice",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Shipment Invoice",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/invoice"
           }
-        ],
-        "responses": {
-          "200": {
-            "description": "successful operation",
-            "schema": {
-              "$ref": "#/definitions/APIResponse"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/APIResponse"
             }
           },
-          "400": {
-            "description": "BadRequest"
+          "400" : {
+            "description" : "BadRequest"
           },
-          "401": {
-            "description": "Unauthorized"
+          "401" : {
+            "description" : "Unauthorized"
           },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "NotFound"
-          },
-          "429": {
-            "description": "TooManyRequests"
-          },
-          "500": {
-            "description": "InternalServerError"
-          },
-          "504": {
-            "description": "504GatewayTimeout"
+          "500" : {
+            "description" : "InternalServerError"
           }
         }
       }
     }
   },
-  "securityDefinitions": {
-    "basicAuth": {
-      "type": "basic"
+  "securityDefinitions" : {
+    "basicAuth" : {
+      "type" : "basic"
     }
   },
-  "security": [
-    {
-      "basicAuth": []
-    }
-  ],
-  "definitions": {
-    "Orders": {
-      "type": "object",
-      "title": "Order",
-      "required": [
-        "Transmission",
-        "OrderDetail"
-      ],
-      "properties": {
-        "Transmission": {
-          "type": "object",
-          "required": [
-            "TransmissionHeader"
-          ],
-          "properties": {
-            "TransmissionHeader": {
-              "type": "object",
-              "required": [
-                "VersionNumber",
-                "EventName",
-                "CustomerName",
-                "TransmissionCreateDateTime"
-              ],
-              "properties": {
-                "VersionNumber": {
-                  "type": "string"
-                },
-                "EventName": {
-                  "type": "string"
-                },
-                "CustomerName": {
-                  "type": "string"
-                },
-                "TransmissionCreateDateTime": {
-                  "type": "object",
-                  "required": [
-                    "DateTime",
-                    "TimeZone"
-                  ],
-                  "properties": {
-                    "DateTime": {
-                      "type": "string"
-                    },
-                    "TimeZone": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+  "definitions" : {
+    "Orders" : {
+      "type" : "object",
+      "required" : [ "Transmission" ],
+      "properties" : {
+        "Transmission" : {
+          "$ref" : "#/definitions/Orders_Transmission"
+        }
+      },
+      "title" : "Order"
+    },
+    "invoice" : {
+      "type" : "object",
+      "required" : [ "AddressInformation", "CarrierSCAC", "DeliveryDate", "EquipmentInitial", "EquipmentNumber", "InvoiceNumber", "Items", "PieceUnit", "ShipDate", "ShipmentIdentificationNumber", "ShipmentMethodofPayment", "TotalShipCount", "TotalVolume", "TotalWeight", "TransMode", "TransportationMethod", "VolumeUnit", "WeightUnit" ],
+      "properties" : {
+        "InvoiceNumber" : {
+          "type" : "string"
+        },
+        "ShipmentIdentificationNumber" : {
+          "type" : "string"
+        },
+        "ShipDate" : {
+          "type" : "string"
+        },
+        "DeliveryDate" : {
+          "type" : "string"
+        },
+        "ShipmentMethodofPayment" : {
+          "type" : "string"
+        },
+        "EquipmentInitial" : {
+          "type" : "string"
+        },
+        "EquipmentNumber" : {
+          "type" : "string"
+        },
+        "CarrierSCAC" : {
+          "type" : "string"
+        },
+        "TransportationMethod" : {
+          "type" : "string"
+        },
+        "TransMode" : {
+          "type" : "string"
+        },
+        "TotalWeight" : {
+          "type" : "number"
+        },
+        "TotalVolume" : {
+          "type" : "number"
+        },
+        "TotalShipCount" : {
+          "type" : "integer"
+        },
+        "PieceUnit" : {
+          "type" : "string"
+        },
+        "VolumeUnit" : {
+          "type" : "string"
+        },
+        "WeightUnit" : {
+          "type" : "string"
+        },
+        "AddressInformation" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/invoice_AddressInformation"
           }
         },
-        "OrderDetail": {
-          "type": "object",
-          "required": [
-            "OrderID",
-            "ServiceProvider",
-            "PaymentMethod",
-            "TransportationMode",
-            "BillToLocations",
-            "Equipments",
-            "ShipUnits",
-            "OrderTimeWindow",
-            "Stops",
-            "OrderReferenceNumbers",
-            "Remarks"
-          ],
-          "properties": {
-            "OrderID": {
-              "type": "string"
-            },
-            "ServiceProvider": {
-              "type": "string"
-            },
-            "PaymentMethod": {
-              "type": "string"
-            },
-            "BillToLocations": {
-              "type": "object",
-              "required": [
-                "BillToLocation"
-              ],
-              "properties": {
-                "BillToLocation": {
-                  "type": "object",
-                  "required": [
-                    "Address1",
-                    "Address2",
-                    "City",
-                    "CityID",
-                    "CountryCode",
-                    "CountryCodeID",
-                    "CountyCode",
-                    "Latitude",
-                    "LocationID",
-                    "LocationName",
-                    "LocationName2",
-                    "LocationType",
-                    "Longitude",
-                    "PostalCode",
-                    "State",
-                    "StateID"
-                  ],
-                  "properties": {
-                    "Address1": {
-                      "type": "string"
-                    },
-                    "Address2": {
-                      "type": "string"
-                    },
-                    "City": {
-                      "type": "string"
-                    },
-                    "CityID": {
-                      "type": "string"
-                    },
-                    "CountryCode": {
-                      "type": "string"
-                    },
-                    "CountryCodeID": {
-                      "type": "string"
-                    },
-                    "CountyCode": {
-                      "type": "string"
-                    },
-                    "Latitude": {
-                      "type": "null"
-                    },
-                    "LocationID": {
-                      "type": "string"
-                    },
-                    "LocationName": {
-                      "type": "string"
-                    },
-                    "LocationName2": {
-                      "type": "string"
-                    },
-                    "LocationType": {
-                      "type": "string"
-                    },
-                    "Longitude": {
-                      "type": "null"
-                    },
-                    "PostalCode": {
-                      "type": "string"
-                    },
-                    "State": {
-                      "type": "string"
-                    },
-                    "StateID": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            },
-            "TransportationMode": {
-              "type": "string"
-            },
-            "Equipments": {
-              "type": "object",
-              "required": [
-                "Equipment"
-              ],
-              "properties": {
-                "Equipment": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "EquipmentPrefix",
-                      "EquipmentNumber",
-                      "Length",
-                      "Width",
-                      "Height",
-                      "Weights"
-                    ],
-                    "properties": {
-                      "EquipmentPrefix": {
-                        "type": "string"
-                      },
-                      "EquipmentNumber": {
-                        "type": "string"
-                      },
-                      "Length": {
-                        "type": "object",
-                        "required": [
-                          "Type",
-                          "UOM",
-                          "Value"
-                        ],
-                        "properties": {
-                          "Type": {
-                            "type": "string"
-                          },
-                          "UOM": {
-                            "type": "string"
-                          },
-                          "Value": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "Width": {
-                        "type": "object",
-                        "required": [
-                          "Type",
-                          "UOM",
-                          "Value"
-                        ],
-                        "properties": {
-                          "Type": {
-                            "type": "string"
-                          },
-                          "UOM": {
-                            "type": "string"
-                          },
-                          "Value": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "Height": {
-                        "type": "object",
-                        "required": [
-                          "Type",
-                          "UOM",
-                          "Value"
-                        ],
-                        "properties": {
-                          "Type": {
-                            "type": "string"
-                          },
-                          "UOM": {
-                            "type": "string"
-                          },
-                          "Value": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "Weights": {
-                        "type": "object",
-                        "required": [
-                          "Weight"
-                        ],
-                        "properties": {
-                          "Weight": {
-                            "type": "object",
-                            "required": [
-                              "Type",
-                              "UOM",
-                              "Value"
-                            ],
-                            "properties": {
-                              "Type": {
-                                "type": "string"
-                              },
-                              "UOM": {
-                                "type": "string"
-                              },
-                              "Value": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "ShipUnits": {
-              "type": "object",
-              "required": [
-                "ShipUnit"
-              ],
-              "properties": {
-                "ShipUnit": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "ShipmentUnitID",
-                      "ItemDescription",
-                      "TempControl",
-                      "ShipUnitContent",
-                      "ReferenceNumbers",
-                      "SpecialHandlingList"
-                    ],
-                    "properties": {
-                      "ShipmentUnitID": {
-                        "type": "string"
-                      },
-                      "ItemDescription": {
-                        "type": "string"
-                      },
-                      "TempControl": {
-                        "type": "string"
-                      },
-                      "ShipUnitContent": {
-                        "type": "object",
-                        "required": [
-                          "Attributes",
-                          "FreightClass",
-                          "ItemCount",
-                          "OrderID",
-                          "WeightVolumes"
-                        ],
-                        "properties": {
-                          "Attributes": {
-                            "type": "object",
-                            "required": [
-                              "Attribute"
-                            ],
-                            "properties": {
-                              "Attribute": {
-                                "type": "object",
-                                "required": [
-                                  "Name",
-                                  "Value"
-                                ],
-                                "properties": {
-                                  "Name": {
-                                    "type": "string"
-                                  },
-                                  "Value": {
-                                    "type": "string"
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "FreightClass": {
-                            "type": "string"
-                          },
-                          "ItemCount": {
-                            "type": "object",
-                            "required": [
-                              "Type",
-                              "UOM",
-                              "Value"
-                            ],
-                            "properties": {
-                              "Type": {
-                                "type": "string"
-                              },
-                              "UOM": {
-                                "type": "string"
-                              },
-                              "Value": {
-                                "type": "string"
-                              }
-                            }
-                          },
-                          "OrderID": {
-                            "type": "string"
-                          },
-                          "WeightVolumes": {
-                            "type": "object",
-                            "required": [
-                              "WeightVolume"
-                            ],
-                            "properties": {
-                              "WeightVolume": {
-                                "type": "object",
-                                "required": [
-                                  "Volume",
-                                  "Weight"
-                                ],
-                                "properties": {
-                                  "Volume": {
-                                    "type": "object",
-                                    "required": [
-                                      "Type",
-                                      "UOM",
-                                      "Value"
-                                    ],
-                                    "properties": {
-                                      "Type": {
-                                        "type": "string"
-                                      },
-                                      "UOM": {
-                                        "type": "string"
-                                      },
-                                      "Value": {
-                                        "type": "string"
-                                      }
-                                    }
-                                  },
-                                  "Weight": {
-                                    "type": "object",
-                                    "required": [
-                                      "Type",
-                                      "UOM",
-                                      "Value"
-                                    ],
-                                    "properties": {
-                                      "Type": {
-                                        "type": "string"
-                                      },
-                                      "UOM": {
-                                        "type": "string"
-                                      },
-                                      "Value": {
-                                        "type": "string"
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "ReferenceNumbers": {
-                        "type": "object",
-                        "required": [
-                          "ReferenceNumber"
-                        ],
-                        "properties": {
-                          "ReferenceNumber": {
-                            "type": "object",
-                            "required": [
-                              "Description",
-                              "Name",
-                              "Value"
-                            ],
-                            "properties": {
-                              "Description": {
-                                "type": "string"
-                              },
-                              "Name": {
-                                "type": "string"
-                              },
-                              "Value": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "SpecialHandlingList": {
-                        "type": "object",
-                        "required": [
-                          "SpecialHandling"
-                        ],
-                        "properties": {
-                          "SpecialHandling": {
-                            "type": "object",
-                            "required": [
-                              "Name",
-                              "Value"
-                            ],
-                            "properties": {
-                              "Name": {
-                                "type": "string"
-                              },
-                              "Value": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "OrderTimeWindow": {
-              "type": "object",
-              "required": [
-                "TimeWindow"
-              ],
-              "properties": {
-                "TimeWindow": {
-                  "type": "object",
-                  "required": [
-                    "EarlyPickupDateTime",
-                    "LatePickupDateTime",
-                    "EarlyDeliveryDateTime",
-                    "LateDeliveryDateTime"
-                  ],
-                  "properties": {
-                    "EarlyPickupDateTime": {
-                      "type": "object",
-                      "required": [
-                        "DateTime",
-                        "TimeZone"
-                      ],
-                      "properties": {
-                        "DateTime": {
-                          "type": "string"
-                        },
-                        "TimeZone": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "LatePickupDateTime": {
-                      "type": "object",
-                      "required": [
-                        "DateTime",
-                        "TimeZone"
-                      ],
-                      "properties": {
-                        "DateTime": {
-                          "type": "string"
-                        },
-                        "TimeZone": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "EarlyDeliveryDateTime": {
-                      "type": "object",
-                      "required": [
-                        "DateTime",
-                        "TimeZone"
-                      ],
-                      "properties": {
-                        "DateTime": {
-                          "type": "string"
-                        },
-                        "TimeZone": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "LateDeliveryDateTime": {
-                      "type": "object",
-                      "required": [
-                        "DateTime",
-                        "TimeZone"
-                      ],
-                      "properties": {
-                        "DateTime": {
-                          "type": "string"
-                        },
-                        "TimeZone": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "Stops": {
-              "type": "object",
-              "required": [
-                "Stop"
-              ],
-              "properties": {
-                "Stop": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "Sequence",
-                      "StopType",
-                      "PickupAppointmentDateTime",
-                      "DeliveryAppointmentDateTime",
-                      "Location",
-                      "Contacts",
-                      "ShipUnits",
-                      "ReferenceNumbers",
-                      "Remarks",
-                      "Attributes"
-                    ],
-                    "properties": {
-                      "Sequence": {
-                        "type": "string"
-                      },
-                      "StopType": {
-                        "type": "string"
-                      },
-                      "PickupAppointmentDateTime": {
-                        "type": "object",
-                        "required": [
-                          "DateTime",
-                          "TimeZone"
-                        ],
-                        "properties": {
-                          "DateTime": {
-                            "type": "string"
-                          },
-                          "TimeZone": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "DeliveryAppointmentDateTime": {
-                        "type": "object",
-                        "required": [
-                          "DateTime",
-                          "TimeZone"
-                        ],
-                        "properties": {
-                          "DateTime": {
-                            "type": "string"
-                          },
-                          "TimeZone": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "Location": {
-                        "type": "object",
-                        "required": [
-                          "Address1",
-                          "Address2",
-                          "City",
-                          "CityID",
-                          "CountryCode",
-                          "CountryCodeID",
-                          "CountyCode",
-                          "Latitude",
-                          "LocationID",
-                          "LocationName",
-                          "LocationName2",
-                          "LocationType",
-                          "Longitude",
-                          "PostalCode",
-                          "State",
-                          "StateID"
-                        ],
-                        "properties": {
-                          "Address1": {
-                            "type": "string"
-                          },
-                          "Address2": {
-                            "type": "string"
-                          },
-                          "City": {
-                            "type": "string"
-                          },
-                          "CityID": {
-                            "type": "string"
-                          },
-                          "CountryCode": {
-                            "type": "string"
-                          },
-                          "CountryCodeID": {
-                            "type": "string"
-                          },
-                          "CountyCode": {
-                            "type": "string"
-                          },
-                          "Latitude": {
-                            "type": "null"
-                          },
-                          "LocationID": {
-                            "type": "string"
-                          },
-                          "LocationName": {
-                            "type": "string"
-                          },
-                          "LocationName2": {
-                            "type": "string"
-                          },
-                          "LocationType": {
-                            "type": "string"
-                          },
-                          "Longitude": {
-                            "type": "null"
-                          },
-                          "PostalCode": {
-                            "type": "string"
-                          },
-                          "State": {
-                            "type": "string"
-                          },
-                          "StateID": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "Contacts": {
-                        "type": "object",
-                        "required": [
-                          "Contact"
-                        ],
-                        "properties": {
-                          "Contact": {
-                            "type": "object",
-                            "required": [
-                              "BusinessPhoneNumber",
-                              "EmailAddress",
-                              "FaxNumber",
-                              "FullName",
-                              "PrimaryCommMethod"
-                            ],
-                            "properties": {
-                              "BusinessPhoneNumber": {
-                                "type": "string"
-                              },
-                              "EmailAddress": {
-                                "type": "string"
-                              },
-                              "FaxNumber": {
-                                "type": "string"
-                              },
-                              "FullName": {
-                                "type": "string"
-                              },
-                              "PrimaryCommMethod": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "ShipUnits": {
-                        "type": "object",
-                        "required": [
-                          "ShipUnit"
-                        ],
-                        "properties": {
-                          "ShipUnit": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "ItemDescription",
-                                "ReferenceNumbers",
-                                "ShipUnitContent",
-                                "ShipmentUnitID",
-                                "SpecialHandlingList",
-                                "TempControl"
-                              ],
-                              "properties": {
-                                "ItemDescription": {
-                                  "type": "string"
-                                },
-                                "ReferenceNumbers": {
-                                  "type": "object",
-                                  "required": [
-                                    "ReferenceNumber"
-                                  ],
-                                  "properties": {
-                                    "ReferenceNumber": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "object",
-                                        "required": [
-                                          "Description",
-                                          "Name",
-                                          "Value"
-                                        ],
-                                        "properties": {
-                                          "Description": {
-                                            "type": "string"
-                                          },
-                                          "Name": {
-                                            "type": "string"
-                                          },
-                                          "Value": {
-                                            "type": "string"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "ShipUnitContent": {
-                                  "type": "object",
-                                  "required": [
-                                    "Attributes",
-                                    "FreightClass",
-                                    "ItemCount",
-                                    "OrderID",
-                                    "WeightVolumes"
-                                  ],
-                                  "properties": {
-                                    "Attributes": {
-                                      "type": "object",
-                                      "required": [
-                                        "Attribute"
-                                      ],
-                                      "properties": {
-                                        "Attribute": {
-                                          "type": "object",
-                                          "required": [
-                                            "Name",
-                                            "Value"
-                                          ],
-                                          "properties": {
-                                            "Name": {
-                                              "type": "string"
-                                            },
-                                            "Value": {
-                                              "type": "string"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    },
-                                    "FreightClass": {
-                                      "type": "string"
-                                    },
-                                    "ItemCount": {
-                                      "type": "object",
-                                      "required": [
-                                        "Type",
-                                        "UOM",
-                                        "Value"
-                                      ],
-                                      "properties": {
-                                        "Type": {
-                                          "type": "string"
-                                        },
-                                        "UOM": {
-                                          "type": "string"
-                                        },
-                                        "Value": {
-                                          "type": "string"
-                                        }
-                                      }
-                                    },
-                                    "OrderID": {
-                                      "type": "string"
-                                    },
-                                    "WeightVolumes": {
-                                      "type": "object",
-                                      "required": [
-                                        "WeightVolume"
-                                      ],
-                                      "properties": {
-                                        "WeightVolume": {
-                                          "type": "object",
-                                          "required": [
-                                            "Volume",
-                                            "Weight"
-                                          ],
-                                          "properties": {
-                                            "Volume": {
-                                              "type": "object",
-                                              "required": [
-                                                "Type",
-                                                "UOM",
-                                                "Value"
-                                              ],
-                                              "properties": {
-                                                "Type": {
-                                                  "type": "string"
-                                                },
-                                                "UOM": {
-                                                  "type": "string"
-                                                },
-                                                "Value": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            },
-                                            "Weight": {
-                                              "type": "object",
-                                              "required": [
-                                                "Type",
-                                                "UOM",
-                                                "Value"
-                                              ],
-                                              "properties": {
-                                                "Type": {
-                                                  "type": "string"
-                                                },
-                                                "UOM": {
-                                                  "type": "string"
-                                                },
-                                                "Value": {
-                                                  "type": "string"
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "ShipmentUnitID": {
-                                  "type": "string"
-                                },
-                                "SpecialHandlingList": {
-                                  "type": "object",
-                                  "required": [
-                                    "SpecialHandling"
-                                  ],
-                                  "properties": {
-                                    "SpecialHandling": {
-                                      "type": "object",
-                                      "required": [
-                                        "Name",
-                                        "Value"
-                                      ],
-                                      "properties": {
-                                        "Name": {
-                                          "type": "string"
-                                        },
-                                        "Value": {
-                                          "type": "string"
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "TempControl": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "ReferenceNumbers": {
-                        "type": "object",
-                        "required": [
-                          "ReferenceNumber"
-                        ],
-                        "properties": {
-                          "ReferenceNumber": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "Description",
-                                "Name",
-                                "Value"
-                              ],
-                              "properties": {
-                                "Description": {
-                                  "type": "string"
-                                },
-                                "Name": {
-                                  "type": "string"
-                                },
-                                "Value": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "Remarks": {
-                        "type": "object",
-                        "required": [
-                          "Remark"
-                        ],
-                        "properties": {
-                          "Remark": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "Name",
-                                "Value"
-                              ],
-                              "properties": {
-                                "Name": {
-                                  "type": "string"
-                                },
-                                "Value": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "Attributes": {
-                        "type": "object",
-                        "required": [
-                          "Attribute"
-                        ],
-                        "properties": {
-                          "Attribute": {
-                            "type": "object",
-                            "required": [
-                              "Name",
-                              "Value"
-                            ],
-                            "properties": {
-                              "Name": {
-                                "type": "string"
-                              },
-                              "Value": {
-                                "type": "string"
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "Remarks": {
-              "type": "object",
-              "required": [
-                "Remark"
-              ],
-              "properties": {
-                "Remark": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "Name",
-                      "Value"
-                    ],
-                    "properties": {
-                      "Name": {
-                        "type": "string"
-                      },
-                      "Value": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "OrderReferenceNumbers": {
-              "type": "object",
-              "required": [
-                "OrderReferenceNumber"
-              ],
-              "properties": {
-                "OrderReferenceNumber": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "Description",
-                      "Name",
-                      "Value"
-                    ],
-                    "properties": {
-                      "Description": {
-                        "type": "string"
-                      },
-                      "Name": {
-                        "type": "string"
-                      },
-                      "Value": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
+        "Items" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/invoice_Items"
           }
         }
       }
     },
-    "invoice": {
-      "type": "object",
-      "required": [
-        "InvoiceNumber",
-        "ShipmentIdentificationNumber",
-        "ShipDate",
-        "DeliveryDate",
-        "ShipmentMethodofPayment",
-        "EquipmentInitial",
-        "EquipmentNumber",
-        "CarrierSCAC",
-        "TransportationMethod",
-        "TransMode",
-        "TotalWeight",
-        "TotalVolume",
-        "TotalShipCount",
-        "PieceUnit",
-        "VolumeUnit",
-        "WeightUnit",
-        "AddressInformation",
-        "Items"
-      ],
-      "properties": {
-        "InvoiceNumber": {
-          "type": "string"
+    "APIResponse" : {
+      "type" : "object",
+      "required" : [ "OrderStatus", "Result", "ResultsMessage" ],
+      "properties" : {
+        "OrderStatus" : {
+          "type" : "string"
         },
-        "ShipmentIdentificationNumber": {
-          "type": "string"
+        "Result" : {
+          "type" : "string"
         },
-        "ShipDate": {
-          "type": "string"
-        },
-        "DeliveryDate": {
-          "type": "string"
-        },
-        "ShipmentMethodofPayment": {
-          "type": "string"
-        },
-        "EquipmentInitial": {
-          "type": "string"
-        },
-        "EquipmentNumber": {
-          "type": "string"
-        },
-        "CarrierSCAC": {
-          "type": "string"
-        },
-        "TransportationMethod": {
-          "type": "string"
-        },
-        "TransMode": {
-          "type": "string"
-        },
-        "TotalWeight": {
-          "type": "number"
-        },
-        "TotalVolume": {
-          "type": "number"
-        },
-        "TotalShipCount": {
-          "type": "integer"
-        },
-        "PieceUnit": {
-          "type": "string"
-        },
-        "VolumeUnit": {
-          "type": "string"
-        },
-        "WeightUnit": {
-          "type": "string"
-        },
-        "AddressInformation": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "AddressType",
-              "Name",
-              "locationId",
-              "LocationType",
-              "AddressLine1",
-              "AddressLine2",
-              "City",
-              "State",
-              "PostalCode",
-              "CountryCode",
-              "PhoneNumber",
-              "Email"
-            ],
-            "properties": {
-              "AddressType": {
-                "type": "string"
-              },
-              "Name": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "locationId": {
-                "type": "string"
-              },
-              "LocationType": {
-                "type": "string"
-              },
-              "AddressLine1": {
-                "type": "string"
-              },
-              "AddressLine2": {
-                "type": "string"
-              },
-              "City": {
-                "type": "string"
-              },
-              "State": {
-                "type": "string"
-              },
-              "PostalCode": {
-                "type": "number"
-              },
-              "CountryCode": {
-                "type": "string"
-              },
-              "PhoneNumber": {
-                "type": "string"
-              },
-              "Email": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "Items": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "ItemNumber",
-              "BilledQuantity",
-              "BilledQuantityUOM",
-              "FreightRate",
-              "RateQualifer",
-              "SpecialCharges",
-              "SpecialChargesDecription",
-              "Allownaces",
-              "AllownacesDecription"
-            ],
-            "properties": {
-              "ItemNumber": {
-                "type": "integer"
-              },
-              "BilledQuantity": {
-                "type": "integer"
-              },
-              "BilledQuantityUOM": {
-                "type": "string"
-              },
-              "FreightRate": {
-                "type": "number"
-              },
-              "RateQualifer": {
-                "type": "string"
-              },
-              "SpecialCharges": {
-                "type": "number"
-              },
-              "SpecialChargesDecription": {
-                "type": "string"
-              },
-              "Allownaces": {
-                "type": "number"
-              },
-              "AllownacesDecription": {
-                "type": "string"
-              }
-            }
+        "ResultsMessage" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/APIResponse_ResultsMessage"
           }
         }
       }
     },
-    "APIResponse": {
-      "type": "object",
-      "required": [
-        "Result",
-        "OrderStatus",
-        "ResultsMessage"
-      ],
-      "properties": {
-        "OrderStatus": {
-          "type": "string"
+    "orderresponse" : {
+      "type" : "object",
+      "required" : [ "OrderDetail", "Transmission" ],
+      "properties" : {
+        "Transmission" : {
+          "$ref" : "#/definitions/orderresponse_Transmission"
         },
-        "Result": {
-          "type": "string"
+        "OrderDetail" : {
+          "$ref" : "#/definitions/orderresponse_OrderDetail"
+        }
+      },
+      "title" : "The Order Response Schema"
+    },
+    "events" : {
+      "type" : "object",
+      "required" : [ "Transmission" ],
+      "properties" : {
+        "Transmission" : {
+          "$ref" : "#/definitions/events_Transmission"
+        }
+      }
+    },
+    "Orderapiresponse" : {
+      "type" : "object",
+      "required" : [ "Transmission" ],
+      "properties" : {
+        "Transmission" : {
+          "$ref" : "#/definitions/Orderapiresponse_Transmission"
+        }
+      },
+      "title" : "Transmission response"
+    },
+    "Orders_Transmission_TransmissionHeader_TransmissionCreateDateTime" : {
+      "required" : [ "DateTime" ],
+      "properties" : {
+        "DateTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "(default: current date, format: yyyy-MM-dd'T'HH:mm:ss)"
+        }
+      }
+    },
+    "Orders_Transmission_TransmissionHeader" : {
+      "required" : [ "CustomerName", "EventName", "TransmissionCreateDateTime", "VersionNumber" ],
+      "properties" : {
+        "VersionNumber" : {
+          "type" : "string"
         },
-        "ResultsMessage": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": [
-              "MessageDescription"
-            ],
-            "properties": {
-              "MessageDescription": {
-                "type": "string"
-              }
-            }
+        "EventName" : {
+          "type" : "string",
+          "enum" : [ "ORDER_CREATE", "ORDER_UPDATE", "ORDER_CANCEL" ]
+        },
+        "CustomerName" : {
+          "type" : "string"
+        },
+        "TransmissionCreateDateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_TransmissionHeader_TransmissionCreateDateTime"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_BillToLocations_BillToLocation" : {
+      "required" : [ "Address1", "Address2", "City", "CountryCode", "Latitude", "LocationID", "LocationName", "LocationName2", "LocationType", "Longitude", "PostalCode", "State" ],
+      "properties" : {
+        "Address1" : {
+          "type" : "string"
+        },
+        "Address2" : {
+          "type" : "string"
+        },
+        "City" : {
+          "type" : "string"
+        },
+        "CountryCode" : {
+          "type" : "string"
+        },
+        "Latitude" : {
+          "type" : "number",
+          "format" : "float",
+          "description" : "The approximate geographic latitude of a location, using the WGS84 coordinate system."
+        },
+        "LocationID" : {
+          "type" : "string"
+        },
+        "LocationType" : {
+          "type" : "string"
+        },
+        "LocationName" : {
+          "type" : "string"
+        },
+        "LocationName2" : {
+          "type" : "string"
+        },
+        "Longitude" : {
+          "type" : "number",
+          "format" : "float",
+          "description" : "The approximate geographic Longitude of a location, using the WGS84 coordinate system."
+        },
+        "PostalCode" : {
+          "type" : "string"
+        },
+        "State" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_BillToLocations" : {
+      "required" : [ "BillToLocation" ],
+      "properties" : {
+        "BillToLocation" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_BillToLocations_BillToLocation"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Equipments_Length" : {
+      "required" : [ "UOM", "Value" ],
+      "properties" : {
+        "UOM" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Equipments_Weights" : {
+      "required" : [ "Weight" ],
+      "properties" : {
+        "Weight" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Equipments_Equipment" : {
+      "required" : [ "EquipmentNumber", "EquipmentPrefix", "Height", "Length", "Weights", "Width" ],
+      "properties" : {
+        "EquipmentPrefix" : {
+          "type" : "string"
+        },
+        "EquipmentNumber" : {
+          "type" : "string"
+        },
+        "Length" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+        },
+        "Width" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+        },
+        "Height" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+        },
+        "Weights" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Weights"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Equipments" : {
+      "required" : [ "Equipment" ],
+      "properties" : {
+        "Equipment" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Equipment"
           }
         }
       }
     },
-    "orderresponse": {
-      "type": "object",
-      "title": "The Order Response Schema",
-      "required": [
-        "Transmission",
-        "OrderDetail"
-      ],
-      "properties": {
-        "Transmission": {
-          "type": "object",
-          "required": [
-            "TransmissionHeader"
-          ],
-          "properties": {
-            "TransmissionHeader": {
-              "type": "object",
-              "required": [
-                "CustomerName",
-                "DomainName",
-                "EventKey",
-                "EventName",
-                "PrimarySourceSystem",
-                "SenderName",
-                "SenderTransmissionID",
-                "TransmissionCreateDateTime",
-                "VersionNumber"
-              ],
-              "properties": {
-                "CustomerName": {
-                  "type": "string"
-                },
-                "DomainName": {
-                  "type": "string"
-                },
-                "EventKey": {
-                  "type": "string"
-                },
-                "EventName": {
-                  "type": "string"
-                },
-                "PrimarySourceSystem": {
-                  "type": "string"
-                },
-                "SenderName": {
-                  "type": "string"
-                },
-                "SenderTransmissionID": {
-                  "type": "string"
-                },
-                "TransmissionCreateDateTime": {
-                  "type": "object",
-                  "required": [
-                    "DateTime",
-                    "TimeZone"
-                  ],
-                  "properties": {
-                    "DateTime": {
-                      "type": "string"
-                    },
-                    "TimeZone": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "VersionNumber": {
-                  "type": "string"
-                }
-              }
-            }
+    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute" : {
+      "required" : [ "Name", "Value" ],
+      "properties" : {
+        "Name" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes" : {
+      "required" : [ "Attribute" ],
+      "properties" : {
+        "Attribute" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_ItemCount" : {
+      "required" : [ "Type", "UOM", "Value" ],
+      "properties" : {
+        "Type" : {
+          "type" : "string"
+        },
+        "UOM" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume" : {
+      "required" : [ "Volume", "Weight" ],
+      "properties" : {
+        "Volume" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+        },
+        "Weight" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes" : {
+      "required" : [ "WeightVolume" ],
+      "properties" : {
+        "WeightVolume" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent" : {
+      "required" : [ "Attributes", "FreightClass", "ItemCount", "OrderID", "WeightVolumes" ],
+      "properties" : {
+        "Attributes" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes"
+        },
+        "FreightClass" : {
+          "type" : "string"
+        },
+        "ItemCount" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_ItemCount"
+        },
+        "OrderID" : {
+          "type" : "string"
+        },
+        "WeightVolumes" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_ShipUnits_ReferenceNumbers_ReferenceNumber" : {
+      "required" : [ "Description", "Name", "Value" ],
+      "properties" : {
+        "Description" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string",
+          "description" : "Type of Reference Number",
+          "enum" : [ "BILL_OF_LADING", "PURCHASE_ORDER", "CUSTOMER_REFERENCE" ]
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_ShipUnits_ReferenceNumbers" : {
+      "required" : [ "ReferenceNumber" ],
+      "properties" : {
+        "ReferenceNumber" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ReferenceNumbers_ReferenceNumber"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_ShipUnits_SpecialHandlingList" : {
+      "required" : [ "SpecialHandling" ],
+      "properties" : {
+        "SpecialHandling" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnit" : {
+      "required" : [ "ItemDescription", "ReferenceNumbers", "ShipUnitContent", "ShipmentUnitID", "SpecialHandlingList", "TempControl" ],
+      "properties" : {
+        "ShipmentUnitID" : {
+          "type" : "string"
+        },
+        "ItemDescription" : {
+          "type" : "string"
+        },
+        "TempControl" : {
+          "type" : "string"
+        },
+        "ShipUnitContent" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent"
+        },
+        "ReferenceNumbers" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ReferenceNumbers"
+        },
+        "SpecialHandlingList" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_SpecialHandlingList"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_ShipUnits" : {
+      "required" : [ "ShipUnit" ],
+      "properties" : {
+        "ShipUnit" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnit"
+          }
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime" : {
+      "required" : [ "DateTime", "TimeZone" ],
+      "properties" : {
+        "DateTime" : {
+          "type" : "string"
+        },
+        "TimeZone" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow" : {
+      "required" : [ "EarlyDeliveryDateTime", "EarlyPickupDateTime", "LateDeliveryDateTime", "LatePickupDateTime" ],
+      "properties" : {
+        "EarlyPickupDateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+        },
+        "LatePickupDateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+        },
+        "EarlyDeliveryDateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+        },
+        "LateDeliveryDateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_OrderTimeWindow" : {
+      "required" : [ "TimeWindow" ],
+      "properties" : {
+        "TimeWindow" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_PickupAppointmentDateTime" : {
+      "required" : [ "DateTime", "TimeZone" ],
+      "properties" : {
+        "DateTime" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "TimeZone" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_Location" : {
+      "required" : [ "Address1", "Address2", "City", "CountryCode", "LocationID", "LocationName", "LocationName2", "LocationType", "PostalCode", "State" ],
+      "properties" : {
+        "Address1" : {
+          "type" : "string"
+        },
+        "Address2" : {
+          "type" : "string"
+        },
+        "City" : {
+          "type" : "string"
+        },
+        "CountryCode" : {
+          "type" : "string"
+        },
+        "LocationID" : {
+          "type" : "string"
+        },
+        "LocationType" : {
+          "type" : "string"
+        },
+        "LocationName" : {
+          "type" : "string"
+        },
+        "LocationName2" : {
+          "type" : "string"
+        },
+        "PostalCode" : {
+          "type" : "string"
+        },
+        "State" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_Contacts_Contact" : {
+      "required" : [ "BusinessPhoneNumber", "EmailAddress", "FaxNumber", "FullName", "PrimaryCommMethod" ],
+      "properties" : {
+        "BusinessPhoneNumber" : {
+          "type" : "string"
+        },
+        "EmailAddress" : {
+          "type" : "string"
+        },
+        "FaxNumber" : {
+          "type" : "string"
+        },
+        "FullName" : {
+          "type" : "string"
+        },
+        "PrimaryCommMethod" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_Contacts" : {
+      "required" : [ "Contact" ],
+      "properties" : {
+        "Contact" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Contacts_Contact"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ReferenceNumbers" : {
+      "required" : [ "ReferenceNumber" ],
+      "properties" : {
+        "ReferenceNumber" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ReferenceNumbers_ReferenceNumber"
+          }
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnit" : {
+      "required" : [ "ItemDescription", "ReferenceNumbers", "ShipUnitContent", "ShipmentUnitID", "SpecialHandlingList", "TempControl" ],
+      "properties" : {
+        "ItemDescription" : {
+          "type" : "string"
+        },
+        "ReferenceNumbers" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ReferenceNumbers"
+        },
+        "ShipUnitContent" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent"
+        },
+        "ShipmentUnitID" : {
+          "type" : "string"
+        },
+        "SpecialHandlingList" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_SpecialHandlingList"
+        },
+        "TempControl" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_ShipUnits" : {
+      "required" : [ "ShipUnit" ],
+      "properties" : {
+        "ShipUnit" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnit"
+          }
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_Remarks" : {
+      "required" : [ "Remark" ],
+      "properties" : {
+        "Remark" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
+          }
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops_Stop" : {
+      "required" : [ "Attributes", "Contacts", "DeliveryAppointmentDateTime", "Location", "PickupAppointmentDateTime", "ReferenceNumbers", "Remarks", "Sequence", "ShipUnits", "StopType" ],
+      "properties" : {
+        "Sequence" : {
+          "type" : "string"
+        },
+        "StopType" : {
+          "type" : "string"
+        },
+        "PickupAppointmentDateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_PickupAppointmentDateTime"
+        },
+        "DeliveryAppointmentDateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_PickupAppointmentDateTime"
+        },
+        "Location" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Location"
+        },
+        "Contacts" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Contacts"
+        },
+        "ShipUnits" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits"
+        },
+        "ReferenceNumbers" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ReferenceNumbers"
+        },
+        "Remarks" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Remarks"
+        },
+        "Attributes" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_Stops" : {
+      "required" : [ "Stop" ],
+      "properties" : {
+        "Stop" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Stop"
+          }
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_OrderReferenceNumbers_OrderReferenceNumber" : {
+      "required" : [ "Description", "Name", "Value" ],
+      "properties" : {
+        "Description" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail_OrderReferenceNumbers" : {
+      "required" : [ "OrderReferenceNumber" ],
+      "properties" : {
+        "OrderReferenceNumber" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderReferenceNumbers_OrderReferenceNumber"
+          }
+        }
+      }
+    },
+    "Orders_Transmission_OrderDetail" : {
+      "required" : [ "BillToLocations", "Equipments", "OrderID", "OrderReferenceNumbers", "OrderTimeWindow", "PaymentMethod", "Remarks", "ServiceProvider", "ShipUnits", "Stops", "TransportationMode" ],
+      "properties" : {
+        "OrderID" : {
+          "type" : "string"
+        },
+        "ServiceProvider" : {
+          "type" : "string"
+        },
+        "PaymentMethod" : {
+          "type" : "string",
+          "description" : "The payment terms of the customer's account with the capacity provider -- the party responsible for payment.",
+          "enum" : [ "PREPAID", "COLLECT", "THIRD_PARTY" ]
+        },
+        "BillToLocations" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_BillToLocations"
+        },
+        "TransportationMode" : {
+          "type" : "string"
+        },
+        "Equipments" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments"
+        },
+        "ShipUnits" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits"
+        },
+        "OrderTimeWindow" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow"
+        },
+        "Stops" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops"
+        },
+        "Remarks" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Remarks"
+        },
+        "OrderReferenceNumbers" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderReferenceNumbers"
+        }
+      }
+    },
+    "Orders_Transmission" : {
+      "required" : [ "TransmissionHeader" ],
+      "properties" : {
+        "TransmissionHeader" : {
+          "$ref" : "#/definitions/Orders_Transmission_TransmissionHeader"
+        },
+        "OrderDetail" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail"
+        }
+      }
+    },
+    "invoice_AddressInformation" : {
+      "required" : [ "AddressLine1", "AddressLine2", "AddressType", "City", "CountryCode", "Email", "LocationType", "Name", "PhoneNumber", "PostalCode", "State", "locationId" ],
+      "properties" : {
+        "AddressType" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
           }
         },
-        "OrderDetail": {
-          "type": "object",
-          "required": [
-            "Customers",
-            "OrderID",
-            "OrderReferenceNumbers",
-            "OrderStatus",
-            "Remarks"
-          ],
-          "properties": {
-            "Customers": {
-              "type": "object",
-              "required": [
-                "Customer"
-              ],
-              "properties": {
-                "Customer": {
-                  "type": "object",
-                  "required": [
-                    "CustomerAlias"
-                  ],
-                  "properties": {
-                    "CustomerAlias": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            },
-            "OrderID": {
-              "type": "string"
-            },
-            "OrderReferenceNumbers": {
-              "type": "object",
-              "required": [
-                "OrderReferenceNumber"
-              ],
-              "properties": {
-                "OrderReferenceNumber": {
-                  "type": "object",
-                  "required": [
-                    "Description",
-                    "Name",
-                    "Value"
-                  ],
-                  "properties": {
-                    "Description": {
-                      "type": "string"
-                    },
-                    "Name": {
-                      "type": "string"
-                    },
-                    "Value": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            },
-            "OrderStatus": {
-              "type": "string"
-            },
-            "Remarks": {
-              "type": "object",
-              "required": [
-                "Remark"
-              ],
-              "properties": {
-                "Remark": {
-                  "type": "object",
-                  "required": [
-                    "Name",
-                    "Value"
-                  ],
-                  "properties": {
-                    "Name": {
-                      "type": "string"
-                    },
-                    "Value": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+        "locationId" : {
+          "type" : "string"
+        },
+        "LocationType" : {
+          "type" : "string"
+        },
+        "AddressLine1" : {
+          "type" : "string"
+        },
+        "AddressLine2" : {
+          "type" : "string"
+        },
+        "City" : {
+          "type" : "string"
+        },
+        "State" : {
+          "type" : "string"
+        },
+        "PostalCode" : {
+          "type" : "number"
+        },
+        "CountryCode" : {
+          "type" : "string"
+        },
+        "PhoneNumber" : {
+          "type" : "string"
+        },
+        "Email" : {
+          "type" : "string"
+        }
+      }
+    },
+    "invoice_Items" : {
+      "required" : [ "Allownaces", "AllownacesDecription", "BilledQuantity", "BilledQuantityUOM", "FreightRate", "ItemNumber", "RateQualifer", "SpecialCharges", "SpecialChargesDecription" ],
+      "properties" : {
+        "ItemNumber" : {
+          "type" : "integer"
+        },
+        "BilledQuantity" : {
+          "type" : "integer"
+        },
+        "BilledQuantityUOM" : {
+          "type" : "string"
+        },
+        "FreightRate" : {
+          "type" : "number"
+        },
+        "RateQualifer" : {
+          "type" : "string"
+        },
+        "SpecialCharges" : {
+          "type" : "number"
+        },
+        "SpecialChargesDecription" : {
+          "type" : "string"
+        },
+        "Allownaces" : {
+          "type" : "number"
+        },
+        "AllownacesDecription" : {
+          "type" : "string"
+        }
+      }
+    },
+    "APIResponse_ResultsMessage" : {
+      "required" : [ "MessageDescription" ],
+      "properties" : {
+        "MessageDescription" : {
+          "type" : "string"
+        }
+      }
+    },
+    "orderresponse_Transmission_TransmissionHeader" : {
+      "required" : [ "CustomerName", "DomainName", "EventKey", "EventName", "PrimarySourceSystem", "SenderName", "SenderTransmissionID", "TransmissionCreateDateTime", "VersionNumber" ],
+      "properties" : {
+        "CustomerName" : {
+          "type" : "string"
+        },
+        "DomainName" : {
+          "type" : "string"
+        },
+        "EventKey" : {
+          "type" : "string"
+        },
+        "EventName" : {
+          "type" : "string"
+        },
+        "PrimarySourceSystem" : {
+          "type" : "string"
+        },
+        "SenderName" : {
+          "type" : "string"
+        },
+        "SenderTransmissionID" : {
+          "type" : "string"
+        },
+        "TransmissionCreateDateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+        },
+        "VersionNumber" : {
+          "type" : "string"
+        }
+      }
+    },
+    "orderresponse_Transmission" : {
+      "required" : [ "TransmissionHeader" ],
+      "properties" : {
+        "TransmissionHeader" : {
+          "$ref" : "#/definitions/orderresponse_Transmission_TransmissionHeader"
+        }
+      }
+    },
+    "orderresponse_OrderDetail_Customers_Customer" : {
+      "required" : [ "CustomerAlias" ],
+      "properties" : {
+        "CustomerAlias" : {
+          "type" : "string"
+        }
+      }
+    },
+    "orderresponse_OrderDetail_Customers" : {
+      "required" : [ "Customer" ],
+      "properties" : {
+        "Customer" : {
+          "$ref" : "#/definitions/orderresponse_OrderDetail_Customers_Customer"
+        }
+      }
+    },
+    "orderresponse_OrderDetail_OrderReferenceNumbers" : {
+      "required" : [ "OrderReferenceNumber" ],
+      "properties" : {
+        "OrderReferenceNumber" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderReferenceNumbers_OrderReferenceNumber"
+        }
+      }
+    },
+    "orderresponse_OrderDetail_Remarks" : {
+      "required" : [ "Remark" ],
+      "properties" : {
+        "Remark" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
+        }
+      }
+    },
+    "orderresponse_OrderDetail" : {
+      "required" : [ "Customers", "OrderID", "OrderReferenceNumbers", "OrderStatus", "Remarks" ],
+      "properties" : {
+        "Customers" : {
+          "$ref" : "#/definitions/orderresponse_OrderDetail_Customers"
+        },
+        "OrderID" : {
+          "type" : "string"
+        },
+        "OrderReferenceNumbers" : {
+          "$ref" : "#/definitions/orderresponse_OrderDetail_OrderReferenceNumbers"
+        },
+        "OrderStatus" : {
+          "type" : "string"
+        },
+        "Remarks" : {
+          "$ref" : "#/definitions/orderresponse_OrderDetail_Remarks"
+        }
+      }
+    },
+    "events_Transmission_TransmissionHeader" : {
+      "required" : [ "CustomerName", "DomainName", "EventKey", "EventName", "PrimarySourceSystem", "SenderName", "SenderTransmissionID", "TransmissionCreateDateTime", "VersionNumber" ],
+      "properties" : {
+        "VersionNumber" : {
+          "type" : "string"
+        },
+        "CustomerName" : {
+          "type" : "string"
+        },
+        "DomainName" : {
+          "type" : "string"
+        },
+        "EventKey" : {
+          "type" : "string"
+        },
+        "EventName" : {
+          "type" : "string"
+        },
+        "PrimarySourceSystem" : {
+          "type" : "string"
+        },
+        "SenderName" : {
+          "type" : "string"
+        },
+        "SenderTransmissionID" : {
+          "type" : "string"
+        },
+        "TransmissionCreateDateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+        }
+      }
+    },
+    "events_Transmission_Shipments_Customers_Customer" : {
+      "required" : [ "CustomerID" ],
+      "properties" : {
+        "CustomerID" : {
+          "type" : "string"
+        }
+      }
+    },
+    "events_Transmission_Shipments_Customers" : {
+      "required" : [ "Customer" ],
+      "properties" : {
+        "Customer" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/events_Transmission_Shipments_Customers_Customer"
           }
         }
       }
     },
-    "events": {
-      "type": "object",
-      "required": [
-        "Transmission"
-      ],
-      "properties": {
-        "Transmission": {
-          "type": "object",
-          "required": [
-            "TransmissionHeader",
-            "Shipments"
-          ],
-          "properties": {
-            "TransmissionHeader": {
-              "type": "object",
-              "required": [
-                "VersionNumber",
-                "CustomerName",
-                "DomainName",
-                "EventKey",
-                "EventName",
-                "PrimarySourceSystem",
-                "SenderName",
-                "SenderTransmissionID",
-                "TransmissionCreateDateTime"
-              ],
-              "properties": {
-                "VersionNumber": {
-                  "type": "string"
-                },
-                "CustomerName": {
-                  "type": "string"
-                },
-                "DomainName": {
-                  "type": "string"
-                },
-                "EventKey": {
-                  "type": "string"
-                },
-                "EventName": {
-                  "type": "string"
-                },
-                "PrimarySourceSystem": {
-                  "type": "string"
-                },
-                "SenderName": {
-                  "type": "string"
-                },
-                "SenderTransmissionID": {
-                  "type": "string"
-                },
-                "TransmissionCreateDateTime": {
-                  "type": "object",
-                  "required": [
-                    "DateTime",
-                    "TimeZone"
-                  ],
-                  "properties": {
-                    "DateTime": {
-                      "type": "string"
-                    },
-                    "TimeZone": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            },
-            "Shipments": {
-              "type": "object",
-              "required": [
-                "Shipment"
-              ],
-              "properties": {
-                "Shipment": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "Customers",
-                      "DomainName",
-                      "ReferenceNumbers",
-                      "Remarks",
-                      "ShipmentOrders",
-                      "Stops",
-                      "TotalItemCount",
-                      "TotalPalletCount",
-                      "TotalVolume",
-                      "TotalWeight",
-                      "TrackingEvents"
-                    ],
-                    "properties": {
-                      "Customers": {
-                        "type": "object",
-                        "required": [
-                          "Customer"
-                        ],
-                        "properties": {
-                          "Customer": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "CustomerID"
-                              ],
-                              "properties": {
-                                "CustomerID": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "DomainName": {
-                        "type": "string"
-                      },
-                      "ReferenceNumbers": {
-                        "type": "object",
-                        "required": [
-                          "ReferenceNumber"
-                        ],
-                        "properties": {
-                          "ReferenceNumber": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "Name",
-                                "Value"
-                              ],
-                              "properties": {
-                                "Name": {
-                                  "type": "string"
-                                },
-                                "Value": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "Remarks": {
-                        "type": "object",
-                        "required": [
-                          "Remark"
-                        ],
-                        "properties": {
-                          "Remark": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "DisplayFlag",
-                                "Name",
-                                "Value"
-                              ],
-                              "properties": {
-                                "DisplayFlag": {
-                                  "type": "string"
-                                },
-                                "Name": {
-                                  "type": "string"
-                                },
-                                "Value": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "ShipmentOrders": {
-                        "type": "object",
-                        "required": [
-                          "ShipmentOrder"
-                        ],
-                        "properties": {
-                          "ShipmentOrder": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "BuyCarrierID",
-                                "ReleaseLines"
-                              ],
-                              "properties": {
-                                "BuyCarrierID": {
-                                  "type": "string"
-                                },
-                                "ReleaseLines": {
-                                  "type": "object",
-                                  "required": [
-                                    "ReleaseLine"
-                                  ],
-                                  "properties": {
-                                    "ReleaseLine": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "object",
-                                        "required": [
-                                          "ReferenceNumbers"
-                                        ],
-                                        "properties": {
-                                          "ReferenceNumbers": {
-                                            "type": "object",
-                                            "required": [
-                                              "ReferenceNumber"
-                                            ],
-                                            "properties": {
-                                              "ReferenceNumber": {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "object",
-                                                  "required": [
-                                                    "Name",
-                                                    "Value"
-                                                  ],
-                                                  "properties": {
-                                                    "Name": {
-                                                      "type": "string"
-                                                    },
-                                                    "Value": {
-                                                      "type": "string"
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "Stops": {
-                        "type": "object",
-                        "required": [
-                          "Stop"
-                        ],
-                        "properties": {
-                          "Stop": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "Activities",
-                                "Location",
-                                "Sequence",
-                                "Status",
-                                "StopReason",
-                                "StopSubType"
-                              ],
-                              "properties": {
-                                "Activities": {
-                                  "type": "object",
-                                  "required": [
-                                    "Activity"
-                                  ],
-                                  "properties": {
-                                    "Activity": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "object",
-                                        "required": [
-                                          "Name",
-                                          "ShipUnit"
-                                        ],
-                                        "properties": {
-                                          "Name": {
-                                            "type": "string"
-                                          },
-                                          "ShipUnit": {
-                                            "type": "object",
-                                            "required": [
-                                              "ShipmentUnitID"
-                                            ],
-                                            "properties": {
-                                              "ShipmentUnitID": {
-                                                "type": "string"
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "Location": {
-                                  "type": "object",
-                                  "required": [
-                                    "Address1",
-                                    "Address2",
-                                    "City",
-                                    "CountryCode",
-                                    "Latitude",
-                                    "LocationID",
-                                    "LocationName",
-                                    "LocationName2",
-                                    "LocationType",
-                                    "Longitude",
-                                    "PostalCode",
-                                    "State"
-                                  ],
-                                  "properties": {
-                                    "Address1": {
-                                      "type": "string"
-                                    },
-                                    "Address2": {
-                                      "type": "string"
-                                    },
-                                    "City": {
-                                      "type": "string"
-                                    },
-                                    "CountryCode": {
-                                      "type": "string"
-                                    },
-                                    "Latitude": {
-                                      "type": "string"
-                                    },
-                                    "LocationID": {
-                                      "type": "string"
-                                    },
-                                    "LocationName": {
-                                      "type": "string"
-                                    },
-                                    "LocationName2": {
-                                      "type": "string"
-                                    },
-                                    "LocationType": {
-                                      "type": "string"
-                                    },
-                                    "Longitude": {
-                                      "type": "string"
-                                    },
-                                    "PostalCode": {
-                                      "type": "string"
-                                    },
-                                    "State": {
-                                      "type": "string"
-                                    }
-                                  }
-                                },
-                                "Sequence": {
-                                  "type": "string"
-                                },
-                                "Status": {
-                                  "type": "string"
-                                },
-                                "StopReason": {
-                                  "type": "string"
-                                },
-                                "StopSubType": {
-                                  "type": "string"
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "TotalItemCount": {
-                        "type": "string"
-                      },
-                      "TotalPalletCount": {
-                        "type": "string"
-                      },
-                      "TotalVolume": {
-                        "type": "object",
-                        "required": [
-                          "Type",
-                          "UOM",
-                          "Value"
-                        ],
-                        "properties": {
-                          "Type": {
-                            "type": "string"
-                          },
-                          "UOM": {
-                            "type": "string"
-                          },
-                          "Value": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "TotalWeight": {
-                        "type": "object",
-                        "required": [
-                          "Type",
-                          "UOM",
-                          "Value"
-                        ],
-                        "properties": {
-                          "Type": {
-                            "type": "string"
-                          },
-                          "UOM": {
-                            "type": "string"
-                          },
-                          "Value": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "TrackingEvents": {
-                        "type": "object",
-                        "required": [
-                          "TrackingEvent"
-                        ],
-                        "properties": {
-                          "TrackingEvent": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "required": [
-                                "ETAs",
-                                "EventCode",
-                                "EventDateTime",
-                                "EventReason",
-                                "Location"
-                              ],
-                              "properties": {
-                                "ETAs": {
-                                  "type": "object",
-                                  "required": [
-                                    "ETA"
-                                  ],
-                                  "properties": {
-                                    "ETA": {
-                                      "type": "array",
-                                      "items": {
-                                        "type": "object",
-                                        "required": [
-                                          "ActualFlag",
-                                          "Attributes",
-                                          "ETADateTime",
-                                          "Type"
-                                        ],
-                                        "properties": {
-                                          "ActualFlag": {
-                                            "type": "string"
-                                          },
-                                          "Attributes": {
-                                            "type": "object",
-                                            "required": [
-                                              "Attribute"
-                                            ],
-                                            "properties": {
-                                              "Attribute": {
-                                                "type": "array",
-                                                "items": {
-                                                  "type": "object",
-                                                  "required": [
-                                                    "Name",
-                                                    "Value"
-                                                  ],
-                                                  "properties": {
-                                                    "Name": {
-                                                      "type": "string"
-                                                    },
-                                                    "Value": {
-                                                      "type": "string"
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          },
-                                          "ETADateTime": {
-                                            "type": "object",
-                                            "required": [
-                                              "DateTime",
-                                              "TimeZone"
-                                            ],
-                                            "properties": {
-                                              "DateTime": {
-                                                "type": "string"
-                                              },
-                                              "TimeZone": {
-                                                "type": "string"
-                                              }
-                                            }
-                                          },
-                                          "Type": {
-                                            "type": "string"
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                },
-                                "EventCode": {
-                                  "type": "string"
-                                },
-                                "EventDateTime": {
-                                  "type": "object",
-                                  "required": [
-                                    "DateTime",
-                                    "TimeZone"
-                                  ],
-                                  "properties": {
-                                    "DateTime": {
-                                      "type": "string"
-                                    },
-                                    "TimeZone": {
-                                      "type": "string"
-                                    }
-                                  }
-                                },
-                                "EventReason": {
-                                  "type": "string"
-                                },
-                                "Location": {
-                                  "type": "object",
-                                  "required": [
-                                    "Address1",
-                                    "Address2",
-                                    "City",
-                                    "CountryCode",
-                                    "Latitude",
-                                    "LocationID",
-                                    "LocationName",
-                                    "LocationName2",
-                                    "LocationType",
-                                    "Longitude",
-                                    "PostalCode",
-                                    "State"
-                                  ],
-                                  "properties": {
-                                    "Address1": {
-                                      "type": "string"
-                                    },
-                                    "Address2": {
-                                      "type": "string"
-                                    },
-                                    "City": {
-                                      "type": "string"
-                                    },
-                                    "CountryCode": {
-                                      "type": "string"
-                                    },
-                                    "Latitude": {
-                                      "type": "string"
-                                    },
-                                    "LocationID": {
-                                      "type": "string"
-                                    },
-                                    "LocationName": {
-                                      "type": "string"
-                                    },
-                                    "LocationName2": {
-                                      "type": "string"
-                                    },
-                                    "LocationType": {
-                                      "type": "string"
-                                    },
-                                    "Longitude": {
-                                      "type": "string"
-                                    },
-                                    "PostalCode": {
-                                      "type": "string"
-                                    },
-                                    "State": {
-                                      "type": "string"
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
+    "events_Transmission_Shipments_ReferenceNumbers" : {
+      "required" : [ "ReferenceNumber" ],
+      "properties" : {
+        "ReferenceNumber" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
           }
         }
       }
     },
-    "Orderapiresponse": {
-      "type": "object",
-      "title": "Transmission response",
-      "required": [
-        "Transmission"
-      ],
-      "properties": {
-        "Transmission": {
-          "type": "object",
-          "required": [
-            "TransmissionResponses"
-          ],
-          "properties": {
-            "TransmissionResponses": {
-              "required": [
-                "TransmissionResponse"
-              ],
-              "properties": {
-                "TransmissionResponse": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "AckDateTime",
-                      "Message",
-                      "MessageCode",
-                      "Sequence",
-                      "Status"
-                    ],
-                    "properties": {
-                      "AckDateTime": {
-                        "type": "object",
-                        "required": [
-                          "DateTime",
-                          "TimeZone"
-                        ],
-                        "properties": {
-                          "DateTime": {
-                            "type": "string"
-                          },
-                          "TimeZone": {
-                            "type": "string"
-                          }
-                        }
-                      },
-                      "Message": {
-                        "type": "string"
-                      },
-                      "MessageCode": {
-                        "type": "string"
-                      },
-                      "Sequence": {
-                        "type": "string"
-                      },
-                      "Status": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
-            }
+    "events_Transmission_Shipments_Remarks_Remark" : {
+      "required" : [ "DisplayFlag", "Name", "Value" ],
+      "properties" : {
+        "DisplayFlag" : {
+          "type" : "string"
+        },
+        "Name" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "events_Transmission_Shipments_Remarks" : {
+      "required" : [ "Remark" ],
+      "properties" : {
+        "Remark" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/events_Transmission_Shipments_Remarks_Remark"
           }
+        }
+      }
+    },
+    "events_Transmission_Shipments_ShipmentOrders_ReleaseLines_ReleaseLine" : {
+      "required" : [ "ReferenceNumbers" ],
+      "properties" : {
+        "ReferenceNumbers" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_ReferenceNumbers"
+        }
+      }
+    },
+    "events_Transmission_Shipments_ShipmentOrders_ReleaseLines" : {
+      "required" : [ "ReleaseLine" ],
+      "properties" : {
+        "ReleaseLine" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/events_Transmission_Shipments_ShipmentOrders_ReleaseLines_ReleaseLine"
+          }
+        }
+      }
+    },
+    "events_Transmission_Shipments_ShipmentOrders_ShipmentOrder" : {
+      "required" : [ "BuyCarrierID", "ReleaseLines" ],
+      "properties" : {
+        "BuyCarrierID" : {
+          "type" : "string"
+        },
+        "ReleaseLines" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_ShipmentOrders_ReleaseLines"
+        }
+      }
+    },
+    "events_Transmission_Shipments_ShipmentOrders" : {
+      "required" : [ "ShipmentOrder" ],
+      "properties" : {
+        "ShipmentOrder" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/events_Transmission_Shipments_ShipmentOrders_ShipmentOrder"
+          }
+        }
+      }
+    },
+    "events_Transmission_Shipments_Stops_Activities_ShipUnit" : {
+      "required" : [ "ShipmentUnitID" ],
+      "properties" : {
+        "ShipmentUnitID" : {
+          "type" : "string"
+        }
+      }
+    },
+    "events_Transmission_Shipments_Stops_Activities_Activity" : {
+      "required" : [ "Name", "ShipUnit" ],
+      "properties" : {
+        "Name" : {
+          "type" : "string"
+        },
+        "ShipUnit" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Activities_ShipUnit"
+        }
+      }
+    },
+    "events_Transmission_Shipments_Stops_Activities" : {
+      "required" : [ "Activity" ],
+      "properties" : {
+        "Activity" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Activities_Activity"
+          }
+        }
+      }
+    },
+    "events_Transmission_Shipments_Stops_Location" : {
+      "required" : [ "Address1", "Address2", "City", "CountryCode", "Latitude", "LocationID", "LocationName", "LocationName2", "LocationType", "Longitude", "PostalCode", "State" ],
+      "properties" : {
+        "Address1" : {
+          "type" : "string"
+        },
+        "Address2" : {
+          "type" : "string"
+        },
+        "City" : {
+          "type" : "string"
+        },
+        "CountryCode" : {
+          "type" : "string"
+        },
+        "Latitude" : {
+          "type" : "string"
+        },
+        "LocationID" : {
+          "type" : "string"
+        },
+        "LocationName" : {
+          "type" : "string"
+        },
+        "LocationName2" : {
+          "type" : "string"
+        },
+        "LocationType" : {
+          "type" : "string"
+        },
+        "Longitude" : {
+          "type" : "string"
+        },
+        "PostalCode" : {
+          "type" : "string"
+        },
+        "State" : {
+          "type" : "string"
+        }
+      }
+    },
+    "events_Transmission_Shipments_Stops_Stop" : {
+      "required" : [ "Activities", "Location", "Sequence", "Status", "StopReason", "StopSubType" ],
+      "properties" : {
+        "Activities" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Activities"
+        },
+        "Location" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Location"
+        },
+        "Sequence" : {
+          "type" : "string"
+        },
+        "Status" : {
+          "type" : "string"
+        },
+        "StopReason" : {
+          "type" : "string"
+        },
+        "StopSubType" : {
+          "type" : "string"
+        }
+      }
+    },
+    "events_Transmission_Shipments_Stops" : {
+      "required" : [ "Stop" ],
+      "properties" : {
+        "Stop" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Stop"
+          }
+        }
+      }
+    },
+    "events_Transmission_Shipments_TrackingEvents_ETAs_Attributes" : {
+      "required" : [ "Attribute" ],
+      "properties" : {
+        "Attribute" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
+          }
+        }
+      }
+    },
+    "events_Transmission_Shipments_TrackingEvents_ETAs_ETA" : {
+      "required" : [ "ActualFlag", "Attributes", "ETADateTime", "Type" ],
+      "properties" : {
+        "ActualFlag" : {
+          "type" : "string"
+        },
+        "Attributes" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_TrackingEvents_ETAs_Attributes"
+        },
+        "ETADateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+        },
+        "Type" : {
+          "type" : "string"
+        }
+      }
+    },
+    "events_Transmission_Shipments_TrackingEvents_ETAs" : {
+      "required" : [ "ETA" ],
+      "properties" : {
+        "ETA" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/events_Transmission_Shipments_TrackingEvents_ETAs_ETA"
+          }
+        }
+      }
+    },
+    "events_Transmission_Shipments_TrackingEvents_TrackingEvent" : {
+      "required" : [ "ETAs", "EventCode", "EventDateTime", "EventReason", "Location" ],
+      "properties" : {
+        "ETAs" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_TrackingEvents_ETAs"
+        },
+        "EventCode" : {
+          "type" : "string"
+        },
+        "EventDateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+        },
+        "EventReason" : {
+          "type" : "string"
+        },
+        "Location" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Location"
+        }
+      }
+    },
+    "events_Transmission_Shipments_TrackingEvents" : {
+      "required" : [ "TrackingEvent" ],
+      "properties" : {
+        "TrackingEvent" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/events_Transmission_Shipments_TrackingEvents_TrackingEvent"
+          }
+        }
+      }
+    },
+    "events_Transmission_Shipments_Shipment" : {
+      "required" : [ "Customers", "DomainName", "ReferenceNumbers", "Remarks", "ShipmentOrders", "Stops", "TotalItemCount", "TotalPalletCount", "TotalVolume", "TotalWeight", "TrackingEvents" ],
+      "properties" : {
+        "Customers" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_Customers"
+        },
+        "DomainName" : {
+          "type" : "string"
+        },
+        "ReferenceNumbers" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_ReferenceNumbers"
+        },
+        "Remarks" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_Remarks"
+        },
+        "ShipmentOrders" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_ShipmentOrders"
+        },
+        "Stops" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_Stops"
+        },
+        "TotalItemCount" : {
+          "type" : "string"
+        },
+        "TotalPalletCount" : {
+          "type" : "string"
+        },
+        "TotalVolume" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_ItemCount"
+        },
+        "TotalWeight" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_ItemCount"
+        },
+        "TrackingEvents" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments_TrackingEvents"
+        }
+      }
+    },
+    "events_Transmission_Shipments" : {
+      "required" : [ "Shipment" ],
+      "properties" : {
+        "Shipment" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/events_Transmission_Shipments_Shipment"
+          }
+        }
+      }
+    },
+    "events_Transmission" : {
+      "required" : [ "Shipments", "TransmissionHeader" ],
+      "properties" : {
+        "TransmissionHeader" : {
+          "$ref" : "#/definitions/events_Transmission_TransmissionHeader"
+        },
+        "Shipments" : {
+          "$ref" : "#/definitions/events_Transmission_Shipments"
+        }
+      }
+    },
+    "Orderapiresponse_Transmission_TransmissionResponses_TransmissionResponse" : {
+      "required" : [ "AckDateTime", "Message", "MessageCode", "Sequence", "Status" ],
+      "properties" : {
+        "AckDateTime" : {
+          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+        },
+        "Message" : {
+          "type" : "string"
+        },
+        "MessageCode" : {
+          "type" : "string"
+        },
+        "Sequence" : {
+          "type" : "string"
+        },
+        "Status" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Orderapiresponse_Transmission_TransmissionResponses" : {
+      "required" : [ "TransmissionResponse" ],
+      "properties" : {
+        "TransmissionResponse" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Orderapiresponse_Transmission_TransmissionResponses_TransmissionResponse"
+          }
+        }
+      }
+    },
+    "Orderapiresponse_Transmission" : {
+      "required" : [ "TransmissionResponses" ],
+      "properties" : {
+        "TransmissionResponses" : {
+          "$ref" : "#/definitions/Orderapiresponse_Transmission_TransmissionResponses"
         }
       }
     }
-  },
-  "host": "virtserver.swaggerhub.com",
-  "basePath": "/thammilova/OrderTender/1.0.0"
+  }
 }
