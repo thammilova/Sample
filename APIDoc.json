@@ -173,10 +173,10 @@
   "definitions" : {
     "Orders" : {
       "type" : "object",
-      "required" : [ "Transmission" ],
+      "required" : [ "OrderDetail" ],
       "properties" : {
-        "Transmission" : {
-          "$ref" : "#/definitions/Orders_Transmission"
+        "OrderDetail" : {
+          "$ref" : "#/definitions/Orders_OrderDetail"
         }
       },
       "title" : "Order"
@@ -267,11 +267,8 @@
     },
     "orderresponse" : {
       "type" : "object",
-      "required" : [ "OrderDetail", "Transmission" ],
+      "required" : [ "OrderDetail" ],
       "properties" : {
-        "Transmission" : {
-          "$ref" : "#/definitions/orderresponse_Transmission"
-        },
         "OrderDetail" : {
           "$ref" : "#/definitions/orderresponse_OrderDetail"
         }
@@ -280,62 +277,24 @@
     },
     "events" : {
       "type" : "object",
-      "required" : [ "Transmission" ],
+      "required" : [ "Shipments" ],
       "properties" : {
-        "Transmission" : {
-          "$ref" : "#/definitions/events_Transmission"
+        "Shipments" : {
+          "$ref" : "#/definitions/events_Shipments"
         }
       }
-    },
-    "Orderapiresponse1" : {
-      "type" : "object",
-      "required" : [ "Transmission" ],
-      "properties" : {
-        "Transmission" : {
-          "$ref" : "#/definitions/Orderapiresponse1_Transmission"
-        }
-      },
-      "title" : "Transmission response1"
     },
     "Orderapiresponse" : {
       "type" : "object",
-      "required" : [ "TransmissionAck" ],
+      "required" : [ "Response" ],
       "properties" : {
-        "TransmissionAck" : {
-          "$ref" : "#/definitions/Orderapiresponse_TransmissionAck"
+        "Response" : {
+          "$ref" : "#/definitions/Orderapiresponse_Response"
         }
       },
-      "title" : "Transmission response"
+      "title" : "Response"
     },
-    "Orders_Transmission_TransmissionHeader_TransmissionCreateDateTime" : {
-      "required" : [ "DateTime" ],
-      "properties" : {
-        "DateTime" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "(default: current date, format: yyyy-MM-dd'T'HH:mm:ss)"
-        }
-      }
-    },
-    "Orders_Transmission_TransmissionHeader" : {
-      "required" : [ "CustomerName", "EventName", "TransmissionCreateDateTime", "VersionNumber" ],
-      "properties" : {
-        "VersionNumber" : {
-          "type" : "string"
-        },
-        "EventName" : {
-          "type" : "string",
-          "enum" : [ "ORDER_CREATE", "ORDER_UPDATE", "ORDER_CANCEL" ]
-        },
-        "CustomerName" : {
-          "type" : "string"
-        },
-        "TransmissionCreateDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_TransmissionHeader_TransmissionCreateDateTime"
-        }
-      }
-    },
-    "Orders_Transmission_OrderDetail_BillToLocations_BillToLocation" : {
+    "Orders_OrderDetail_BillToLocations_BillToLocation" : {
       "required" : [ "Address1", "Address2", "City", "CountryCode", "Latitude", "LocationID", "LocationName", "LocationName2", "LocationType", "Longitude", "PostalCode", "State" ],
       "properties" : {
         "Address1" : {
@@ -381,15 +340,15 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_BillToLocations" : {
+    "Orders_OrderDetail_BillToLocations" : {
       "required" : [ "BillToLocation" ],
       "properties" : {
         "BillToLocation" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_BillToLocations_BillToLocation"
+          "$ref" : "#/definitions/Orders_OrderDetail_BillToLocations_BillToLocation"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Equipments_Length" : {
+    "Orders_OrderDetail_Equipments_Length" : {
       "required" : [ "UOM", "Value" ],
       "properties" : {
         "UOM" : {
@@ -400,15 +359,15 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Equipments_Weights" : {
+    "Orders_OrderDetail_Equipments_Weights" : {
       "required" : [ "Weight" ],
       "properties" : {
         "Weight" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+          "$ref" : "#/definitions/Orders_OrderDetail_Equipments_Length"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Equipments_Equipment" : {
+    "Orders_OrderDetail_Equipments_Equipment" : {
       "required" : [ "EquipmentNumber", "EquipmentPrefix", "Height", "Length", "Weights", "Width" ],
       "properties" : {
         "EquipmentPrefix" : {
@@ -418,31 +377,31 @@
           "type" : "string"
         },
         "Length" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+          "$ref" : "#/definitions/Orders_OrderDetail_Equipments_Length"
         },
         "Width" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+          "$ref" : "#/definitions/Orders_OrderDetail_Equipments_Length"
         },
         "Height" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+          "$ref" : "#/definitions/Orders_OrderDetail_Equipments_Length"
         },
         "Weights" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Weights"
+          "$ref" : "#/definitions/Orders_OrderDetail_Equipments_Weights"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Equipments" : {
+    "Orders_OrderDetail_Equipments" : {
       "required" : [ "Equipment" ],
       "properties" : {
         "Equipment" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Equipment"
+            "$ref" : "#/definitions/Orders_OrderDetail_Equipments_Equipment"
           }
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute" : {
+    "Orders_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute" : {
       "required" : [ "Name", "Value" ],
       "properties" : {
         "Name" : {
@@ -453,15 +412,15 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes" : {
+    "Orders_OrderDetail_ShipUnits_ShipUnitContent_Attributes" : {
       "required" : [ "Attribute" ],
       "properties" : {
         "Attribute" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_ItemCount" : {
+    "Orders_OrderDetail_ShipUnits_ShipUnitContent_ItemCount" : {
       "required" : [ "Type", "UOM", "Value" ],
       "properties" : {
         "Type" : {
@@ -475,7 +434,7 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume_Volume" : {
+    "Orders_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume_Volume" : {
       "required" : [ "UOM", "Value" ],
       "properties" : {
         "UOM" : {
@@ -486,46 +445,46 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume" : {
+    "Orders_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume" : {
       "required" : [ "Volume", "Weight" ],
       "properties" : {
         "Volume" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume_Volume"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume_Volume"
         },
         "Weight" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume_Volume"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume_Volume"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes" : {
+    "Orders_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes" : {
       "required" : [ "WeightVolume" ],
       "properties" : {
         "WeightVolume" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent" : {
+    "Orders_OrderDetail_ShipUnits_ShipUnitContent" : {
       "required" : [ "Attributes", "FreightClass", "ItemCount", "OrderID", "WeightVolumes" ],
       "properties" : {
         "Attributes" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_Attributes"
         },
         "FreightClass" : {
           "type" : "string"
         },
         "ItemCount" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_ItemCount"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_ItemCount"
         },
         "OrderID" : {
           "type" : "string"
         },
         "WeightVolumes" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits_ReferenceNumbers_ReferenceNumber" : {
+    "Orders_OrderDetail_ShipUnits_ReferenceNumbers_ReferenceNumber" : {
       "required" : [ "Description", "Name", "Value" ],
       "properties" : {
         "Description" : {
@@ -541,23 +500,23 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits_ReferenceNumbers" : {
+    "Orders_OrderDetail_ShipUnits_ReferenceNumbers" : {
       "required" : [ "ReferenceNumber" ],
       "properties" : {
         "ReferenceNumber" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ReferenceNumbers_ReferenceNumber"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ReferenceNumbers_ReferenceNumber"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits_SpecialHandlingList" : {
+    "Orders_OrderDetail_ShipUnits_SpecialHandlingList" : {
       "required" : [ "SpecialHandling" ],
       "properties" : {
         "SpecialHandling" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits_ShipUnit" : {
+    "Orders_OrderDetail_ShipUnits_ShipUnit" : {
       "required" : [ "ItemDescription", "ReferenceNumbers", "ShipUnitContent", "ShipmentUnitID", "SpecialHandlingList", "TempControl" ],
       "properties" : {
         "ShipmentUnitID" : {
@@ -570,28 +529,28 @@
           "type" : "string"
         },
         "ShipUnitContent" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent"
         },
         "ReferenceNumbers" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ReferenceNumbers"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ReferenceNumbers"
         },
         "SpecialHandlingList" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_SpecialHandlingList"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_SpecialHandlingList"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_ShipUnits" : {
+    "Orders_OrderDetail_ShipUnits" : {
       "required" : [ "ShipUnit" ],
       "properties" : {
         "ShipUnit" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnit"
+            "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnit"
           }
         }
       }
     },
-    "Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime" : {
+    "Orders_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime" : {
       "required" : [ "DateTime", "TimeZone" ],
       "properties" : {
         "DateTime" : {
@@ -603,32 +562,32 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow" : {
+    "Orders_OrderDetail_OrderTimeWindow_TimeWindow" : {
       "required" : [ "EarlyDeliveryDateTime", "EarlyPickupDateTime", "LateDeliveryDateTime", "LatePickupDateTime" ],
       "properties" : {
         "EarlyPickupDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+          "$ref" : "#/definitions/Orders_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
         },
         "LatePickupDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+          "$ref" : "#/definitions/Orders_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
         },
         "EarlyDeliveryDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+          "$ref" : "#/definitions/Orders_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
         },
         "LateDeliveryDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+          "$ref" : "#/definitions/Orders_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_OrderTimeWindow" : {
+    "Orders_OrderDetail_OrderTimeWindow" : {
       "required" : [ "TimeWindow" ],
       "properties" : {
         "TimeWindow" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow"
+          "$ref" : "#/definitions/Orders_OrderDetail_OrderTimeWindow_TimeWindow"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_Location" : {
+    "Orders_OrderDetail_Stops_Location" : {
       "required" : [ "Address1", "Address2", "City", "CountryCode", "LocationID", "LocationName", "LocationName2", "LocationType", "PostalCode", "State" ],
       "properties" : {
         "Address1" : {
@@ -664,7 +623,7 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_Contacts_Contact" : {
+    "Orders_OrderDetail_Stops_Contacts_Contact" : {
       "required" : [ "BusinessPhoneNumber", "EmailAddress", "FaxNumber", "FullName", "PrimaryCommMethod" ],
       "properties" : {
         "BusinessPhoneNumber" : {
@@ -684,26 +643,26 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_Contacts" : {
+    "Orders_OrderDetail_Stops_Contacts" : {
       "required" : [ "Contact" ],
       "properties" : {
         "Contact" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Contacts_Contact"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_Contacts_Contact"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ReferenceNumbers" : {
+    "Orders_OrderDetail_Stops_ShipUnits_ReferenceNumbers" : {
       "required" : [ "ReferenceNumber" ],
       "properties" : {
         "ReferenceNumber" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ReferenceNumbers_ReferenceNumber"
+            "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ReferenceNumbers_ReferenceNumber"
           }
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_ItemCount" : {
+    "Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent_ItemCount" : {
       "required" : [ "Type", "UOM", "Value" ],
       "properties" : {
         "Type" : {
@@ -717,91 +676,91 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume" : {
+    "Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume" : {
       "required" : [ "Volume", "Weight" ],
       "properties" : {
         "Volume" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+          "$ref" : "#/definitions/Orders_OrderDetail_Equipments_Length"
         },
         "Weight" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments_Length"
+          "$ref" : "#/definitions/Orders_OrderDetail_Equipments_Length"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes" : {
+    "Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes" : {
       "required" : [ "WeightVolume" ],
       "properties" : {
         "WeightVolume" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes_WeightVolume"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent" : {
+    "Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent" : {
       "required" : [ "Attributes", "FreightClass", "ItemCount", "OrderID", "WeightVolumes" ],
       "properties" : {
         "Attributes" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_Attributes"
         },
         "FreightClass" : {
           "type" : "string"
         },
         "ItemCount" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_ItemCount"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent_ItemCount"
         },
         "OrderID" : {
           "type" : "string"
         },
         "WeightVolumes" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnit" : {
+    "Orders_OrderDetail_Stops_ShipUnits_ShipUnit" : {
       "required" : [ "ItemDescription", "ReferenceNumbers", "ShipUnitContent", "ShipmentUnitID", "SpecialHandlingList", "TempControl" ],
       "properties" : {
         "ItemDescription" : {
           "type" : "string"
         },
         "ReferenceNumbers" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ReferenceNumbers"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_ShipUnits_ReferenceNumbers"
         },
         "ShipUnitContent" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnitContent"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent"
         },
         "ShipmentUnitID" : {
           "type" : "string"
         },
         "SpecialHandlingList" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_SpecialHandlingList"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_SpecialHandlingList"
         },
         "TempControl" : {
           "type" : "string"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_ShipUnits" : {
+    "Orders_OrderDetail_Stops_ShipUnits" : {
       "required" : [ "ShipUnit" ],
       "properties" : {
         "ShipUnit" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ShipUnit"
+            "$ref" : "#/definitions/Orders_OrderDetail_Stops_ShipUnits_ShipUnit"
           }
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_Remarks" : {
+    "Orders_OrderDetail_Stops_Remarks" : {
       "required" : [ "Remark" ],
       "properties" : {
         "Remark" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
+            "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
           }
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops_Stop" : {
+    "Orders_OrderDetail_Stops_Stop" : {
       "required" : [ "Attributes", "Contacts", "DeliveryAppointmentDateTime", "Location", "PickupAppointmentDateTime", "ReferenceNumbers", "Remarks", "Sequence", "ShipUnits", "StopType" ],
       "properties" : {
         "Sequence" : {
@@ -811,43 +770,43 @@
           "type" : "string"
         },
         "PickupAppointmentDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+          "$ref" : "#/definitions/Orders_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
         },
         "DeliveryAppointmentDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
+          "$ref" : "#/definitions/Orders_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
         },
         "Location" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Location"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_Location"
         },
         "Contacts" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Contacts"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_Contacts"
         },
         "ShipUnits" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_ShipUnits"
         },
         "ReferenceNumbers" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_ShipUnits_ReferenceNumbers"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_ShipUnits_ReferenceNumbers"
         },
         "Remarks" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Remarks"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_Remarks"
         },
         "Attributes" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_Attributes"
         }
       }
     },
-    "Orders_Transmission_OrderDetail_Stops" : {
+    "Orders_OrderDetail_Stops" : {
       "required" : [ "Stop" ],
       "properties" : {
         "Stop" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Stop"
+            "$ref" : "#/definitions/Orders_OrderDetail_Stops_Stop"
           }
         }
       }
     },
-    "Orders_Transmission_OrderDetail_OrderReferenceNumbers_OrderReferenceNumber" : {
+    "Orders_OrderDetail_OrderReferenceNumbers_OrderReferenceNumber" : {
       "required" : [ "Description", "Name", "Value" ],
       "properties" : {
         "Description" : {
@@ -861,18 +820,18 @@
         }
       }
     },
-    "Orders_Transmission_OrderDetail_OrderReferenceNumbers" : {
+    "Orders_OrderDetail_OrderReferenceNumbers" : {
       "required" : [ "OrderReferenceNumber" ],
       "properties" : {
         "OrderReferenceNumber" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderReferenceNumbers_OrderReferenceNumber"
+            "$ref" : "#/definitions/Orders_OrderDetail_OrderReferenceNumbers_OrderReferenceNumber"
           }
         }
       }
     },
-    "Orders_Transmission_OrderDetail" : {
+    "Orders_OrderDetail" : {
       "required" : [ "BillToLocations", "Equipments", "OrderID", "OrderReferenceNumbers", "OrderTimeWindow", "PaymentMethod", "Remarks", "ServiceProvider", "ShipUnits", "Stops", "TransportationMode" ],
       "properties" : {
         "OrderID" : {
@@ -887,39 +846,28 @@
           "enum" : [ "PREPAID", "COLLECT", "THIRD_PARTY" ]
         },
         "BillToLocations" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_BillToLocations"
+          "$ref" : "#/definitions/Orders_OrderDetail_BillToLocations"
         },
         "TransportationMode" : {
           "type" : "string"
         },
         "Equipments" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Equipments"
+          "$ref" : "#/definitions/Orders_OrderDetail_Equipments"
         },
         "ShipUnits" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits"
         },
         "OrderTimeWindow" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow"
+          "$ref" : "#/definitions/Orders_OrderDetail_OrderTimeWindow"
         },
         "Stops" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops"
         },
         "Remarks" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_Stops_Remarks"
+          "$ref" : "#/definitions/Orders_OrderDetail_Stops_Remarks"
         },
         "OrderReferenceNumbers" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderReferenceNumbers"
-        }
-      }
-    },
-    "Orders_Transmission" : {
-      "required" : [ "TransmissionHeader" ],
-      "properties" : {
-        "TransmissionHeader" : {
-          "$ref" : "#/definitions/Orders_Transmission_TransmissionHeader"
-        },
-        "OrderDetail" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail"
+          "$ref" : "#/definitions/Orders_OrderDetail_OrderReferenceNumbers"
         }
       }
     },
@@ -1007,47 +955,6 @@
         }
       }
     },
-    "orderresponse_Transmission_TransmissionHeader" : {
-      "required" : [ "CustomerName", "DomainName", "EventKey", "EventName", "PrimarySourceSystem", "SenderName", "SenderTransmissionID", "TransmissionCreateDateTime", "VersionNumber" ],
-      "properties" : {
-        "CustomerName" : {
-          "type" : "string"
-        },
-        "DomainName" : {
-          "type" : "string"
-        },
-        "EventKey" : {
-          "type" : "string"
-        },
-        "EventName" : {
-          "type" : "string",
-          "enum" : [ "ORDER_STATUS" ]
-        },
-        "PrimarySourceSystem" : {
-          "type" : "string"
-        },
-        "SenderName" : {
-          "type" : "string"
-        },
-        "SenderTransmissionID" : {
-          "type" : "string"
-        },
-        "TransmissionCreateDateTime" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
-        },
-        "VersionNumber" : {
-          "type" : "string"
-        }
-      }
-    },
-    "orderresponse_Transmission" : {
-      "required" : [ "TransmissionHeader" ],
-      "properties" : {
-        "TransmissionHeader" : {
-          "$ref" : "#/definitions/orderresponse_Transmission_TransmissionHeader"
-        }
-      }
-    },
     "orderresponse_OrderDetail_Customers_Customer" : {
       "required" : [ "CustomerAlias" ],
       "properties" : {
@@ -1068,7 +975,7 @@
       "required" : [ "OrderReferenceNumber" ],
       "properties" : {
         "OrderReferenceNumber" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_OrderReferenceNumbers_OrderReferenceNumber"
+          "$ref" : "#/definitions/Orders_OrderDetail_OrderReferenceNumbers_OrderReferenceNumber"
         }
       }
     },
@@ -1076,7 +983,7 @@
       "required" : [ "Remark" ],
       "properties" : {
         "Remark" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
         }
       }
     },
@@ -1101,50 +1008,7 @@
         }
       }
     },
-    "events_Transmission_TransmissionHeader_TransmissionCreateDateTime" : {
-      "required" : [ "DateTime", "TimeZone" ],
-      "properties" : {
-        "DateTime" : {
-          "type" : "string"
-        },
-        "TimeZone" : {
-          "type" : "string"
-        }
-      }
-    },
-    "events_Transmission_TransmissionHeader" : {
-      "required" : [ "CustomerName", "DomainName", "EventKey", "EventName", "PrimarySourceSystem", "SenderName", "SenderTransmissionID", "TransmissionCreateDateTime", "VersionNumber" ],
-      "properties" : {
-        "VersionNumber" : {
-          "type" : "string"
-        },
-        "CustomerName" : {
-          "type" : "string"
-        },
-        "DomainName" : {
-          "type" : "string"
-        },
-        "EventKey" : {
-          "type" : "string"
-        },
-        "EventName" : {
-          "type" : "string"
-        },
-        "PrimarySourceSystem" : {
-          "type" : "string"
-        },
-        "SenderName" : {
-          "type" : "string"
-        },
-        "SenderTransmissionID" : {
-          "type" : "string"
-        },
-        "TransmissionCreateDateTime" : {
-          "$ref" : "#/definitions/events_Transmission_TransmissionHeader_TransmissionCreateDateTime"
-        }
-      }
-    },
-    "events_Transmission_Shipments_Customers_Customer" : {
+    "events_Shipments_Customers_Customer" : {
       "required" : [ "CustomerID" ],
       "properties" : {
         "CustomerID" : {
@@ -1152,29 +1016,29 @@
         }
       }
     },
-    "events_Transmission_Shipments_Customers" : {
+    "events_Shipments_Customers" : {
       "required" : [ "Customer" ],
       "properties" : {
         "Customer" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/events_Transmission_Shipments_Customers_Customer"
+            "$ref" : "#/definitions/events_Shipments_Customers_Customer"
           }
         }
       }
     },
-    "events_Transmission_Shipments_ReferenceNumbers" : {
+    "events_Shipments_ReferenceNumbers" : {
       "required" : [ "ReferenceNumber" ],
       "properties" : {
         "ReferenceNumber" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
+            "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
           }
         }
       }
     },
-    "events_Transmission_Shipments_Remarks_Remark" : {
+    "events_Shipments_Remarks_Remark" : {
       "required" : [ "DisplayFlag", "Name", "Value" ],
       "properties" : {
         "DisplayFlag" : {
@@ -1188,59 +1052,59 @@
         }
       }
     },
-    "events_Transmission_Shipments_Remarks" : {
+    "events_Shipments_Remarks" : {
       "required" : [ "Remark" ],
       "properties" : {
         "Remark" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/events_Transmission_Shipments_Remarks_Remark"
+            "$ref" : "#/definitions/events_Shipments_Remarks_Remark"
           }
         }
       }
     },
-    "events_Transmission_Shipments_ShipmentOrders_ReleaseLines_ReleaseLine" : {
+    "events_Shipments_ShipmentOrders_ReleaseLines_ReleaseLine" : {
       "required" : [ "ReferenceNumbers" ],
       "properties" : {
         "ReferenceNumbers" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_ReferenceNumbers"
+          "$ref" : "#/definitions/events_Shipments_ReferenceNumbers"
         }
       }
     },
-    "events_Transmission_Shipments_ShipmentOrders_ReleaseLines" : {
+    "events_Shipments_ShipmentOrders_ReleaseLines" : {
       "required" : [ "ReleaseLine" ],
       "properties" : {
         "ReleaseLine" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/events_Transmission_Shipments_ShipmentOrders_ReleaseLines_ReleaseLine"
+            "$ref" : "#/definitions/events_Shipments_ShipmentOrders_ReleaseLines_ReleaseLine"
           }
         }
       }
     },
-    "events_Transmission_Shipments_ShipmentOrders_ShipmentOrder" : {
+    "events_Shipments_ShipmentOrders_ShipmentOrder" : {
       "required" : [ "BuyCarrierID", "ReleaseLines" ],
       "properties" : {
         "BuyCarrierID" : {
           "type" : "string"
         },
         "ReleaseLines" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_ShipmentOrders_ReleaseLines"
+          "$ref" : "#/definitions/events_Shipments_ShipmentOrders_ReleaseLines"
         }
       }
     },
-    "events_Transmission_Shipments_ShipmentOrders" : {
+    "events_Shipments_ShipmentOrders" : {
       "required" : [ "ShipmentOrder" ],
       "properties" : {
         "ShipmentOrder" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/events_Transmission_Shipments_ShipmentOrders_ShipmentOrder"
+            "$ref" : "#/definitions/events_Shipments_ShipmentOrders_ShipmentOrder"
           }
         }
       }
     },
-    "events_Transmission_Shipments_Stops_Activities_ShipUnit" : {
+    "events_Shipments_Stops_Activities_ShipUnit" : {
       "required" : [ "ShipmentUnitID" ],
       "properties" : {
         "ShipmentUnitID" : {
@@ -1248,29 +1112,29 @@
         }
       }
     },
-    "events_Transmission_Shipments_Stops_Activities_Activity" : {
+    "events_Shipments_Stops_Activities_Activity" : {
       "required" : [ "Name", "ShipUnit" ],
       "properties" : {
         "Name" : {
           "type" : "string"
         },
         "ShipUnit" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Activities_ShipUnit"
+          "$ref" : "#/definitions/events_Shipments_Stops_Activities_ShipUnit"
         }
       }
     },
-    "events_Transmission_Shipments_Stops_Activities" : {
+    "events_Shipments_Stops_Activities" : {
       "required" : [ "Activity" ],
       "properties" : {
         "Activity" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Activities_Activity"
+            "$ref" : "#/definitions/events_Shipments_Stops_Activities_Activity"
           }
         }
       }
     },
-    "events_Transmission_Shipments_Stops_Location" : {
+    "events_Shipments_Stops_Location" : {
       "required" : [ "Address1", "Address2", "City", "CountryCode", "Latitude", "LocationID", "LocationName", "LocationName2", "LocationType", "Longitude", "PostalCode", "State" ],
       "properties" : {
         "Address1" : {
@@ -1311,14 +1175,14 @@
         }
       }
     },
-    "events_Transmission_Shipments_Stops_Stop" : {
+    "events_Shipments_Stops_Stop" : {
       "required" : [ "Activities", "Location", "Sequence", "Status", "StopReason", "StopSubType" ],
       "properties" : {
         "Activities" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Activities"
+          "$ref" : "#/definitions/events_Shipments_Stops_Activities"
         },
         "Location" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Location"
+          "$ref" : "#/definitions/events_Shipments_Stops_Location"
         },
         "Sequence" : {
           "type" : "string"
@@ -1334,107 +1198,118 @@
         }
       }
     },
-    "events_Transmission_Shipments_Stops" : {
+    "events_Shipments_Stops" : {
       "required" : [ "Stop" ],
       "properties" : {
         "Stop" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Stop"
+            "$ref" : "#/definitions/events_Shipments_Stops_Stop"
           }
         }
       }
     },
-    "events_Transmission_Shipments_TrackingEvents_ETAs_Attributes" : {
+    "events_Shipments_TrackingEvents_ETAs_Attributes" : {
       "required" : [ "Attribute" ],
       "properties" : {
         "Attribute" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
+            "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_Attributes_Attribute"
           }
         }
       }
     },
-    "events_Transmission_Shipments_TrackingEvents_ETAs_ETA" : {
+    "events_Shipments_TrackingEvents_ETAs_ETADateTime" : {
+      "required" : [ "DateTime", "TimeZone" ],
+      "properties" : {
+        "DateTime" : {
+          "type" : "string"
+        },
+        "TimeZone" : {
+          "type" : "string"
+        }
+      }
+    },
+    "events_Shipments_TrackingEvents_ETAs_ETA" : {
       "required" : [ "ActualFlag", "Attributes", "ETADateTime", "Type" ],
       "properties" : {
         "ActualFlag" : {
           "type" : "string"
         },
         "Attributes" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_TrackingEvents_ETAs_Attributes"
+          "$ref" : "#/definitions/events_Shipments_TrackingEvents_ETAs_Attributes"
         },
         "ETADateTime" : {
-          "$ref" : "#/definitions/events_Transmission_TransmissionHeader_TransmissionCreateDateTime"
+          "$ref" : "#/definitions/events_Shipments_TrackingEvents_ETAs_ETADateTime"
         },
         "Type" : {
           "type" : "string"
         }
       }
     },
-    "events_Transmission_Shipments_TrackingEvents_ETAs" : {
+    "events_Shipments_TrackingEvents_ETAs" : {
       "required" : [ "ETA" ],
       "properties" : {
         "ETA" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/events_Transmission_Shipments_TrackingEvents_ETAs_ETA"
+            "$ref" : "#/definitions/events_Shipments_TrackingEvents_ETAs_ETA"
           }
         }
       }
     },
-    "events_Transmission_Shipments_TrackingEvents_TrackingEvent" : {
+    "events_Shipments_TrackingEvents_TrackingEvent" : {
       "required" : [ "ETAs", "EventCode", "EventDateTime", "EventReason", "Location" ],
       "properties" : {
         "ETAs" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_TrackingEvents_ETAs"
+          "$ref" : "#/definitions/events_Shipments_TrackingEvents_ETAs"
         },
         "EventCode" : {
           "type" : "string"
         },
         "EventDateTime" : {
-          "$ref" : "#/definitions/events_Transmission_TransmissionHeader_TransmissionCreateDateTime"
+          "$ref" : "#/definitions/events_Shipments_TrackingEvents_ETAs_ETADateTime"
         },
         "EventReason" : {
           "type" : "string"
         },
         "Location" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_Stops_Location"
+          "$ref" : "#/definitions/events_Shipments_Stops_Location"
         }
       }
     },
-    "events_Transmission_Shipments_TrackingEvents" : {
+    "events_Shipments_TrackingEvents" : {
       "required" : [ "TrackingEvent" ],
       "properties" : {
         "TrackingEvent" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/events_Transmission_Shipments_TrackingEvents_TrackingEvent"
+            "$ref" : "#/definitions/events_Shipments_TrackingEvents_TrackingEvent"
           }
         }
       }
     },
-    "events_Transmission_Shipments_Shipment" : {
+    "events_Shipments_Shipment" : {
       "required" : [ "Customers", "DomainName", "ReferenceNumbers", "Remarks", "ShipmentOrders", "Stops", "TotalItemCount", "TotalPalletCount", "TotalVolume", "TotalWeight", "TrackingEvents" ],
       "properties" : {
         "Customers" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_Customers"
+          "$ref" : "#/definitions/events_Shipments_Customers"
         },
         "DomainName" : {
           "type" : "string"
         },
         "ReferenceNumbers" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_ReferenceNumbers"
+          "$ref" : "#/definitions/events_Shipments_ReferenceNumbers"
         },
         "Remarks" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_Remarks"
+          "$ref" : "#/definitions/events_Shipments_Remarks"
         },
         "ShipmentOrders" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_ShipmentOrders"
+          "$ref" : "#/definitions/events_Shipments_ShipmentOrders"
         },
         "Stops" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_Stops"
+          "$ref" : "#/definitions/events_Shipments_Stops"
         },
         "TotalItemCount" : {
           "type" : "string"
@@ -1443,118 +1318,38 @@
           "type" : "string"
         },
         "TotalVolume" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_ItemCount"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_ItemCount"
         },
         "TotalWeight" : {
-          "$ref" : "#/definitions/Orders_Transmission_OrderDetail_ShipUnits_ShipUnitContent_ItemCount"
+          "$ref" : "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_ItemCount"
         },
         "TrackingEvents" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments_TrackingEvents"
+          "$ref" : "#/definitions/events_Shipments_TrackingEvents"
         }
       }
     },
-    "events_Transmission_Shipments" : {
+    "events_Shipments" : {
       "required" : [ "Shipment" ],
       "properties" : {
         "Shipment" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/events_Transmission_Shipments_Shipment"
+            "$ref" : "#/definitions/events_Shipments_Shipment"
           }
         }
       }
     },
-    "events_Transmission" : {
-      "required" : [ "Shipments", "TransmissionHeader" ],
+    "Orderapiresponse_Response" : {
+      "required" : [ "ResponseNumber", "Status", "StatusMessage" ],
       "properties" : {
-        "TransmissionHeader" : {
-          "$ref" : "#/definitions/events_Transmission_TransmissionHeader"
-        },
-        "Shipments" : {
-          "$ref" : "#/definitions/events_Transmission_Shipments"
-        }
-      }
-    },
-    "Orderapiresponse1_Transmission_TransmissionResponses_AckDateTime" : {
-      "required" : [ "DateTime", "TimeZone" ],
-      "properties" : {
-        "DateTime" : {
-          "type" : "string",
-          "format" : "date-time",
-          "description" : "(default: current date, format: yyyy-MM-dd'T'HH:mm:ss)"
-        },
-        "TimeZone" : {
-          "type" : "string",
-          "example" : "CST"
-        }
-      }
-    },
-    "Orderapiresponse1_Transmission_TransmissionResponses_TransmissionResponse" : {
-      "required" : [ "AckDateTime", "Message", "MessageCode", "Sequence", "Status" ],
-      "properties" : {
-        "AckDateTime" : {
-          "$ref" : "#/definitions/Orderapiresponse1_Transmission_TransmissionResponses_AckDateTime"
-        },
-        "Message" : {
-          "type" : "string"
-        },
-        "MessageCode" : {
-          "type" : "string"
-        },
-        "Sequence" : {
-          "type" : "string"
-        },
         "Status" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Orderapiresponse1_Transmission_TransmissionResponses" : {
-      "required" : [ "TransmissionResponse" ],
-      "properties" : {
-        "TransmissionResponse" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Orderapiresponse1_Transmission_TransmissionResponses_TransmissionResponse"
-          }
-        }
-      }
-    },
-    "Orderapiresponse1_Transmission" : {
-      "required" : [ "TransmissionResponses" ],
-      "properties" : {
-        "TransmissionResponses" : {
-          "$ref" : "#/definitions/Orderapiresponse1_Transmission_TransmissionResponses"
-        }
-      }
-    },
-    "Orderapiresponse_TransmissionAck_EchoedTransmissionHeader_TransmissionHeader" : {
-      "required" : [ "SenderTransmissionNo" ],
-      "properties" : {
-        "SenderTransmissionNo" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Orderapiresponse_TransmissionAck_EchoedTransmissionHeader" : {
-      "required" : [ "TransmissionHeader" ],
-      "properties" : {
-        "TransmissionHeader" : {
-          "$ref" : "#/definitions/Orderapiresponse_TransmissionAck_EchoedTransmissionHeader_TransmissionHeader"
-        }
-      }
-    },
-    "Orderapiresponse_TransmissionAck" : {
-      "required" : [ "EchoedTransmissionHeader", "TransmissionAckReason", "TransmissionAckStatus" ],
-      "properties" : {
-        "EchoedTransmissionHeader" : {
-          "$ref" : "#/definitions/Orderapiresponse_TransmissionAck_EchoedTransmissionHeader"
-        },
-        "TransmissionAckStatus" : {
           "type" : "string",
-          "enum" : [ "SUCCESS", "FAILED" ]
+          "enum" : [ "PROCESSED", "FAILED" ]
         },
-        "TransmissionAckReason" : {
+        "ResponseNumber" : {
+          "type" : "string"
+        },
+        "StatusMessage" : {
           "type" : "string"
         }
       }
