@@ -1611,7 +1611,6 @@
     },
     "events_Shipments_Shipment": {
       "required": [
-        "DomainName",
         "ReferenceNumbers",
         "Remarks",
         "ShipmentOrders",
@@ -1623,9 +1622,6 @@
         "TrackingEvents"
       ],
       "properties": {
-        "DomainName": {
-          "type": "string"
-        },
         "ReferenceNumbers": {
           "$ref": "#/definitions/events_Shipments_ReferenceNumbers"
         },
