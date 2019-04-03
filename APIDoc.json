@@ -838,7 +838,7 @@
           "type" : "string"
         },
 	    "OrderStatus" : {
-          "type" : "string"
+          "type" : "string",
 		  "enum" : [ "ORDER_UPDATE", "ORDER_CREATE", "ORDER_CANCEL" ]
         },
         "ServiceProvider" : {
