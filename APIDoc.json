@@ -839,6 +839,7 @@
         },
 	    "OrderStatus" : {
           "type" : "string"
+		  "enum" : [ "PREPAID", "COLLECT", "THIRD_PARTY" ]
         },
         "ServiceProvider" : {
           "type" : "string"
@@ -846,7 +847,7 @@
         "PaymentMethod" : {
           "type" : "string",
           "description" : "The payment terms of the customer's account with the capacity provider -- the party responsible for payment.",
-          "enum" : [ "PREPAID", "COLLECT", "THIRD_PARTY" ]
+          "enum" : [ "ORDER_UPDATE", "ORDER_CREATE", "ORDER_CANCEL" ]
         },
         "BillToLocations" : {
           "$ref" : "#/definitions/Orders_OrderDetail_BillToLocations"
