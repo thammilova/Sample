@@ -1280,29 +1280,6 @@
         }
       }
     },
-    "events_Shipments_Customers_Customer": {
-      "required": [
-        "CustomerID"
-      ],
-      "properties": {
-        "CustomerID": {
-          "type": "string"
-        }
-      }
-    },
-    "events_Shipments_Customers": {
-      "required": [
-        "Customer"
-      ],
-      "properties": {
-        "Customer": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/events_Shipments_Customers_Customer"
-          }
-        }
-      }
-    },
     "events_Shipments_ReferenceNumbers": {
       "required": [
         "ReferenceNumber"
@@ -1634,7 +1611,6 @@
     },
     "events_Shipments_Shipment": {
       "required": [
-        "Customers",
         "DomainName",
         "ReferenceNumbers",
         "Remarks",
@@ -1647,9 +1623,6 @@
         "TrackingEvents"
       ],
       "properties": {
-        "Customers": {
-          "$ref": "#/definitions/events_Shipments_Customers"
-        },
         "DomainName": {
           "type": "string"
         },
