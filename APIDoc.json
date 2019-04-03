@@ -832,9 +832,12 @@
       }
     },
     "Orders_OrderDetail" : {
-      "required" : [ "BillToLocations", "Equipments", "OrderID", "OrderReferenceNumbers", "OrderTimeWindow", "PaymentMethod", "Remarks", "ServiceProvider", "ShipUnits", "Stops", "TransportationMode" ],
+      "required" : [ "BillToLocations", "Equipments", "OrderStatus", "OrderID", "OrderReferenceNumbers", "OrderTimeWindow", "PaymentMethod", "Remarks", "ServiceProvider", "ShipUnits", "Stops", "TransportationMode" ],
       "properties" : {
         "OrderID" : {
+          "type" : "string"
+        },
+	    "OrderStatus" : {
           "type" : "string"
         },
         "ServiceProvider" : {
