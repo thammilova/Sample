@@ -985,7 +985,7 @@
       ],
       "properties": {
         "Sequence": {
-          "type": "string"
+          "type": "number"
         },
         "StopType": {
           "type": "string"
@@ -1482,7 +1482,7 @@
           "$ref": "#/definitions/events_Shipments_Stops_Location"
         },
         "Sequence": {
-          "type": "string"
+          "type": "number"
         },
         "Status": {
           "type": "string"
@@ -1528,10 +1528,16 @@
       ],
       "properties": {
         "DateTime": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "TimeZone": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "CST",
+            "PST",
+            "EST"
+          ]
         }
       }
     },
