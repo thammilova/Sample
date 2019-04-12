@@ -2,8 +2,7 @@
 	     "$schema": "http://json-schema.org/draft-07/schema#",
 	     "title": "Order",
 	     "description": "Order File",
-         "type": "object",
-         "title": "Order",
+         "type": "object"
          "required": [
             "OrderDetail"
          ],
@@ -20,14 +19,14 @@
                   "Equipments",
                   "ShipUnits",
                   "OrderTimeWindow",
-                  "Stops",
+                  "Stops"
                ],
                "properties": {
                   "OrderID": {
                      "type": "string"
                   },
 		  "OrderStatus": {
-                     "type": "string"
+                     "type": "string",
 	             "enum": [
                         "ORDER_UPDATE",
                         "ORDER_CANCEL",
