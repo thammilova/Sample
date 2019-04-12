@@ -1,0 +1,997 @@
+{
+	     "$schema": "http://json-schema.org/draft-07/schema#",
+	     "title": "Order",
+	     "description": "Order File",
+         "type": "object",
+         "title": "Order",
+         "required": [
+            "OrderDetail"
+         ],
+         "properties": {
+            "OrderDetail": {
+               "type": "object",
+               "required": [
+                  "OrderID",
+                  "ServiceProvider",
+                  "PaymentMethod",
+                  "TransportationMode",
+                  "BillToLocations",
+                  "Equipments",
+                  "ShipUnits",
+                  "OrderTimeWindow",
+                  "Stops",
+                  "OrderReferenceNumbers",
+                  "Remarks"
+               ],
+               "properties": {
+                  "OrderID": {
+                     "type": "string"
+                  },
+                  "ServiceProvider": {
+                     "type": "string"
+                  },
+                  "PaymentMethod": {
+                     "type": "string",
+                     "description": "The payment terms of the customer's account with the capacity provider -- the party responsible for payment.",
+                     "enum": [
+                        "PREPAID",
+                        "COLLECT",
+                        "THIRD_PARTY"
+                     ]
+                  },
+                  "BillToLocations": {
+                     "type": "object",
+                     "required": [
+                        "BillToLocation"
+                     ],
+                     "properties": {
+                        "BillToLocation": {
+                           "type": "object",
+                           "required": [
+                              "Address1",
+                              "Address2",
+                              "City",
+                              "CountryCode",
+                              "Latitude",
+                              "LocationID",
+                              "LocationType",
+                              "LocationName",
+                              "LocationName2",
+                              "Longitude",
+                              "PostalCode",
+                              "State"
+                           ],
+                           "properties": {
+                              "Address1": {
+                                 "type": "string"
+                              },
+                              "Address2": {
+                                 "type": "string"
+                              },
+                              "City": {
+                                 "type": "string"
+                              },
+                              "CountryCode": {
+                                 "type": "number"
+                              },
+                              "Latitude": {
+                                 "type": "number",
+                                 "format": "float",
+                                 "description": "The approximate geographic latitude of a location, using the WGS84 coordinate system."
+                              },
+                              "LocationID": {
+                                 "type": "string"
+                              },
+                              "LocationType": {
+                                 "type": "string",
+                                 "enum": [
+                                    "BILL_TO"
+                                 ]
+                              },
+                              "LocationName": {
+                                 "type": "string"
+                              },
+                              "LocationName2": {
+                                 "type": "string"
+                              },
+                              "Longitude": {
+                                 "type": "number",
+                                 "format": "float",
+                                 "description": "The approximate geographic Longitude of a location, using the WGS84 coordinate system."
+                              },
+                              "PostalCode": {
+                                 "type": "number"
+                              },
+                              "State": {
+                                 "type": "string"
+                              }
+                           }
+                        }
+                     }
+                  },
+                  "TransportationMode": {
+                     "type": "string"
+                  },
+                  "Equipments": {
+                     "type": "object",
+                     "required": [
+                        "Equipment"
+                     ],
+                     "properties": {
+                        "Equipment": {
+                           "type": "array",
+                           "items": {
+                              "type": "object",
+                              "required": [
+                                 "EquipmentPrefix",
+                                 "EquipmentNumber",
+                                 "Length",
+                                 "Width",
+                                 "Height",
+                                 "Weights"
+                              ],
+                              "properties": {
+                                 "EquipmentPrefix": {
+                                    "type": "string"
+                                 },
+                                 "EquipmentNumber": {
+                                    "type": "string"
+                                 },
+                                 "Length": {
+                                    "type": "object",
+                                    "required": [
+                                       "UOM",
+                                       "Value"
+                                    ],
+                                    "properties": {
+                                       "UOM": {
+                                          "type": "string"
+                                       },
+                                       "Value": {
+                                          "type": "number"
+                                       }
+                                    }
+                                 },
+                                 "Width": {
+                                    "type": "object",
+                                    "required": [
+                                       "UOM",
+                                       "Value"
+                                    ],
+                                    "properties": {
+                                       "UOM": {
+                                          "type": "string"
+                                       },
+                                       "Value": {
+                                          "type": "number"
+                                       }
+                                    }
+                                 },
+                                 "Height": {
+                                    "type": "object",
+                                    "required": [
+                                       "UOM",
+                                       "Value"
+                                    ],
+                                    "properties": {
+                                       "UOM": {
+                                          "type": "string"
+                                       },
+                                       "Value": {
+                                          "type": "number"
+                                       }
+                                    }
+                                 },
+                                 "Weights": {
+                                    "type": "object",
+                                    "required": [
+                                       "Weight"
+                                    ],
+                                    "properties": {
+                                       "Weight": {
+                                          "type": "object",
+                                          "required": [
+                                             "UOM",
+                                             "Value"
+                                          ],
+                                          "properties": {
+                                             "UOM": {
+                                                "type": "string"
+                                             },
+                                             "Value": {
+                                                "type": "number"
+                                             }
+                                          }
+                                       }
+                                    }
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  },
+                  "ShipUnits": {
+                     "type": "object",
+                     "required": [
+                        "ShipUnit"
+                     ],
+                     "properties": {
+                        "ShipUnit": {
+                           "type": "array",
+                           "items": {
+                              "type": "object",
+                              "required": [
+                                 "ShipmentUnitID",
+                                 "ItemDescription",
+                                 "TempControl",
+                                 "ShipUnitContent",
+                                 "ReferenceNumbers",
+                                 "SpecialHandlingList"
+                              ],
+                              "properties": {
+                                 "ShipmentUnitID": {
+                                    "type": "string"
+                                 },
+                                 "ItemDescription": {
+                                    "type": "string"
+                                 },
+                                 "TempControl": {
+                                    "type": "string"
+                                 },
+                                 "ShipUnitContent": {
+                                    "type": "object",
+                                    "required": [
+                                       "Attributes",
+                                       "FreightClass",
+                                       "ItemCount",
+                                       "OrderID",
+                                       "WeightVolumes"
+                                    ],
+                                    "properties": {
+                                       "Attributes": {
+                                          "type": "object",
+                                          "required": [
+                                             "Attribute"
+                                          ],
+                                          "properties": {
+                                             "Attribute": {
+                                                "type": "object",
+                                                "required": [
+                                                   "Name",
+                                                   "Value"
+                                                ],
+                                                "properties": {
+                                                   "Name": {
+                                                      "type": "string"
+                                                   },
+                                                   "Value": {
+                                                      "type": "string"
+                                                   }
+                                                }
+                                             }
+                                          }
+                                       },
+                                       "FreightClass": {
+                                          "type": "string"
+                                       },
+                                       "ItemCount": {
+                                          "type": "object",
+                                          "required": [
+                                             "Type",
+                                             "UOM",
+                                             "Value"
+                                          ],
+                                          "properties": {
+                                             "Type": {
+                                                "type": "string"
+                                             },
+                                             "UOM": {
+                                                "type": "string"
+                                             },
+                                             "Value": {
+                                                "type": "string"
+                                             }
+                                          }
+                                       },
+                                       "OrderID": {
+                                          "type": "string"
+                                       },
+                                       "WeightVolumes": {
+                                          "type": "object",
+                                          "required": [
+                                             "WeightVolume"
+                                          ],
+                                          "properties": {
+                                             "WeightVolume": {
+                                                "type": "object",
+                                                "required": [
+                                                   "Volume",
+                                                   "Weight"
+                                                ],
+                                                "properties": {
+                                                   "Volume": {
+                                                      "type": "object",
+                                                      "required": [
+                                                         "UOM",
+                                                         "Value"
+                                                      ],
+                                                      "properties": {
+                                                         "UOM": {
+                                                            "type": "string"
+                                                         },
+                                                         "Value": {
+                                                            "type": "string"
+                                                         }
+                                                      }
+                                                   },
+                                                   "Weight": {
+                                                      "type": "object",
+                                                      "required": [
+                                                         "UOM",
+                                                         "Value"
+                                                      ],
+                                                      "properties": {
+                                                         "UOM": {
+                                                            "type": "string"
+                                                         },
+                                                         "Value": {
+                                                            "type": "string"
+                                                         }
+                                                      }
+                                                   }
+                                                }
+                                             }
+                                          }
+                                       }
+                                    }
+                                 },
+                                 "ReferenceNumbers": {
+                                    "type": "object",
+                                    "required": [
+                                       "ReferenceNumber"
+                                    ],
+                                    "properties": {
+                                       "ReferenceNumber": {
+                                          "type": "object",
+                                          "required": [
+                                             "Description",
+                                             "Name",
+                                             "Value"
+                                          ],
+                                          "properties": {
+                                             "Description": {
+                                                "type": "string"
+                                             },
+                                             "Name": {
+                                                "type": "string",
+                                                "description": "Type of Reference Number",
+                                                "enum": [
+                                                   "BILL_OF_LADING",
+                                                   "PURCHASE_ORDER",
+                                                   "CUSTOMER_REFERENCE"
+                                                ]
+                                             },
+                                             "Value": {
+                                                "type": "string"
+                                             }
+                                          }
+                                       }
+                                    }
+                                 },
+                                 "SpecialHandlingList": {
+                                    "type": "object",
+                                    "required": [
+                                       "SpecialHandling"
+                                    ],
+                                    "properties": {
+                                       "SpecialHandling": {
+                                          "type": "object",
+                                          "required": [
+                                             "Name",
+                                             "Value"
+                                          ],
+                                          "properties": {
+                                             "Name": {
+                                                "type": "string"
+                                             },
+                                             "Value": {
+                                                "type": "string"
+                                             }
+                                          }
+                                       }
+                                    }
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  },
+                  "OrderTimeWindow": {
+                     "type": "object",
+                     "required": [
+                        "TimeWindow"
+                     ],
+                     "properties": {
+                        "TimeWindow": {
+                           "type": "object",
+                           "required": [
+                              "EarlyPickupDateTime",
+                              "LatePickupDateTime",
+                              "EarlyDeliveryDateTime",
+                              "LateDeliveryDateTime"
+                           ],
+                           "properties": {
+                              "EarlyPickupDateTime": {
+                                 "type": "object",
+                                 "required": [
+                                    "DateTime",
+                                    "TimeZone"
+                                 ],
+                                 "properties": {
+                                    "DateTime": {
+                                       "type": "string",
+                                       "format": "date-time"
+                                    },
+                                    "TimeZone": {
+                                       "type": "string"
+                                    }
+                                 }
+                              },
+                              "LatePickupDateTime": {
+                                 "type": "object",
+                                 "required": [
+                                    "DateTime",
+                                    "TimeZone"
+                                 ],
+                                 "properties": {
+                                    "DateTime": {
+                                       "type": "string",
+                                       "format": "date-time"
+                                    },
+                                    "TimeZone": {
+                                       "type": "string"
+                                    }
+                                 }
+                              },
+                              "EarlyDeliveryDateTime": {
+                                 "type": "object",
+                                 "required": [
+                                    "DateTime",
+                                    "TimeZone"
+                                 ],
+                                 "properties": {
+                                    "DateTime": {
+                                       "type": "string",
+                                       "format": "date-time"
+                                    },
+                                    "TimeZone": {
+                                       "type": "string"
+                                    }
+                                 }
+                              },
+                              "LateDeliveryDateTime": {
+                                 "type": "object",
+                                 "required": [
+                                    "DateTime",
+                                    "TimeZone"
+                                 ],
+                                 "properties": {
+                                    "DateTime": {
+                                       "type": "string",
+                                       "format": "date-time"
+                                    },
+                                    "TimeZone": {
+                                       "type": "string"
+                                    }
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  },
+                  "Stops": {
+                     "type": "object",
+                     "required": [
+                        "Stop"
+                     ],
+                     "properties": {
+                        "Stop": {
+                           "type": "array",
+                           "items": {
+                              "type": "object",
+                              "required": [
+                                 "Sequence",
+                                 "StopType",
+                                 "PickupAppointmentDateTime",
+                                 "DeliveryAppointmentDateTime",
+                                 "Location",
+                                 "Contacts",
+                                 "ShipUnits",
+                                 "ReferenceNumbers",
+                                 "Remarks",
+                                 "Attributes"
+                              ],
+                              "properties": {
+                                 "Sequence": {
+                                    "type": "number"
+                                 },
+                                 "StopType": {
+                                    "type": "string"
+                                 },
+                                 "PickupAppointmentDateTime": {
+                                    "type": "object",
+                                    "required": [
+                                       "DateTime",
+                                       "TimeZone"
+                                    ],
+                                    "properties": {
+                                       "DateTime": {
+                                          "type": "string",
+                                          "format": "date-time"
+                                       },
+                                       "TimeZone": {
+                                          "type": "string"
+                                       }
+                                    }
+                                 },
+                                 "DeliveryAppointmentDateTime": {
+                                    "type": "object",
+                                    "required": [
+                                       "DateTime",
+                                       "TimeZone"
+                                    ],
+                                    "properties": {
+                                       "DateTime": {
+                                          "type": "string",
+                                          "format": "date-time"
+                                       },
+                                       "TimeZone": {
+                                          "type": "string"
+                                       }
+                                    }
+                                 },
+                                 "Location": {
+                                    "type": "object",
+                                    "required": [
+                                       "Address1",
+                                       "Address2",
+                                       "City",
+                                       "CountryCode",
+                                       "Latitude",
+                                       "LocationID",
+                                       "LocationType",
+                                       "LocationName",
+                                       "LocationName2",
+                                       "Longitude",
+                                       "PostalCode",
+                                       "State"
+                                    ],
+                                    "properties": {
+                                       "Address1": {
+                                          "type": "string"
+                                       },
+                                       "Address2": {
+                                          "type": "string"
+                                       },
+                                       "City": {
+                                          "type": "string"
+                                       },
+                                       "CountryCode": {
+                                          "type": "string"
+                                       },
+                                       "Latitude": {
+                                          "type": "number",
+                                          "format": "float"
+                                       },
+                                       "LocationID": {
+                                          "type": "string"
+                                       },
+                                       "LocationType": {
+                                          "type": "string",
+                                          "enum": [
+                                             "SHIP_TO",
+                                             "SHIP_FROM"
+                                          ]
+                                       },
+                                       "LocationName": {
+                                          "type": "string"
+                                       },
+                                       "LocationName2": {
+                                          "type": "string"
+                                       },
+                                       "Longitude": {
+                                          "type": "number",
+                                          "format": "float"
+                                       },
+                                       "PostalCode": {
+                                          "type": "number"
+                                       },
+                                       "State": {
+                                          "type": "string"
+                                       }
+                                    }
+                                 },
+                                 "Contacts": {
+                                    "type": "object",
+                                    "required": [
+                                       "Contact"
+                                    ],
+                                    "properties": {
+                                       "Contact": {
+                                          "type": "object",
+                                          "required": [
+                                             "BusinessPhoneNumber",
+                                             "EmailAddress",
+                                             "FaxNumber",
+                                             "FullName",
+                                             "PrimaryCommMethod"
+                                          ],
+                                          "properties": {
+                                             "BusinessPhoneNumber": {
+                                                "type": "string"
+                                             },
+                                             "EmailAddress": {
+                                                "type": "string"
+                                             },
+                                             "FaxNumber": {
+                                                "type": "string"
+                                             },
+                                             "FullName": {
+                                                "type": "string"
+                                             },
+                                             "PrimaryCommMethod": {
+                                                "type": "string"
+                                             }
+                                          }
+                                       }
+                                    }
+                                 },
+                                 "ShipUnits": {
+                                    "type": "object",
+                                    "required": [
+                                       "ShipUnit"
+                                    ],
+                                    "properties": {
+                                       "ShipUnit": {
+                                          "type": "array",
+                                          "items": {
+                                             "type": "object",
+                                             "required": [
+                                                "ItemDescription",
+                                                "ReferenceNumbers",
+                                                "ShipUnitContent",
+                                                "ShipmentUnitID",
+                                                "SpecialHandlingList",
+                                                "TempControl"
+                                             ],
+                                             "properties": {
+                                                "ItemDescription": {
+                                                   "type": "string"
+                                                },
+                                                "ReferenceNumbers": {
+                                                   "type": "object",
+                                                   "required": [
+                                                      "ReferenceNumber"
+                                                   ],
+                                                   "properties": {
+                                                      "ReferenceNumber": {
+                                                         "type": "array",
+                                                         "items": {
+                                                            "type": "object",
+                                                            "required": [
+                                                               "Description",
+                                                               "Name",
+                                                               "Value"
+                                                            ],
+                                                            "properties": {
+                                                               "Description": {
+                                                                  "type": "string"
+                                                               },
+                                                               "Name": {
+                                                                  "type": "string",
+                                                                  "description": "Type of Reference Number",
+                                                                  "enum": [
+                                                                     "BILL_OF_LADING",
+                                                                     "PURCHASE_ORDER",
+                                                                     "CUSTOMER_REFERENCE"
+                                                                  ]
+                                                               },
+                                                               "Value": {
+                                                                  "type": "string"
+                                                               }
+                                                            }
+                                                         }
+                                                      }
+                                                   }
+                                                },
+                                                "ShipUnitContent": {
+                                                   "type": "object",
+                                                   "required": [
+                                                      "Attributes",
+                                                      "FreightClass",
+                                                      "ItemCount",
+                                                      "OrderID",
+                                                      "WeightVolumes"
+                                                   ],
+                                                   "properties": {
+                                                      "Attributes": {
+                                                         "type": "object",
+                                                         "required": [
+                                                            "Attribute"
+                                                         ],
+                                                         "properties": {
+                                                            "Attribute": {
+                                                               "type": "object",
+                                                               "required": [
+                                                                  "Name",
+                                                                  "Value"
+                                                               ],
+                                                               "properties": {
+                                                                  "Name": {
+                                                                     "type": "string"
+                                                                  },
+                                                                  "Value": {
+                                                                     "type": "string"
+                                                                  }
+                                                               }
+                                                            }
+                                                         }
+                                                      },
+                                                      "FreightClass": {
+                                                         "type": "string"
+                                                      },
+                                                      "ItemCount": {
+                                                         "type": "object",
+                                                         "required": [
+                                                            "Type",
+                                                            "UOM",
+                                                            "Value"
+                                                         ],
+                                                         "properties": {
+                                                            "Type": {
+                                                               "type": "string"
+                                                            },
+                                                            "UOM": {
+                                                               "type": "string"
+                                                            },
+                                                            "Value": {
+                                                               "type": "number"
+                                                            }
+                                                         }
+                                                      },
+                                                      "OrderID": {
+                                                         "type": "string"
+                                                      },
+                                                      "WeightVolumes": {
+                                                         "type": "object",
+                                                         "required": [
+                                                            "WeightVolume"
+                                                         ],
+                                                         "properties": {
+                                                            "WeightVolume": {
+                                                               "type": "object",
+                                                               "required": [
+                                                                  "Volume",
+                                                                  "Weight"
+                                                               ],
+                                                               "properties": {
+                                                                  "Volume": {
+                                                                     "type": "object",
+                                                                     "required": [
+                                                                        "UOM",
+                                                                        "Value"
+                                                                     ],
+                                                                     "properties": {
+                                                                        "UOM": {
+                                                                           "type": "string"
+                                                                        },
+                                                                        "Value": {
+                                                                           "type": "number"
+                                                                        }
+                                                                     }
+                                                                  },
+                                                                  "Weight": {
+                                                                     "type": "object",
+                                                                     "required": [
+                                                                        "UOM",
+                                                                        "Value"
+                                                                     ],
+                                                                     "properties": {
+                                                                        "UOM": {
+                                                                           "type": "string"
+                                                                        },
+                                                                        "Value": {
+                                                                           "type": "number"
+                                                                        }
+                                                                     }
+                                                                  }
+                                                               }
+                                                            }
+                                                         }
+                                                      }
+                                                   }
+                                                },
+                                                "ShipmentUnitID": {
+                                                   "type": "string"
+                                                },
+                                                "SpecialHandlingList": {
+                                                   "type": "object",
+                                                   "required": [
+                                                      "SpecialHandling"
+                                                   ],
+                                                   "properties": {
+                                                      "SpecialHandling": {
+                                                         "type": "object",
+                                                         "required": [
+                                                            "Name",
+                                                            "Value"
+                                                         ],
+                                                         "properties": {
+                                                            "Name": {
+                                                               "type": "string"
+                                                            },
+                                                            "Value": {
+                                                               "type": "string"
+                                                            }
+                                                         }
+                                                      }
+                                                   }
+                                                },
+                                                "TempControl": {
+                                                   "type": "string"
+                                                }
+                                             }
+                                          }
+                                       }
+                                    }
+                                 },
+                                 "ReferenceNumbers": {
+                                    "type": "object",
+                                    "required": [
+                                       "ReferenceNumber"
+                                    ],
+                                    "properties": {
+                                       "ReferenceNumber": {
+                                          "type": "array",
+                                          "items": {
+                                             "type": "object",
+                                             "required": [
+                                                "Description",
+                                                "Name",
+                                                "Value"
+                                             ],
+                                             "properties": {
+                                                "Description": {
+                                                   "type": "string"
+                                                },
+                                                "Name": {
+                                                   "type": "string",
+                                                   "description": "Type of Reference Number",
+                                                   "enum": [
+                                                      "BILL_OF_LADING",
+                                                      "PURCHASE_ORDER",
+                                                      "CUSTOMER_REFERENCE"
+                                                   ]
+                                                },
+                                                "Value": {
+                                                   "type": "string"
+                                                }
+                                             }
+                                          }
+                                       }
+                                    }
+                                 },
+                                 "Remarks": {
+                                    "type": "object",
+                                    "required": [
+                                       "Remark"
+                                    ],
+                                    "properties": {
+                                       "Remark": {
+                                          "type": "array",
+                                          "items": {
+                                             "type": "object",
+                                             "required": [
+                                                "Name",
+                                                "Value"
+                                             ],
+                                             "properties": {
+                                                "Name": {
+                                                   "type": "string"
+                                                },
+                                                "Value": {
+                                                   "type": "string"
+                                                }
+                                             }
+                                          }
+                                       }
+                                    }
+                                 },
+                                 "Attributes": {
+                                    "type": "object",
+                                    "required": [
+                                       "Attribute"
+                                    ],
+                                    "properties": {
+                                       "Attribute": {
+                                          "type": "object",
+                                          "required": [
+                                             "Name",
+                                             "Value"
+                                          ],
+                                          "properties": {
+                                             "Name": {
+                                                "type": "string"
+                                             },
+                                             "Value": {
+                                                "type": "string"
+                                             }
+                                          }
+                                       }
+                                    }
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  },
+                  "Remarks": {
+                     "type": "object",
+                     "required": [
+                        "Remark"
+                     ],
+                     "properties": {
+                        "Remark": {
+                           "type": "array",
+                           "items": {
+                              "type": "object",
+                              "required": [
+                                 "Name",
+                                 "Value"
+                              ],
+                              "properties": {
+                                 "Name": {
+                                    "type": "string"
+                                 },
+                                 "Value": {
+                                    "type": "string"
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  },
+                  "OrderReferenceNumbers": {
+                     "type": "object",
+                     "required": [
+                        "OrderReferenceNumber"
+                     ],
+                     "properties": {
+                        "OrderReferenceNumber": {
+                           "type": "array",
+                           "items": {
+                              "type": "object",
+                              "required": [
+                                 "Description",
+                                 "Name",
+                                 "Value"
+                              ],
+                              "properties": {
+                                 "Description": {
+                                    "type": "string"
+                                 },
+                                 "Name": {
+                                    "type": "string"
+                                 },
+                                 "Value": {
+                                    "type": "string"
+                                 }
+                              }
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
