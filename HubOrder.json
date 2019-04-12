@@ -13,6 +13,7 @@
                "required": [
                   "OrderID",
                   "ServiceProvider",
+		  "OrderStatus",
                   "PaymentMethod",
                   "TransportationMode",
                   "BillToLocations",
@@ -20,12 +21,18 @@
                   "ShipUnits",
                   "OrderTimeWindow",
                   "Stops",
-                  "OrderReferenceNumbers",
-                  "Remarks"
                ],
                "properties": {
                   "OrderID": {
                      "type": "string"
+                  },
+		  "OrderStatus": {
+                     "type": "string"
+	             "enum": [
+                        "ORDER_UPDATE",
+                        "ORDER_CANCEL",
+                        "ORDER_CREATE"
+                     ]
                   },
                   "ServiceProvider": {
                      "type": "string"
