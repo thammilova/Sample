@@ -670,6 +670,12 @@
         "ShipmentUnitID": {
           "type": "string"
         },
+		"ItemNumber": {
+          "type": "string"
+        },
+		"ShipUnitCount": {
+          "type": "string"
+        },
         "ItemDescription": {
           "type": "string"
         },
@@ -906,7 +912,13 @@
         "ItemCount": {
           "$ref": "#/definitions/Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent_ItemCount"
         },
-        "OrderID": {
+		"FreightClass": {
+          "type": "string"
+        },
+		"CommodityCode": {
+          "type": "string"
+        },
+        "CommodityDescription": {
           "type": "string"
         },
         "WeightVolumes": {
