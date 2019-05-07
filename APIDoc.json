@@ -602,6 +602,12 @@
         "FreightClass": {
           "type": "string"
         },
+		"CommodityCode": {
+          "type": "string"
+        },
+        "CommodityDescription": {
+          "type": "string"
+        },
         "ItemCount": {
           "$ref": "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_ItemCount"
         },
