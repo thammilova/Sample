@@ -1000,6 +1000,10 @@
       "required": [
         "ItemDescription",
         "ReferenceNumbers",
+		"ItemDescription",
+		"PalletType",
+        "Stackable",
+        "TotalPalletPositions",
         "ShipUnitContent",
         "ShipmentUnitID",
         "SpecialHandlingList",
@@ -1009,11 +1013,20 @@
         "ItemDescription": {
           "type": "string"
         },
+		"PalletType": {
+          "type": "string"
+        },
+		"Stackable": {
+          "type": "string"
+        },
+		"TotalPalletPositions": {
+          "type": "string"
+        },
         "ReferenceNumbers": {
           "$ref": "#/definitions/Orders_OrderDetail_Stops_ShipUnits_ReferenceNumbers"
         },
         "ShipUnitContent": {
-          "$ref": "#/definitions/Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent"
+          "$ref": "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent"
         },
         "ShipmentUnitID": {
           "type": "string"
