@@ -678,8 +678,7 @@
         "ReferenceNumbers",
         "ShipUnitContent",
         "ShipmentUnitID",
-        "SpecialHandlingList",
-        "TempControl"
+        "SpecialHandlingList"
       ],
       "properties": {
         "ShipmentUnitID": {
@@ -701,9 +700,6 @@
           "type": "string"
         },
         "ItemDescription": {
-          "type": "string"
-        },
-        "TempControl": {
           "type": "string"
         },
         "ShipUnitContent": {
