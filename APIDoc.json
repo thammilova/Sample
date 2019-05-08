@@ -951,7 +951,7 @@
         },
 		"HazardousClassDescription": {
           "type": "string"
-        },
+        }
       }
     },
     "Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes": {
