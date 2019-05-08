@@ -590,10 +590,13 @@
     "Orders_OrderDetail_ShipUnits_ShipUnitContent": {
       "required": [
         "Attributes",
-        "FreightClass",
+        "CommodityCode",
+        "CommodityDescription",
+		"FreightClass",
         "ItemCount",
         "OrderID",
-        "WeightVolumes"
+        "WeightVolumes",
+		"Item"
       ],
       "properties": {
         "Attributes": {
@@ -616,6 +619,9 @@
         },
         "WeightVolumes": {
           "$ref": "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes"
+        }
+		"Item": {
+          "$ref": "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_Item"
         }
       }
     },
@@ -666,6 +672,9 @@
     "Orders_OrderDetail_ShipUnits_ShipUnit": {
       "required": [
         "ItemDescription",
+		"PalletType",
+        "Stackable",
+        "TotalPalletPositions",
         "ReferenceNumbers",
         "ShipUnitContent",
         "ShipmentUnitID",
@@ -677,6 +686,15 @@
           "type": "string"
         },
 		"ItemNumber": {
+          "type": "string"
+        },
+		"PalletType": {
+          "type": "string"
+        },
+		"Stackable": {
+          "type": "string"
+        },
+		"TotalPalletPositions": {
           "type": "string"
         },
 		"ShipUnitCount": {
@@ -890,6 +908,52 @@
         }
       }
     },
+	"Orders_OrderDetail_ShipUnits_ShipUnitContent_Item": {
+      "required": [
+        "TempControl",
+        "HazmatDetails"
+      ],
+      "properties": {
+        "TempControl": {
+          "type": "string"
+        },
+        "HazmatDetails": {
+          "$ref": "#/definitions/Orders_OrderDetail_HazmatDetails"
+        }
+      }
+    },
+	"Orders_OrderDetail_HazmatDetails": {
+      "required": [
+        "Hazmat"
+      ],
+      "properties": {
+        "Hazmat": {
+          "$ref": "#/definitions/Orders_OrderDetail_Hazmat"
+        }
+      }
+    },
+	"Orders_OrderDetail_Hazmat": {
+      "required": [
+        "HazmatID",
+		"IDNumber",
+		"HazardousClass",
+		"HazardousClassDescription"
+      ],
+      "properties": {
+        "HazmatID": {
+          "type": "string"
+        },
+		"IDNumber": {
+          "type": "string"
+        },
+		"HazardousClass": {
+          "type": "string"
+        },
+		"HazardousClassDescription": {
+          "type": "string"
+        },
+      }
+    },
     "Orders_OrderDetail_Stops_ShipUnits_ShipUnitContent_WeightVolumes": {
       "required": [
         "WeightVolume"
@@ -999,13 +1063,17 @@
         "Remarks",
         "Sequence",
         "ShipUnits",
-        "StopType"
+        "StopType",
+		"StopReason"
       ],
       "properties": {
         "Sequence": {
           "type": "number"
         },
         "StopType": {
+          "type": "string"
+        },
+		"StopReason": {
           "type": "string"
         },
         "PickupAppointmentDateTime": {
@@ -1087,6 +1155,7 @@
         "OrderReferenceNumbers",
         "OrderTimeWindow",
         "PaymentMethod",
+		"CustomerID",
         "Remarks",
         "ServiceProvider",
         "ShipUnits",
@@ -1116,6 +1185,10 @@
             "COLLECT",
             "THIRD_PARTY"
           ]
+        },
+		"CustomerID": {
+          "type": "string",
+          "description": "Unique ID assigned by HubGroup"
         },
         "BillToLocations": {
           "$ref": "#/definitions/Orders_OrderDetail_BillToLocations"
