@@ -1080,10 +1080,18 @@
           "type": "number"
         },
         "StopType": {
-          "type": "string"
+          "type": "string",
+		  "enum": [
+            "SHIP_TO_LOCATION_REF",
+            "SHIP_FROM_LOCATION_REF"
+          ]
         },
 		"StopReason": {
-          "type": "string"
+          "type": "string",
+		  "enum": [
+            "PARTIAL",
+            "COMPLETE"
+          ]
         },
         "PickupAppointmentDateTime": {
           "$ref": "#/definitions/Orders_OrderDetail_OrderTimeWindow_TimeWindow_EarlyPickupDateTime"
