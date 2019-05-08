@@ -619,7 +619,7 @@
         },
         "WeightVolumes": {
           "$ref": "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_WeightVolumes"
-        }
+        },
 		"Item": {
           "$ref": "#/definitions/Orders_OrderDetail_ShipUnits_ShipUnitContent_Item"
         }
